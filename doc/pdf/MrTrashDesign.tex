@@ -2,7 +2,7 @@
 
 %% Language and font encodings
 \usepackage[ngerman]{babel}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
 %% Sets page size and margins
@@ -15,14 +15,14 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Mr. Trash}
-\subtitle{"YOUR GAME IN ONE LINE" (Witcher e.g.: "Skyrim, but with Story of Game of Throne")}
+\subtitle{App zur effizienten Müllentsorgung}
 \author{
     Hurbean, Alexander\\
     \texttt{e1625747}
     \and
     Schweiger, Phillipp\\
     \texttt{e01634254}}
-\titlehead{\centering\includegraphics[width=6cm]{test}}
+\titlehead{\centering\includegraphics[width=6cm]{../graphical/logo_draft_color.png}}
 
 
 \begin{document}
@@ -43,33 +43,45 @@ Version v1.0, März 2019\\
 \tableofcontents
 
 % ______________________
-% chapter Overview
+% chapter Konzept
 % ______________________
 \chapter{Konzept}
 
-Main features and aspects of your game on a first page, describing story elements. -> "selling page", publisher should be able to decide after reading this single page whether to buy in or not 
+\section{Kurzbeschreibung}
+Mr.Trash ermöglicht es dem unerfahrenen Mülltrenner effizient den richtigen Ort, seinen Müll zu entsorgen, in seiner Nähe zu finden. Die App stellt sicher, dass nie wieder Müll falsch entsorgt wird und somit Umweltfreundlichkeit gewährleistet wird und der Nutzer möglichst wenig Zeit und Know-How benötigt.
+
+\section{Beschreibung der gewählten Datensätze}
+\begin{itemize}
+	\item Sämtliche Müll-Daten Wien \cite{alleMuell}
+	\item Problemstoffsammelstelle Wien \cite{problemstoffsammelstellen}
+	\item Altstoffsammelstelle Wien \cite{alstoffsammelstellen}
+	\item Mistplätze Standorte Wien \cite{mistplaetze}
+	\item Mobile Problemstoffsammelstelle Standorte Wien \cite{mobileProblemstoffsmst}
+	\item Christbaumsammelstellen Wien \cite{christbaumsammelstellen}
+	\item Mülltrenn ABC \cite{muelltrennabc}
+\end{itemize}
 
 % ______________________
-% chapter References
+% chapter Graphischer Entwurf
 % ______________________
 
 \chapter{Graphischer Entwurf} 
 
 \section{High-Fidelity Mockup}
-\begin{figure}
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{test.jpg}
+\includegraphics[width=0.3\textwidth]{../graphical/test.jpg}
 \caption{\label{fig:art1} Art example}
 \end{figure}
 
 \section{Product Icon}
-\begin{figure}
+\begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{test.jpg}
+\includegraphics[width=0.3\textwidth]{../graphical/logo_draft_color.jpg}
 \caption{\label{fig:art2} Art example}
 \end{figure}
 
-\bibliographystyle{alpha}
-\bibliography{sample}
+\bibliographystyle{abbrv}
+\bibliography{references}
 
 \end{document}
