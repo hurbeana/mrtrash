@@ -1,0 +1,14 @@
+Geplanter Name der App:
+TrashHelper/I got trash (garbage)/Mr. Trash/TrashExpert
+
+Kurzbeschreibung:
+#NAME# ermöglicht es dem unerfahrenen Mülltrenner effizient den richtigen Ort, seinen Müll zu entsorgen, in seiner Nähe zu finden. Die App stellt sicher, dass nie wieder Müll falsch entsorgt wird und somit Umweltfreundlichkeit gewährleistet wird und der Nutzer möglichst wenig Zeit und Know-How benötigt.
+
+Beschreibung des gewählten Datensatzes:
+	- Sämtliche Müll-Daten Wien (https://www.data.gv.at/auftritte/?organisation=stadt-wien&tagFilter=M%C3%BCll)
+	- Problemstoffsammelstelle Wien (https://www.data.gv.at/katalog/dataset/47c7ffa9-65ba-41d1-9461-4e5458afd62e)
+	- Altstoffsammelstelle Wien (https://www.data.gv.at/katalog/dataset/8d482810-26da-4bbc-8599-6b1fd1ab8743)
+	- Mistplätze Standorte Wien (https://www.data.gv.at/katalog/dataset/54fc7750-8540-4c22-8d46-9a6a2641c41a)
+	- Mobile Problemstoffsammelstelle Standorte Wien (https://www.data.gv.at/katalog/dataset/d2c6f6f5-2236-4217-8361-3297b6369979)
+	- Christbaumsammelstellen Wien (https://www.data.gv.at/katalog/dataset/038920bb-8c40-4a30-8d0c-0a29bcd64751)
+	- Mülltrenn ABC (https://www.wien.gv.at/umwelt/ma48/beratung/muelltrennung/mistabc.html)
