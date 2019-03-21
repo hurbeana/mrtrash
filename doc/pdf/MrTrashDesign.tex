@@ -265,7 +265,32 @@ Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen um e
     
     Da es derzeit keine Christbaumsammelstellen gibt, git es auch keine Daten dazu.
 \subsection{Mülltrenn ABC \cite{muelltrennabc}}
+Diese Daten Nutzen wir um dem User richtige Orte vorzuschlagen, wo er seinen Müll entsorgen kann, abhängig von was er gerade entsorgen will. Dazu brauchen ist eine möglichst ausführliche Liste nötig, mit verschiedensten Müllarten, damit der User fündig wird, wenn er eingibt was er entsorgen will.
 
+Zum beschaffen dieser JSON Daten wurde ein selbst geschriebener Python Web Scraper auf dem angegebenen Link ausgeführt. Die Daten sind auf den letzten Stand (laut wien.gv.at), da diese direkt von der Webseite geholt werden.
+
+Das Skript sieht wie folgt aus:
+
+\lstinputlisting{scrape.py}
+
+Ein Ausschnitt aus der generierten JSON-Datei sieht wie folgt aus:
+
+\begin{lstlisting}
+"B": {
+"Babywindeln": [
+    "Restmülltonne",
+    "Mistplatz"
+],
+"Backrohrreiniger": [
+    "Problemstoffsammelstelle",
+    "Mistplatz"
+],
+"Batterien bis 5 kg": [
+    "Fachhandel",
+    "Problemstoffsammelstelle",
+    "Mistplatz"
+], 
+\end{lstlisting}
 
 % ______________________
 % Kapitel Graphischer Entwurf
