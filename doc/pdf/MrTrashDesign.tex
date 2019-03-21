@@ -1,9 +1,12 @@
-\documentclass[a4paper]{scrreprt}
+\documentclass[12pt, a4paper]{scrreprt}
 
 %% Language and font encodings
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{bibgerm}
 
 %% Sets page size and margins
 \usepackage[a4paper,top=2.5cm,bottom=2cm,left=2cm,right=2cm]{geometry}
@@ -13,6 +16,21 @@
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\usepackage{scrlayer-scrpage}
+\KOMAoptions{
+  headwidth=\textwidth+30pt:-15pt,
+  headsepline=.2pt
+}
+%\clearpairofpagestyles
+\ihead{Mr. Trash Design Dokument}
+\chead{TU Wien, MSE}
+\ohead{Hurbean, Schweiger [Gruppe 06]}
+\renewcommand\chapterpagestyle{scrheadings}
+
 
 \title{Mr. Trash}
 \subtitle{App zur effizienten Müllentsorgung}
@@ -33,17 +51,13 @@
 App Design Document\\ 
 Mobile (App) Software Engineering\\
 Technische Universität Wien\\
-Version v1.0, März 2019\\
+Version v1.0, März 2019
 \newpage
-
-%\begin{abstract}
-%Short abstract of the game (max 150 words) 
-%\end{abstract}
 
 \tableofcontents
 
 % ______________________
-% chapter Konzept
+% Kapitel Konzept
 % ______________________
 \chapter{Konzept}
 
@@ -75,7 +89,7 @@ Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen um e
 \end{itemize}
 
 % ______________________
-% chapter Graphischer Entwurf
+% Kapitel Graphischer Entwurf
 % ______________________
 
 \chapter{Graphischer Entwurf} 
@@ -91,7 +105,7 @@ Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen um e
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.3\textwidth]{../graphical/logo_draft_color.png}
-\caption{\label{fig:art2} Art example}
+\caption{\label{fig:logo} Mr. Trash Logo}
 \end{figure}
 
 \bibliographystyle{abbrv}
