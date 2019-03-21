@@ -12,3 +12,6 @@ Beschreibung des gewählten Datensatzes:
 	- Mobile Problemstoffsammelstelle Standorte Wien (https://www.data.gv.at/katalog/dataset/d2c6f6f5-2236-4217-8361-3297b6369979)
 	- Christbaumsammelstellen Wien (https://www.data.gv.at/katalog/dataset/038920bb-8c40-4a30-8d0c-0a29bcd64751)
 	- Mülltrenn ABC (https://www.wien.gv.at/umwelt/ma48/beratung/muelltrennung/mistabc.html)
+
+Farbschema:
+	https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=263238&secondary.color=FF9100&primary.text.color=ffffff
