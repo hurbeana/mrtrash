@@ -14,8 +14,25 @@
 %% Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{listings}
+
+\lstset{
+    basicstyle=\linespread{1.1}\ttfamily\footnotesize,
+    breaklines=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    extendedchars=true,
+    literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1 {€}{{\EUR}}1
+}
+
+%% tcolorbox
+\usepackage{tcolorbox}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}% Rule colour
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -36,11 +53,11 @@
 \subtitle{App zur effizienten Müllentsorgung}
 \author{
     Hurbean, Alexander\\
-    \texttt{e1625747}
+    \texttt{e01625747}
     \and
     Schweiger, Phillipp\\
     \texttt{e01634254}}
-\titlehead{\centering\includegraphics[width=6cm]{../graphical/logo_draft_color.png}}
+\titlehead{\centering\includegraphics[width=8cm]{../graphical/logo_draft_color.png}}
 
 
 \begin{document}
@@ -78,15 +95,177 @@ Sobald das zu entsorgende Produkt gefunden wurde, wird der User durch anklicken 
 Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen um einfach den nahsten korrekten Ort zur Müllentsorgung auf einer Karte angezeigt bekommen (unabhängig von Entsorgungsortart).
 
 \section{Beschreibung der gewählten Datensätze}
-\begin{itemize}
-	\item Sämtliche Müll-Daten Wien \cite{alleMuell}
-	\item Problemstoffsammelstelle Wien \cite{problemstoffsammelstellen}
-	\item Altstoffsammelstelle Wien \cite{alstoffsammelstellen}
-	\item Mistplätze Standorte Wien \cite{mistplaetze}
-	\item Mobile Problemstoffsammelstelle Standorte Wien \cite{mobileProblemstoffsmst}
-	\item Christbaumsammelstellen Wien \cite{christbaumsammelstellen}
-	\item Mülltrenn ABC \cite{muelltrennabc}
-\end{itemize}
+\subsection{Sämtliche Müll-Daten Wien  \cite{alleMuell}}
+    Hier sind die gesamten (bis auf die Öffnungszeiten) Daten die wir nutzen in einem Sammellink. Alle sind mit dem Tag "Müll" versehen und haben eine Vielfalt an Formaten, unter anderem JSON.
+\subsection{Problemstoffsammelstelle Wien \cite{problemstoffsammelstellen}}
+    Dieser Datensatz beschreibt alle Problemstoffsammelstellen in Wien.
+
+    Die Daten wurden letztens am 18.03.2019 um 15:40:14 Uhr aktualisiert und sind somit aktuell.
+
+    Das Format ist:
+    \begin{tcolorbox}
+        BEZIRK: Wiener Gemeindebezirksnummer\\
+        ADRESSE: Adresse (Straßenname, Orientierungsnummer)\\
+        OEFFNUNGSZEIT: Öffnungszeiten (Wochentag, Uhrzeit)\\
+        ANMERKUNG: Zusatzinformation (dezentrale Prosa/zukünftige Prosa\\
+        TELEFON: Telefonnummer\\
+        WEITERE\_INFORMATION: Hyperlink 
+    \end{tcolorbox}
+    
+    Ein Beispieldatensatz wäre:
+    \begin{lstlisting}
+"type": "Feature",
+"id": "PROBLEMSTOFFOGD.508705",
+"geometry": {
+    "type": "Point",
+    "coordinates": [
+        16.400549599361053,
+        48.18605159964703
+    ]
+},
+"properties": {
+    "BEZIRK": 3,
+    "ADRESSE": "Grasbergergasse 3",
+    "OEFFNUNGSZEIT": "Montag bis Samstag (werktags) von 7:00 bis 18:00 Uhr",
+    "ANMERKUNG": "Mistplatz - Prosa",
+    "TELEFON": "(01) 546 48",
+    "WEITERE_INFORMATION": "http://www.wien.gv.at/umwelt/ma48/entsorgung/problemstoffsammlung/",
+    "SE_SDO_ROWID": 508705,
+    "SE_ANNO_CAD_DATA": null
+}
+    \end{lstlisting}
+\subsection{Altstoffsammelstelle Wien \cite{alstoffsammelstellen}}
+    Dieser Datensatz beschreibt alle Altstoffsammelstellen in Wien.
+
+    Die Daten wurden letztens am 18.03.2019 um 12:12:34 Uhr aktualisiert und sind somit aktuell.
+
+    Das Format ist:
+    \begin{tcolorbox}
+        BEZIRK: Wiener Gemeindebezirksnummer\\
+        STRASSE: Straßenname gem. amtlichem Straßennamenverzeichnis\\
+        BEZUG: Adressbezug\\
+        ONR: Orientierungsnummer gem. Wiener Adressregister\\
+        FRAKTION\_PA: Papier (Flag)\\
+        FRAKTION\_BI: Biomüll (Flag)\\
+        FRAKTION\_DO: Altmetall (Flag)\\
+        FRAKTION\_G: Altglas (Flag)\\
+        FRAKTION\_KV: Kunststoff (Flag)\\
+        URL\_TEXT: Hyperlink
+    \end{tcolorbox}
+    
+    Ein Beispieldatensatz wäre:
+    \begin{lstlisting}
+"type": "Feature",
+"id": "ALTSTOFFSAMMLUNGOGD.2518868",
+"geometry": {
+    "type": "Point",
+    "coordinates": [
+        16.362475582469685,
+        48.15935192124853
+    ]
+},
+"geometry_name": "SHAPE",
+"properties": {
+    "BEZIRK": 10,
+    "STRASSE": "Sibeliusstraße",
+    "BEZUG": "vor",
+    "ONR": "8",
+    "BIS": null,
+    "STIEGE": null,
+    "FRAKTION_PA": 0,
+    "FRAKTION_BI": 1,
+    "FRAKTION_DO": 1,
+    "FRAKTION_G": 1,
+    "FRAKTION_KV": 1,
+    "FRAKTION_TEXT": " Kunststoff, Altmetall, Altglas, Biomüll",
+    "URL_TEXT": "http://www.wien.gv.at/umwelt/ma48/beratung/muelltrennung/index.html",
+    "SE_SDO_ROWID": 2518868,
+    "SE_ANNO_CAD_DATA": null
+    \end{lstlisting}
+\subsection{Mistplätze Standorte Wien \cite{mistplaetze}}
+    Dieser Datensatz beschreibt alle Mistplätze in Wien.
+
+    Die Daten wurden letztens am 18.03.2019 um 12:11:51 Uhr aktualisiert und sind somit aktuell.
+
+    Das Format ist:
+    \begin{tcolorbox}
+        BEZIRK: Wiener Gemeindebezirksnummer\\
+        ADRESSE: Adresse (Straßenname, Orientierungsnummer)\\
+        OBJEKT: Objekttyp\\
+        OEFFNUNGSZEIT: Öffnungszeit (Wochentag, Uhrzeit)
+    \end{tcolorbox}
+    
+    Ein Beispieldatensatz wäre:
+    \begin{lstlisting}
+"type": "Feature",
+"id": "MISTPLATZOGD.824127",
+"geometry": {
+    "type": "Point",
+    "coordinates": [
+        16.367822851014218,
+        48.25480470125357
+    ]
+},
+"geometry_name": "SHAPE",
+"properties": {
+    "BEZIRK": 19,
+    "ADRESSE": "Grinzinger Straße 151",
+    "OBJEKT": "WD/Mistplatz",
+    "OEFFNUNGSZEIT": "Mo-Sa 7:00-18:00 Uhr",
+    "SE_SDO_ROWID": 824127,
+    "SE_ANNO_CAD_DATA": null
+}
+    \end{lstlisting}
+\subsection{Mobile Problemstoffsammelstelle Standorte Wien \cite{mobileProblemstoffsmst}}
+    Dieser Datensatz beschreibt alle Problemstoffsammelstellen in Wien.
+
+    Die Daten wurden letztens am 18.03.2019 um 11:56:58 Uhr aktualisiert und sind somit aktuell.
+
+    Das Format ist:
+    \begin{tcolorbox}
+        BEZIRK: Wiener Gemeindebezirksnummer\\
+        ADRESSE: Adresse (Straßenname, Orientierungsnummer)\\
+        OBJEKT: Objekttyp\\
+        OEFFNUNGSZEIT: Öffnungszeit (Wochentag, Uhrzeit) 
+    \end{tcolorbox}
+    
+    Ein Beispieldatensatz wäre:
+    \begin{lstlisting}
+"type": "Feature",
+"id": "MISTPLATZOGD.824279",
+"geometry": {
+    "type": "Point",
+    "coordinates": [
+        16.30411114330886,
+        48.16070475694853
+    ]
+},
+"geometry_name": "SHAPE",
+"properties": {
+    "BEZIRK": 12,
+    "ADRESSE": "Wundtgasse/Jägerhausgasse",
+    "OBJEKT": "WD/Mistplatz",
+    "OEFFNUNGSZEIT": "Mo-Sa 7:00-18:00 Uhr",
+    "SE_SDO_ROWID": 824279,
+    "SE_ANNO_CAD_DATA": null
+}
+    \end{lstlisting}
+\subsection{Christbaumsammelstellen Wien \cite{christbaumsammelstellen}}
+    Dieser Datensatz beschreibt alle Christbaumsammelstellen in Wien.
+
+    Die Christbaumsammelstellen wurden am 01.03.2019 11:21:09 entfernt und sind somit aktuell.
+
+    Das Format ist:
+    \begin{tcolorbox}
+        BEZIRK: Wiener Gemeindebezirksnummer\\
+        ADRESSE: Adresse (Bezirksnummer, Straßenname, Orientierungsnummer)\\
+        GEÖFFNET VON: Beginn der Öffnungszeit (Tag)\\
+        GEÖFFNET BIS: Ende der Öffnungszeit (Tag) 
+    \end{tcolorbox}
+    
+    Da es derzeit keine Christbaumsammelstellen gibt, git es auch keine Daten dazu.
+\subsection{Mülltrenn ABC \cite{muelltrennabc}}
+
 
 % ______________________
 % Kapitel Graphischer Entwurf
