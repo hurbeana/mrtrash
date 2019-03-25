@@ -16,6 +16,7 @@
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{listings}
+\usepackage{subcaption}
 
 \lstset{
     basicstyle=\linespread{1.1}\ttfamily\footnotesize,
@@ -49,7 +50,7 @@
 \renewcommand\chapterpagestyle{scrheadings}
 
 
-\title{Mr. Trash}
+\title{\vspace{-1cm}Mr. Trash}
 \subtitle{App zur effizienten Müllentsorgung}
 \author{
     Hurbean, Alexander\\
@@ -57,7 +58,7 @@
     \and
     Schweiger, Philipp\\
     \texttt{e01634254}}
-\titlehead{\centering\includegraphics[width=8cm]{../graphical/logo_draft_color.png}}
+\titlehead{\centering\includegraphics[width=\textwidth]{../graphical/icon/4x/ic_material_product_icon_192pxxxxhdpi.png}}
 
 
 \begin{document}
@@ -68,7 +69,7 @@
 App Design Document\\ 
 Mobile (App) Software Engineering\\
 Technische Universität Wien\\
-Version v1.0, März 2019
+Version v1.1, März 2019
 \newpage
 
 \tableofcontents
@@ -305,6 +306,8 @@ Ist der Ladevorgang beendet gelangt man zum Main-Screen der App. Dabei handelt e
 Klickt man nun auf eine Müllart, werden am nächsten Screen die Arten der Entsorgungsmöglichkeiten angezeigt. Diese werden als Liste von Cards dargestellt. Eine Card enthält ein Bild, als Titel die Art der Entsorgungsmöglichkeit und einen Button, welcher in weiterer Folge eine Map mit allen Standorten dieser Art anzeigt. Des Weiteren befindet sich ein Floating-Button rechts unten am Screen, um eine Map mit den Standorten aller Entsorgungsmöglichkeiten, für diese Müllart, anzuzeigen.\\
 Klickt man auf der Map auf einen der Standorte, werden Adresse und Öffnungszeiten angezeigt.
 
+\newpage
+
 % ______________________
 % Kapitel Graphischer Entwurf
 % ______________________
@@ -314,15 +317,59 @@ Klickt man auf der Map auf einen der Standorte, werden Adresse und Öffnungszeit
 \section{High-Fidelity Mockup}
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{../graphical/test.jpg}
+\includegraphics[width=0.3\textwidth]{../graphical/drafts/logo_draft_color.png}
 \caption{\label{fig:art1} Art example}
 \end{figure}
 
+\newpage
 \section{Product Icon}
+
+Das Product Icon stellt einen stylisierten Mistkübel da, der eine Brille auf hat. Dies soll auch das Mascottchen der App sein, Mr.Trash, der sich mit den Müllproblemen des Users auskennt und ihm dabei hilft, seinen Müll zu trennen.
+
+Das Logo wurde nach den Guidelines von Googles Material Design~\cite{materialproductguideline} mit Adobe Illustrator CC~\cite{adobeillustrator} und dem Adobe Illustrator Product Icon Template~\cite{stickersheets} von Google erstellt.
+
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{../graphical/logo_draft_color.png}
-\caption{\label{fig:logo} Mr. Trash Logo}
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=.1875\linewidth]{../graphical/icon/0.75x/ic_material_product_icon_192pxldpi.png}
+  \caption{0.75x | low density}
+  \label{fig:075}
+\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=0.25\linewidth]{../graphical/icon/1x/ic_material_product_icon_192pxmdpi.png}
+  \caption{1x | medium density}
+  \label{fig:1}
+\end{subfigure}%
+\begin{subfigure}{.3\textwidth}
+  \centering
+  \includegraphics[width=0.375\linewidth]{../graphical/icon/1.5x/ic_material_product_icon_192pxhdpi.png}
+  \caption{1.5x | high density}
+  \label{fig:15}
+\end{subfigure}%
+\\
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=0.375\linewidth]{../graphical/icon/2x/ic_material_product_icon_192pxxhdpi.png}
+  \caption{2x | extra high density}
+  \label{fig:2}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{../graphical/icon/3x/ic_material_product_icon_192pxxxhdpi.png}
+  \caption{3x | extra extra high density}
+  \label{fig:3}
+\end{subfigure}%
+\\
+\begin{subfigure}{\textwidth}
+  \centering
+  \includegraphics[width=.375\linewidth]{../graphical/icon/4x/ic_material_product_icon_192pxxxxhdpi.png}
+  \caption{4x | extra extra extra high density}
+  \label{fig:4}
+\end{subfigure}%
+\caption{Auflösungen des App-Icons}
+\label{fig:aufl}
 \end{figure}
 
 \bibliographystyle{abbrv}
