@@ -17,6 +17,8 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{listings}
 \usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{xhfill}
 
 \lstset{
     basicstyle=\linespread{1.1}\ttfamily\footnotesize,
@@ -296,7 +298,7 @@ Ein Ausschnitt aus der generierten JSON-Datei sieht wie folgt aus:
 \section{Wireframes}
 \begin{figure}[h]
 \centering
-\includegraphics[width=16cm]{../graphical/mockup/wireframes.png}
+\includegraphics[width=13cm]{../graphical/mockup/wireframes.png}
 \caption{\label{fig:art1} Wireframes}
 \end{figure}
 
@@ -309,19 +311,36 @@ Klickt man nun auf eine Müllart, werden am nächsten Screen die Arten der Entso
 
 Klickt man auf der Map auf einen der Standorte, werden Adresse und Öffnungszeiten angezeigt.
 
-\newpage
-
 % ______________________
 % Kapitel Graphischer Entwurf
 % ______________________
 
 \chapter{Graphischer Entwurf} 
 
+\definecolor{grey800}{RGB}{66,66,66}
+\definecolor{grey700}{RGB}{97,97,97}
+\definecolor{grey900}{RGB}{33,33,33}
+\definecolor{grey600}{RGB}{75,75,75}
+\definecolor{grey500}{RGB}{158,158,158}
+\newcommand{\leftbox}[1]{\makebox[7.5cm][l]{#1}}
+
+Das Farbschema (das im Logo und in der App durgehend genutzt werden) sind:
+\begin{enumerate}
+    \item \leftbox{Primary: Grey 800 (\#424242)}        \xhrulefill{grey800}{1em}
+    \item \leftbox{Primary Light: Grey 700 (\#616161)}  \xhrulefill{grey700}{1em}
+    \item \leftbox{Primary Dark: Grey 900 (\#212121)}   \xhrulefill{grey900}{1em}
+    \item \leftbox{Secondary: Grey 600 (\#757575)}      \xhrulefill{grey600}{1em}
+    \item \leftbox{Secondary Light: Grey 500 (\#9E9E9E)} \xhrulefill{grey500}{1em}
+    \item \leftbox{Secondary Dark: Grey 700 (\#616161)} \xhrulefill{grey700}{1em}
+\end{enumerate}
+
+Das folgende Bild ist ein High Fidelity Mockup des Hauptscreens, der beim Starten der App aufgeht.
+
 \section{High-Fidelity Mockup}
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.3\textwidth]{../graphical/drafts/logo_draft_color.png}
-\caption{\label{fig:art1} Art example}
+\includegraphics[width=0.3\textwidth]{../graphical/mockup/highfidelity.png}
+\caption{\label{fig:highfid} High Fidelity Mockup}
 \end{figure}
 
 \newpage
