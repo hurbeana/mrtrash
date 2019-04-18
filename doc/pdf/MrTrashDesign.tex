@@ -100,8 +100,6 @@ Sobald das zu entsorgende Produkt gefunden wurde, wird der User durch anklicken 
 Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen, um einfach die nahesten korrekten Orte zur Müllentsorgung auf einer Karte angezeigt zu bekommen (unabhängig von Entsorgungsortart).
 
 \section{Beschreibung der gewählten Datensätze}
-\subsection{Sämtliche Müll-Daten Wien  \cite{alleMuell}}
-    Hier sind die gesamten (bis auf die Öffnungszeiten) Daten die wir nutzen in einem Sammellink. Alle sind mit dem Tag "Müll" versehen und haben eine Vielfalt an Formaten, unter anderem JSON.
 \subsection{Problemstoffsammelstelle Wien \cite{problemstoffsammelstellen}}
     Dieser Datensatz beschreibt alle Problemstoffsammelstellen in Wien.
 
@@ -221,54 +219,6 @@ Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen, um 
     "SE_ANNO_CAD_DATA": null
 }
     \end{lstlisting}
-\subsection{Mobile Problemstoffsammelstelle Standorte Wien \cite{mobileProblemstoffsmst}}
-    Dieser Datensatz beschreibt alle Problemstoffsammelstellen in Wien.
-
-    Die Daten wurden letztens am 18.03.2019 um 11:56:58 Uhr aktualisiert und sind somit aktuell.
-
-    Das Format ist:
-    \begin{tcolorbox}
-        BEZIRK: Wiener Gemeindebezirksnummer\\
-        ADRESSE: Adresse (Straßenname, Orientierungsnummer)\\
-        OBJEKT: Objekttyp\\
-        OEFFNUNGSZEIT: Öffnungszeit (Wochentag, Uhrzeit) 
-    \end{tcolorbox}
-    
-    Ein Beispieldatensatz wäre:
-    \begin{lstlisting}
-"type": "Feature",
-"id": "MISTPLATZOGD.824279",
-"geometry": {
-    "type": "Point",
-    "coordinates": [
-        16.30411114330886,
-        48.16070475694853
-    ]
-},
-"geometry_name": "SHAPE",
-"properties": {
-    "BEZIRK": 12,
-    "ADRESSE": "Wundtgasse/Jägerhausgasse",
-    "OBJEKT": "WD/Mistplatz",
-    "OEFFNUNGSZEIT": "Mo-Sa 7:00-18:00 Uhr",
-    "SE_SDO_ROWID": 824279,
-    "SE_ANNO_CAD_DATA": null
-}
-    \end{lstlisting}
-\subsection{Christbaumsammelstellen Wien \cite{christbaumsammelstellen}}
-    Dieser Datensatz beschreibt alle Christbaumsammelstellen in Wien.
-
-    Die Christbaumsammelstellen wurden am 01.03.2019 11:21:09 entfernt und sind somit aktuell.
-
-    Das Format ist:
-    \begin{tcolorbox}
-        BEZIRK: Wiener Gemeindebezirksnummer\\
-        ADRESSE: Adresse (Bezirksnummer, Straßenname, Orientierungsnummer)\\
-        GEÖFFNET VON: Beginn der Öffnungszeit (Tag)\\
-        GEÖFFNET BIS: Ende der Öffnungszeit (Tag) 
-    \end{tcolorbox}
-    
-    Da es derzeit keine Christbaumsammelstellen gibt, git es auch keine Daten dazu.
 \subsection{Mülltrenn ABC \cite{muelltrennabc}}
 Diese Daten Nutzen wir um dem User richtige Orte vorzuschlagen, wo er seinen/ihren Müll entsorgen kann, abhängig von was er gerade entsorgen will. Dazu brauchen ist eine möglichst ausführliche Liste nötig, mit verschiedensten Müllarten, damit der User fündig wird, wenn er eingibt was er entsorgen will.
 
