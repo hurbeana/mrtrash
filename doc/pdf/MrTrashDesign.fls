@@ -1,0 +1,338 @@
+PWD c:\Users\hurbe\Documents\mrtrash\doc\pdf
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.tex
+OUTPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.log
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrreprt.cls
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrreprt.cls
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrkbase.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrkbase.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrbase.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrbase.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlfile.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlfile.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\tocbasic.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\tocbasic.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrsize12pt.clo
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrsize12pt.clo
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\typearea.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\typearea.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngerman.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngerman.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\babel-german\ngermanb.ldf
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\babel\txtbabel.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\jknappen\ec\ecrm1200.tfm
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\helvet.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\germbib\bibgerm.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\germbib\bibgerm.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\xhfill\xhfill.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\xhfill\xhfill.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\tcolorbox\tcolorbox.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\tcolorbox\tcolorbox.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgf.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\utilities\pgfrcs.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfutil-latex.def
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\ms\everyshi.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\pgf.revision.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\pgf.revision.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgf.cfg
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmath.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathcalc.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathutil.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathparser.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\basiclayer\pgfcorerdf.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\environ\environ.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\environ\environ.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\trimspaces\trimspaces.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\trimspaces\trimspaces.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlayer-scrpage.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlayer-scrpage.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlayer.sty
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlayer.sty
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.aux
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.aux
+OUTPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.aux
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8t.tfm
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\hurbe\AppData\Roaming\MiKTeX\2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+OUTPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+OUTPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.pdf
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bookmark.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bookmark.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bkm-pdftex.def
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\bkm-pdftex.def
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi12.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\jknappen\ec\ectt1728.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvb8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8r.tfm
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvb8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8r.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvr8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8r.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvro8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmmi6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex8.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvro8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvro8r.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvr8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8r.tfm
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.toc
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.toc
+OUTPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.toc
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvb8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8r.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvb8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvb8r.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\jknappen\ec\ectt1200.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\jknappen\ec\ectt1000.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8t.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvr8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8r.tfm
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\scrape.py
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\scrape.py
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\scrape.py
+INPUT ..\graphical\mockup\wireframes.png
+INPUT ..\graphical\mockup\wireframes.png
+INPUT ..\graphical\mockup\wireframes.png
+INPUT ..\graphical\mockup\wireframes.png
+INPUT ..\graphical\mockup\wireframes.png
+INPUT ..\graphical\mockup\highfidelity.png
+INPUT ..\graphical\mockup\highfidelity.png
+INPUT ..\graphical\mockup\highfidelity.png
+INPUT ..\graphical\mockup\highfidelity.png
+INPUT ..\graphical\mockup\highfidelity.png
+INPUT ..\graphical\icon\0.75x\ic_material_product_icon_192pxldpi.png
+INPUT ..\graphical\icon\0.75x\ic_material_product_icon_192pxldpi.png
+INPUT ..\graphical\icon\0.75x\ic_material_product_icon_192pxldpi.png
+INPUT ..\graphical\icon\0.75x\ic_material_product_icon_192pxldpi.png
+INPUT ..\graphical\icon\0.75x\ic_material_product_icon_192pxldpi.png
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8t.tfm
+INPUT ..\graphical\icon\1x\ic_material_product_icon_192pxmdpi.png
+INPUT ..\graphical\icon\1x\ic_material_product_icon_192pxmdpi.png
+INPUT ..\graphical\icon\1x\ic_material_product_icon_192pxmdpi.png
+INPUT ..\graphical\icon\1x\ic_material_product_icon_192pxmdpi.png
+INPUT ..\graphical\icon\1x\ic_material_product_icon_192pxmdpi.png
+INPUT ..\graphical\icon\1.5x\ic_material_product_icon_192pxhdpi.png
+INPUT ..\graphical\icon\1.5x\ic_material_product_icon_192pxhdpi.png
+INPUT ..\graphical\icon\1.5x\ic_material_product_icon_192pxhdpi.png
+INPUT ..\graphical\icon\1.5x\ic_material_product_icon_192pxhdpi.png
+INPUT ..\graphical\icon\1.5x\ic_material_product_icon_192pxhdpi.png
+INPUT ..\graphical\icon\2x\ic_material_product_icon_192pxxhdpi.png
+INPUT ..\graphical\icon\2x\ic_material_product_icon_192pxxhdpi.png
+INPUT ..\graphical\icon\2x\ic_material_product_icon_192pxxhdpi.png
+INPUT ..\graphical\icon\2x\ic_material_product_icon_192pxxhdpi.png
+INPUT ..\graphical\icon\2x\ic_material_product_icon_192pxxhdpi.png
+INPUT ..\graphical\icon\3x\ic_material_product_icon_192pxxxhdpi.png
+INPUT ..\graphical\icon\3x\ic_material_product_icon_192pxxxhdpi.png
+INPUT ..\graphical\icon\3x\ic_material_product_icon_192pxxxhdpi.png
+INPUT ..\graphical\icon\3x\ic_material_product_icon_192pxxxhdpi.png
+INPUT ..\graphical\icon\3x\ic_material_product_icon_192pxxxhdpi.png
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT ..\graphical\icon\4x\ic_material_product_icon_192pxxxxhdpi.png
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.bbl
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.bbl
+INPUT C:\Program Files\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvr8t.vf
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8r.tfm
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.aux
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT c:\Users\hurbe\Documents\mrtrash\doc\pdf\MrTrashDesign.out
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk
+INPUT C:\Program Files\MiKTeX 2.9\fonts\enc\dvips\base\8r.enc
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1728.pk
+INPUT C:\Users\hurbe\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1728.pk
+INPUT C:\Program Files\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvb8a.pfb
+INPUT C:\Program Files\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvb8a.pfb
+INPUT C:\Program Files\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvr8a.pfb
+INPUT C:\Program Files\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvr8a.pfb
+INPUT C:\Program Files\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvro8a.pfb
+INPUT C:\Program Files\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvro8a.pfb
