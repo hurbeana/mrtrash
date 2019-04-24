@@ -59,7 +59,9 @@
     \texttt{e01625747}
     \and
     Schweiger, Philipp\\
-    \texttt{e01634254}}
+    \texttt{e01634254}
+    \and
+    \texttt{Gruppe 06}}
 \titlehead{\centering\includegraphics[width=\textwidth]{../graphical/icon/4x/ic_material_product_icon_192pxxxxhdpi.png}}
 
 
@@ -98,8 +100,6 @@ Sobald das zu entsorgende Produkt gefunden wurde, wird der User durch anklicken 
 Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen, um einfach die nahesten korrekten Orte zur Müllentsorgung auf einer Karte angezeigt zu bekommen (unabhängig von Entsorgungsortart).
 
 \section{Beschreibung der gewählten Datensätze}
-\subsection{Sämtliche Müll-Daten Wien  \cite{alleMuell}}
-    Hier sind die gesamten (bis auf die Öffnungszeiten) Daten die wir nutzen in einem Sammellink. Alle sind mit dem Tag "Müll" versehen und haben eine Vielfalt an Formaten, unter anderem JSON.
 \subsection{Problemstoffsammelstelle Wien \cite{problemstoffsammelstellen}}
     Dieser Datensatz beschreibt alle Problemstoffsammelstellen in Wien.
 
@@ -219,54 +219,6 @@ Alternativ dazu, kann der User auch den Floating Button rechts unten nutzen, um 
     "SE_ANNO_CAD_DATA": null
 }
     \end{lstlisting}
-\subsection{Mobile Problemstoffsammelstelle Standorte Wien \cite{mobileProblemstoffsmst}}
-    Dieser Datensatz beschreibt alle Problemstoffsammelstellen in Wien.
-
-    Die Daten wurden letztens am 18.03.2019 um 11:56:58 Uhr aktualisiert und sind somit aktuell.
-
-    Das Format ist:
-    \begin{tcolorbox}
-        BEZIRK: Wiener Gemeindebezirksnummer\\
-        ADRESSE: Adresse (Straßenname, Orientierungsnummer)\\
-        OBJEKT: Objekttyp\\
-        OEFFNUNGSZEIT: Öffnungszeit (Wochentag, Uhrzeit) 
-    \end{tcolorbox}
-    
-    Ein Beispieldatensatz wäre:
-    \begin{lstlisting}
-"type": "Feature",
-"id": "MISTPLATZOGD.824279",
-"geometry": {
-    "type": "Point",
-    "coordinates": [
-        16.30411114330886,
-        48.16070475694853
-    ]
-},
-"geometry_name": "SHAPE",
-"properties": {
-    "BEZIRK": 12,
-    "ADRESSE": "Wundtgasse/Jägerhausgasse",
-    "OBJEKT": "WD/Mistplatz",
-    "OEFFNUNGSZEIT": "Mo-Sa 7:00-18:00 Uhr",
-    "SE_SDO_ROWID": 824279,
-    "SE_ANNO_CAD_DATA": null
-}
-    \end{lstlisting}
-\subsection{Christbaumsammelstellen Wien \cite{christbaumsammelstellen}}
-    Dieser Datensatz beschreibt alle Christbaumsammelstellen in Wien.
-
-    Die Christbaumsammelstellen wurden am 01.03.2019 11:21:09 entfernt und sind somit aktuell.
-
-    Das Format ist:
-    \begin{tcolorbox}
-        BEZIRK: Wiener Gemeindebezirksnummer\\
-        ADRESSE: Adresse (Bezirksnummer, Straßenname, Orientierungsnummer)\\
-        GEÖFFNET VON: Beginn der Öffnungszeit (Tag)\\
-        GEÖFFNET BIS: Ende der Öffnungszeit (Tag) 
-    \end{tcolorbox}
-    
-    Da es derzeit keine Christbaumsammelstellen gibt, git es auch keine Daten dazu.
 \subsection{Mülltrenn ABC \cite{muelltrennabc}}
 Diese Daten Nutzen wir um dem User richtige Orte vorzuschlagen, wo er seinen/ihren Müll entsorgen kann, abhängig von was er gerade entsorgen will. Dazu brauchen ist eine möglichst ausführliche Liste nötig, mit verschiedensten Müllarten, damit der User fündig wird, wenn er eingibt was er entsorgen will.
 
@@ -317,21 +269,22 @@ Klickt man auf der Map auf einen der Standorte, werden Adresse und Öffnungszeit
 
 \chapter{Graphischer Entwurf} 
 
-\definecolor{grey800}{RGB}{66,66,66}
-\definecolor{grey700}{RGB}{97,97,97}
-\definecolor{grey900}{RGB}{33,33,33}
-\definecolor{grey600}{RGB}{75,75,75}
-\definecolor{grey500}{RGB}{158,158,158}
-\newcommand{\leftbox}[1]{\makebox[7.5cm][l]{#1}}
+\definecolor{greyprim}{HTML}{212121}
+\definecolor{lightprim}{HTML}{484848}
+\definecolor{darkprim}{HTML}{000000}
+\definecolor{orangesec}{HTML}{f57c00}
+\definecolor{lightsec}{HTML}{ffad42}
+\definecolor{darksec}{HTML}{bb4d00}
+\newcommand{\leftbox}[1]{\makebox[8.5cm][l]{#1}}
 
 Das Farbschema (das im Logo und in der App durgehend genutzt werden) sind:
 \begin{enumerate}
-    \item \leftbox{Primary: Grey 800 (\#424242)}        \xhrulefill{grey800}{1em}
-    \item \leftbox{Primary Light: Grey 700 (\#616161)}  \xhrulefill{grey700}{1em}
-    \item \leftbox{Primary Dark: Grey 900 (\#212121)}   \xhrulefill{grey900}{1em}
-    \item \leftbox{Secondary: Grey 600 (\#757575)}      \xhrulefill{grey600}{1em}
-    \item \leftbox{Secondary Light: Grey 500 (\#9E9E9E)} \xhrulefill{grey500}{1em}
-    \item \leftbox{Secondary Dark: Grey 700 (\#616161)} \xhrulefill{grey700}{1em}
+    \item \leftbox{Primary: Dark Grey (\#212121)}        \xhrulefill{greyprim}{1em}
+    \item \leftbox{Primary Light: Light Grey (\#484848)}  \xhrulefill{lightprim}{1em}
+    \item \leftbox{Primary Dark: Black (\#000000)}   \xhrulefill{darkprim}{1em}
+    \item \leftbox{Secondary: Orange (\#F57C00)}      \xhrulefill{orangesec}{1em}
+    \item \leftbox{Secondary Light: Light Orange (\#FFAD42)} \xhrulefill{lightsec}{1em}
+    \item \leftbox{Secondary Dark: Dark Orange (\#BB4D00)} \xhrulefill{darksec}{1em}
 \end{enumerate}
 
 \section{High-Fidelity Mockup}
