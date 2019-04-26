@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/wasteTypeFragment">
+
+    <fragment android:id="@+id/wasteTypeFragment" android:name="at.mrtrash.WasteTypeFragment"
+              android:label="fragment_waste_type" tools:layout="@layout/fragment_waste_type">
+        <action android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment"
+                app:destination="@id/disposalOptionsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/disposalOptionsFragment" android:name="at.mrtrash.DisposalOptionsFragment"
+              android:label="fragment_disposal_options" tools:layout="@layout/fragment_disposal_options"/>
+
+</navigation>
