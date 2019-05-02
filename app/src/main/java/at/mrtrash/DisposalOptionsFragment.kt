@@ -1,17 +1,22 @@
 package at.mrtrash
 
 
+import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.mrtrash.adapter.DisposalOptionAdapter
+import at.mrtrash.models.Coordinates
 import at.mrtrash.models.Wasteplace
 import at.mrtrash.network.DataService
 import at.mrtrash.network.WasteplaceResponse
+import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_disposal_options.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,9 +43,6 @@ class DisposalOptionsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_disposal_options, container, false)
 
-        wasteplaces.add(Wasteplace(1, "Test", "Hallo", "Öffnung"))
-        wasteplaces.add(Wasteplace(2, "Test", "Hallo", "Öffnung"))
-
         linearLayoutManager = LinearLayoutManager(activity)
         view.disposalOptionsRecyclerView.layoutManager = linearLayoutManager
         adapter = DisposalOptionAdapter(wasteplaces)
@@ -51,6 +53,26 @@ class DisposalOptionsFragment : Fragment() {
     }
 
     fun loadWasteplaces() {
+        if (ActivityCompat.checkSelfPermission(
+                context!!,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(
+                arrayOf(
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                ),
+                1
+            )
+        }
+
+        var location: Location? = null
+        LocationServices.getFusedLocationProviderClient(context!!)
+            .lastLocation.addOnSuccessListener { actLocation: Location? ->
+            location = actLocation
+        }
+
         val retrofit = Retrofit.Builder()
             .baseUrl("https://data.wien.gv.at/daten/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -64,15 +86,24 @@ class DisposalOptionsFragment : Fragment() {
                     wasteplaces.clear()
 
                     wasteplaceResponse.features?.forEach { feature ->
+                        val coordinates = Coordinates(
+                            feature.geometry?.coordinates?.get(1)!!,
+                            feature.geometry?.coordinates?.get(0)!!
+                        )
+
                         wasteplaces.add(
                             Wasteplace(
                                 feature.properties?.district!!,
                                 feature.properties?.address!!,
                                 feature.properties?.objecttype!!,
-                                feature.properties?.openingHours!!
+                                feature.properties?.openingHours!!,
+                                coordinates,
+                                getDistance(location, coordinates)
                             )
                         )
                     }
+
+                    wasteplaces.sortWith(nullsLast(compareBy { it.distance }))
 
                     activity!!.runOnUiThread {
                         adapter.notifyDataSetChanged()
@@ -89,5 +120,16 @@ class DisposalOptionsFragment : Fragment() {
         })
     }
 
+    fun getDistance(deviceLocation: Location?, coordinates: Coordinates): Float? {
+        return if (deviceLocation != null) {
+            val otherLocation = Location("other")
+            otherLocation.latitude = coordinates.latitude
+            otherLocation.longitude = coordinates.longitude
+
+            deviceLocation.distanceTo(otherLocation) / 1000
+        } else {
+            null
+        }
+    }
 
 }

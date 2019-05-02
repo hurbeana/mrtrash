@@ -27,8 +27,21 @@ class DisposalOptionAdapter(private val disposalOptions: ArrayList<Wasteplace>) 
         fun bindWasteplace(wasteplace: Wasteplace) {
             this.wasteplace = wasteplace
             view.cardTextViewTitle.text = "Mistplatz"
-            view.cardTextViewDistance.text = wasteplace.address
+            view.cardTextViewAddress.text = getAddressString(wasteplace)
+            view.cardTextViewDistance.text = getDistanceString(wasteplace)
             view.cardTextViewOpeningHours.text = wasteplace.openingHours
+        }
+
+        private fun getAddressString(wasteplace: Wasteplace): String {
+            return wasteplace.address + ", 1" + wasteplace.district.toString().padStart(2, '0') + "0 Wien"
+        }
+
+        private fun getDistanceString(wasteplace: Wasteplace): String {
+            return if(wasteplace.distance != null) {
+                "${wasteplace.distance.format(2)} km entfernt"
+            } else {
+                "-"
+            }
         }
     }
 
