@@ -1,28 +1,20 @@
 package at.mrtrash
 
 
-import android.content.pm.PackageManager
-import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.mrtrash.adapter.DisposalOptionAdapter
-import at.mrtrash.models.Coordinates
 import at.mrtrash.models.Wasteplace
-import at.mrtrash.network.DataService
-import at.mrtrash.network.WasteplaceResponse
-import com.google.android.gms.location.LocationServices
+import at.mrtrash.models.WasteplaceViewModel
+import at.mrtrash.models.WastplaceViewModelFactory
 import kotlinx.android.synthetic.main.fragment_disposal_options.view.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * A simple [Fragment] subclass.
@@ -47,89 +39,21 @@ class DisposalOptionsFragment : Fragment() {
         view.disposalOptionsRecyclerView.layoutManager = linearLayoutManager
         adapter = DisposalOptionAdapter(wasteplaces)
         view.disposalOptionsRecyclerView.adapter = adapter
-        loadWasteplaces()
 
-        return view
-    }
-
-    fun loadWasteplaces() {
-        if (ActivityCompat.checkSelfPermission(
-                context!!,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            requestPermissions(
-                arrayOf(
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION
-                ),
-                1
-            )
-        }
-
-        var location: Location? = null
-        LocationServices.getFusedLocationProviderClient(context!!)
-            .lastLocation.addOnSuccessListener { actLocation: Location? ->
-            location = actLocation
-        }
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://data.wien.gv.at/daten/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val service = retrofit.create(DataService::class.java)
-        val call = service.getWasteplaces()
-        call.enqueue(object : Callback<WasteplaceResponse> {
-            override fun onResponse(call: Call<WasteplaceResponse>, response: Response<WasteplaceResponse>) {
-                if (response.code() == 200) {
-                    val wasteplaceResponse = response.body()!!
-                    wasteplaces.clear()
-
-                    wasteplaceResponse.features?.forEach { feature ->
-                        val coordinates = Coordinates(
-                            feature.geometry?.coordinates?.get(1)!!,
-                            feature.geometry?.coordinates?.get(0)!!
-                        )
-
-                        wasteplaces.add(
-                            Wasteplace(
-                                feature.properties?.district!!,
-                                feature.properties?.address!!,
-                                feature.properties?.objecttype!!,
-                                feature.properties?.openingHours!!,
-                                coordinates,
-                                getDistance(location, coordinates)
-                            )
-                        )
-                    }
-
-                    wasteplaces.sortWith(nullsLast(compareBy { it.distance }))
-
-                    activity!!.runOnUiThread {
-                        adapter.notifyDataSetChanged()
-                        Log.i(TAG, "notified")
-                    }
-
-                    Log.i(TAG, wasteplaces.size.toString())
-                }
-            }
-
-            override fun onFailure(call: Call<WasteplaceResponse>, t: Throwable) {
-                Log.e(TAG, t.localizedMessage)
+        //TODO: maybe we could move this to adapter?
+        val model = ViewModelProviders.of(this, WastplaceViewModelFactory(activity!!.application))
+            .get(WasteplaceViewModel::class.java)
+        model.getWasteplaces().observe(this, Observer<List<Wasteplace>> { newWasteplaces ->
+            Log.i(TAG, "new data arrived: " + newWasteplaces.size)
+            wasteplaces.clear()
+            wasteplaces.addAll(newWasteplaces as ArrayList<Wasteplace>)
+            activity!!.runOnUiThread {
+                adapter.notifyDataSetChanged()
+                Log.i(TAG, "notified")
             }
         })
-    }
 
-    fun getDistance(deviceLocation: Location?, coordinates: Coordinates): Float? {
-        return if (deviceLocation != null) {
-            val otherLocation = Location("other")
-            otherLocation.latitude = coordinates.latitude
-            otherLocation.longitude = coordinates.longitude
-
-            deviceLocation.distanceTo(otherLocation) / 1000
-        } else {
-            null
-        }
+        return view
     }
 
 }

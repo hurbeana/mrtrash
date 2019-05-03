@@ -1,16 +1,9 @@
 package at.mrtrash
 
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import at.mrtrash.models.Wasteplace
-import at.mrtrash.network.DataService
-import at.mrtrash.network.WasteplaceResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import androidx.core.app.ActivityCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +11,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+        initViewModels()
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(
+                arrayOf(
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                ),
+                1
+            )
+        }
+    }
+
+    private fun initViewModels() {
+        //TODO: maybe init this here so that data is only loaded once.. Attention with location permissions!
+//        ViewModelProviders.of(this, WastplaceViewModelFactory(application)).get(WasteplaceViewModel::class.java)
     }
 
 }

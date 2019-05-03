@@ -38,7 +38,7 @@ class DisposalOptionAdapter(private val disposalOptions: ArrayList<Wasteplace>) 
 
         private fun getDistanceString(wasteplace: Wasteplace): String {
             return if(wasteplace.distance != null) {
-                "${wasteplace.distance.format(2)} km entfernt"
+                "${wasteplace.distance?.format(2)} km entfernt"
             } else {
                 "-"
             }
