@@ -4,14 +4,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import at.mrtrash.R
+import at.mrtrash.fastScrollRecyclerView.FastScrollRecyclerViewInterface
 import at.mrtrash.models.WasteType
 import kotlinx.android.synthetic.main.waste_type_list_item.view.*
+import java.util.HashMap
 
 class WasteTypeAdapter(private val wasteTypes: List<WasteType>) :
-    RecyclerView.Adapter<WasteTypeAdapter.WasteTypeViewHolder>() {
+    RecyclerView.Adapter<WasteTypeAdapter.WasteTypeViewHolder>(),
+    FastScrollRecyclerViewInterface {
+
+    override fun getMapIndex(): HashMap<String, Int> {
+        val retmap = hashMapOf<String, Int>()
+        wasteTypes.forEachIndexed { index, wasteType ->
+            val mindex = Character.toString(wasteType.type[0])
+            if (!retmap.containsKey(mindex))
+                retmap[mindex] = index
+        }
+        return retmap
+    }
 
     class WasteTypeViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private var view: View = v

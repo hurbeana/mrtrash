@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.mrtrash.adapter.WasteTypeAdapter
 import at.mrtrash.models.WasteType
@@ -16,6 +17,9 @@ import kotlinx.android.synthetic.main.fragment_waste_type.*
 import kotlinx.android.synthetic.main.fragment_waste_type.view.*
 import java.io.InputStream
 import java.io.StringReader
+import at.mrtrash.fastScrollRecyclerView.FastScrollRecyclerViewItemDecoration
+
+
 
 /**
  * A simple [Fragment] subclass.
@@ -37,7 +41,9 @@ class WasteTypeFragment : Fragment() {
         // Inflate the layout for this fragment
         linearLayoutManager = LinearLayoutManager(activity)
         view.waste_type_fragment_view.layoutManager = linearLayoutManager
-
+        val decoration = FastScrollRecyclerViewItemDecoration(activity)
+        view.waste_type_fragment_view.addItemDecoration(decoration)
+        view.waste_type_fragment_view.itemAnimator = DefaultItemAnimator()
         val wasteTypes = mutableListOf<WasteType>()
         adapter = WasteTypeAdapter(wasteTypes)
         view.waste_type_fragment_view.adapter = adapter
