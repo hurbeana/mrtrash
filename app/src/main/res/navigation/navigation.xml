@@ -8,6 +8,8 @@
               android:label="fragment_waste_type" tools:layout="@layout/fragment_waste_type">
         <action android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment"
                 app:destination="@id/disposalOptionsFragment"/>
+        <action android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment2"
+                app:destination="@id/disposalOptionsFragment"/>
     </fragment>
     <fragment android:id="@+id/disposalOptionsFragment" android:name="at.mrtrash.DisposalOptionsFragment"
               android:label="fragment_disposal_options" tools:layout="@layout/fragment_disposal_options"/>
