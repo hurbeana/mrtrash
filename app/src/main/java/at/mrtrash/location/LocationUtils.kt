@@ -6,7 +6,7 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
-import at.mrtrash.models.WasteplaceViewModel
+import at.mrtrash.models.DisposalOptionViewModel
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -14,7 +14,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 
-class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
+class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel) :
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener,
     com.google.android.gms.location.LocationListener {
@@ -32,10 +32,10 @@ class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
     override fun onLocationChanged(location: Location) {
         if (!::oldLocation.isInitialized) {
             oldLocation = location
-            wasteplaceViewModel.locationChange(location)
+            disposalOptionViewModel.locationChange(location)
         } else if (oldLocation.distanceTo(location) > 10) {
             oldLocation = location
-            wasteplaceViewModel.locationChange(location)
+            disposalOptionViewModel.locationChange(location)
         }
     }
 
@@ -51,16 +51,16 @@ class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
     override fun onConnected(pLocationChanged: Bundle?) {
         startLocationUpdates()
         val fusedLocationProviderClient: FusedLocationProviderClient =
-            LocationServices.getFusedLocationProviderClient(wasteplaceViewModel.getApplication() as Context)
+            LocationServices.getFusedLocationProviderClient(disposalOptionViewModel.getApplication() as Context)
         fusedLocationProviderClient.lastLocation.addOnSuccessListener {
             OnSuccessListener<Location> { location ->
                 if (location != null) {
                     if (!::oldLocation.isInitialized) {
                         oldLocation = location
-                        wasteplaceViewModel.locationChange(location)
+                        disposalOptionViewModel.locationChange(location)
                     } else if (oldLocation.distanceTo(location) > 10) {
                         oldLocation = location
-                        wasteplaceViewModel.locationChange(location)
+                        disposalOptionViewModel.locationChange(location)
                     }
                 }
             }
@@ -78,16 +78,16 @@ class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
     }
 
     fun initLocation() {
-        googleApiClient = GoogleApiClient.Builder(wasteplaceViewModel.getApplication() as Context).apply {
+        googleApiClient = GoogleApiClient.Builder(disposalOptionViewModel.getApplication() as Context).apply {
             addConnectionCallbacks(this@LocationUtils)
             addConnectionCallbacks(this@LocationUtils)
             addApi(LocationServices.API)
         }.build()
 
         mLocationManager =
-            (wasteplaceViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            (disposalOptionViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        if(checkLocation()) {
+        if (checkLocation()) {
             googleApiClient.connect()
         }
     }
@@ -99,8 +99,8 @@ class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
         if (!isLocationEnabled) {
             //TODO
 //            showAlert(
-//                (wasteplaceViewModel.getApplication() as Context).getString(R.string.location_title),
-//                (wasteplaceViewModel.getApplication() as Context).getString(R.string.location_message)
+//                (disposalOptionViewModel.getApplication() as Context).getString(R.string.location_title),
+//                (disposalOptionViewModel.getApplication() as Context).getString(R.string.location_message)
 //            )
         }
         return isLocationEnabled
@@ -109,7 +109,7 @@ class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
     private fun isLocationEnabled(): Boolean {
         Log.i(TAG, "isLocationEnabled")
         locationManager =
-            (wasteplaceViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            (disposalOptionViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
             LocationManager.NETWORK_PROVIDER
@@ -123,7 +123,7 @@ class LocationUtils(private var wasteplaceViewModel: WasteplaceViewModel) :
 //        dialog.apply {
 //            setTitle(pTitle)
 //            setMessage(pMessage)
-//            setPositiveButton((wasteplaceViewModel.getApplication() as Context).getString(R.string.location_settings),
+//            setPositiveButton((disposalOptionViewModel.getApplication() as Context).getString(R.string.location_settings),
 //                { _, _ ->
 //                    val myIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
 //                    pActivity.startActivity(myIntent)

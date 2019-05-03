@@ -11,9 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.mrtrash.adapter.DisposalOptionAdapter
-import at.mrtrash.models.Wasteplace
-import at.mrtrash.models.WasteplaceViewModel
-import at.mrtrash.models.WastplaceViewModelFactory
+import at.mrtrash.models.DisposalOption
+import at.mrtrash.models.DisposalOptionViewModel
+import at.mrtrash.models.DisposalOptionViewModelFactory
 import kotlinx.android.synthetic.main.fragment_disposal_options.view.*
 
 /**
@@ -26,7 +26,7 @@ class DisposalOptionsFragment : Fragment() {
 
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: DisposalOptionAdapter
-    private var wasteplaces: ArrayList<Wasteplace> = ArrayList()
+    private var disposalOptions: ArrayList<DisposalOption> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,16 +37,16 @@ class DisposalOptionsFragment : Fragment() {
 
         linearLayoutManager = LinearLayoutManager(activity)
         view.disposalOptionsRecyclerView.layoutManager = linearLayoutManager
-        adapter = DisposalOptionAdapter(wasteplaces)
+        adapter = DisposalOptionAdapter(disposalOptions)
         view.disposalOptionsRecyclerView.adapter = adapter
 
         //TODO: maybe we could move this to adapter?
-        val model = ViewModelProviders.of(this, WastplaceViewModelFactory(activity!!.application))
-            .get(WasteplaceViewModel::class.java)
-        model.getWasteplaces().observe(this, Observer<List<Wasteplace>> { newWasteplaces ->
+        val model = ViewModelProviders.of(this, DisposalOptionViewModelFactory(activity!!.application))
+            .get(DisposalOptionViewModel::class.java)
+        model.getDisposalOptions().observe(this, Observer<List<DisposalOption>> { newWasteplaces ->
             Log.i(TAG, "new data arrived: " + newWasteplaces.size)
-            wasteplaces.clear()
-            wasteplaces.addAll(newWasteplaces as ArrayList<Wasteplace>)
+            disposalOptions.clear()
+            disposalOptions.addAll(newWasteplaces as ArrayList<DisposalOption>)
             activity!!.runOnUiThread {
                 adapter.notifyDataSetChanged()
                 Log.i(TAG, "notified")

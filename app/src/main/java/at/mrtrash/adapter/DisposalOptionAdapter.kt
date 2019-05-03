@@ -4,10 +4,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import at.mrtrash.R
+import at.mrtrash.models.DisposalOption
+import at.mrtrash.models.ProblemMaterialCollectionPoint
 import at.mrtrash.models.Wasteplace
 import kotlinx.android.synthetic.main.card_disposal_option.view.*
 
-class DisposalOptionAdapter(private val disposalOptions: ArrayList<Wasteplace>) :
+class DisposalOptionAdapter(private val disposalOptions: ArrayList<DisposalOption>) :
     RecyclerView.Adapter<DisposalOptionAdapter.DisposalOptionViewHolder>() {
 
     private val TAG = "DisposalOptionAdapter"
@@ -18,27 +20,35 @@ class DisposalOptionAdapter(private val disposalOptions: ArrayList<Wasteplace>) 
     override fun getItemCount() = disposalOptions.size
 
     override fun onBindViewHolder(holder: DisposalOptionViewHolder, position: Int) =
-        holder.bindWasteplace(disposalOptions[position])
+        holder.bindDisposalOption(disposalOptions[position])
 
     class DisposalOptionViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private var view: View = v
-        private var wasteplace: Wasteplace? = null
+        private var disposalOption: DisposalOption? = null
 
-        fun bindWasteplace(wasteplace: Wasteplace) {
-            this.wasteplace = wasteplace
-            view.cardTextViewTitle.text = "Mistplatz"
-            view.cardTextViewAddress.text = getAddressString(wasteplace)
-            view.cardTextViewDistance.text = getDistanceString(wasteplace)
-            view.cardTextViewOpeningHours.text = wasteplace.openingHours
+        fun bindDisposalOption(disposalOption: DisposalOption) {
+            this.disposalOption = disposalOption
+            view.cardTextViewTitle.text = getTitleString(disposalOption)
+            view.cardTextViewAddress.text = getAddressString(disposalOption)
+            view.cardTextViewDistance.text = getDistanceString(disposalOption)
+            view.cardTextViewOpeningHours.text = disposalOption.openingHours
         }
 
-        private fun getAddressString(wasteplace: Wasteplace): String {
-            return wasteplace.address + ", 1" + wasteplace.district.toString().padStart(2, '0') + "0 Wien"
+        private fun getTitleString(disposalOption: DisposalOption): String {
+            return when (disposalOption) {
+                is Wasteplace -> "Mistplatz"
+                is ProblemMaterialCollectionPoint -> "Problemstoffsammelstelle"
+                else -> "Entsorgungsmöglichkeit"
+            }
         }
 
-        private fun getDistanceString(wasteplace: Wasteplace): String {
-            return if(wasteplace.distance != null) {
-                "${wasteplace.distance?.format(2)} km entfernt"
+        private fun getAddressString(disposalOption: DisposalOption): String {
+            return disposalOption.address + ", 1" + disposalOption.district.toString().padStart(2, '0') + "0 Wien"
+        }
+
+        private fun getDistanceString(disposalOption: DisposalOption): String {
+            return if (disposalOption.distance != null) {
+                "${disposalOption.distance?.format(2)} km entfernt"
             } else {
                 "-"
             }

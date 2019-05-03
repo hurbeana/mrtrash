@@ -8,4 +8,7 @@ interface DataService {
     @GET("geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:MISTPLATZOGD&srsName=EPSG:4326&outputFormat=json")
     fun getWasteplaces(): Call<WasteplaceResponse>
 
+    @GET("geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:PROBLEMSTOFFOGD&srsName=EPSG:4326&outputFormat=json")
+    fun getProblemMaterialCollectionPoint(): Call<ProblemMaterialCollectionPointResponse>
+
 }

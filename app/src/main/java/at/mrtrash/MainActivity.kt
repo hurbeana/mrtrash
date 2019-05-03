@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewModels() {
         //TODO: maybe init this here so that data is only loaded once.. Attention with location permissions!
-//        ViewModelProviders.of(this, WastplaceViewModelFactory(application)).get(WasteplaceViewModel::class.java)
+//        ViewModelProviders.of(this, DisposalOptionViewModelFactory(application)).get(DisposalOptionViewModel::class.java)
     }
 
 }

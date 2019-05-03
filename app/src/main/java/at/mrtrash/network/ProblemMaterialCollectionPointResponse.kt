@@ -2,7 +2,7 @@ package at.mrtrash.network
 
 import com.google.gson.annotations.SerializedName
 
-class WasteplaceResponse {
+class ProblemMaterialCollectionPointResponse {
     var type: String? = null
     var totalFeatures: Int? = null
     var features: ArrayList<Feature>? = null
@@ -25,10 +25,14 @@ class WasteplaceResponse {
             var district: Int? = null
             @SerializedName("ADRESSE")
             var address: String? = null
-            @SerializedName("OBJEKT")
-            var objecttype: String? = null
             @SerializedName("OEFFNUNGSZEIT")
             var openingHours: String? = null
+            @SerializedName("ANMERKUNG")
+            var note: String? = null
+            @SerializedName("TELEFON")
+            var phone: String? = null
+            @SerializedName("WEITERE_INFORMATION")
+            var furtherInformationLink: String? = null
         }
     }
 }
