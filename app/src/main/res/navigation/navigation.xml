@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation"
             app:startDestination="@id/wasteTypeFragment">
 
-    <fragment android:id="@+id/wasteTypeFragment" android:name="at.mrtrash.WasteTypeFragment"
-              android:label="fragment_waste_type" tools:layout="@layout/fragment_waste_type">
-        <action android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment"
-                app:destination="@id/disposalOptionsFragment"/>
-        <action android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment2"
-                app:destination="@id/disposalOptionsFragment"/>
+    <fragment
+            android:id="@+id/wasteTypeFragment"
+            android:name="at.mrtrash.WasteTypeFragment"
+            android:label="Willkommen zu Mr. Trash"
+            tools:layout="@layout/fragment_waste_type">
+        <action
+                android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment"
+                app:destination="@+id/disposalOptionsFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                    android:name="selectedWasteType"
+                    app:argType="at.mrtrash.models.WasteType"/>
+            <argument
+                    android:name="title"
+                    android:defaultValue="UwU"
+                    app:argType="string"/>
+        </action>
+
     </fragment>
-    <fragment android:id="@+id/disposalOptionsFragment" android:name="at.mrtrash.DisposalOptionsFragment"
-              android:label="fragment_disposal_options" tools:layout="@layout/fragment_disposal_options"/>
+    <fragment
+            android:id="@+id/disposalOptionsFragment"
+            android:name="at.mrtrash.DisposalOptionsFragment"
+            android:label="{title}"
+            tools:layout="@layout/fragment_disposal_options"/>
 
 </navigation>

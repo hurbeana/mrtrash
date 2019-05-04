@@ -6,9 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.mrtrash.adapter.DisposalOptionAdapter
+import at.mrtrash.models.WasteType
 import at.mrtrash.models.Wasteplace
 import at.mrtrash.network.DataService
 import at.mrtrash.network.WasteplaceResponse

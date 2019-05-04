@@ -6,7 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.mrtrash.adapter.WasteTypeAdapter
@@ -38,15 +40,22 @@ class WasteTypeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_waste_type, container, false)
 
-        // Inflate the layout for this fragment
+        // Init all vals needed for RecyclerView
         linearLayoutManager = LinearLayoutManager(activity)
-        view.waste_type_fragment_view.layoutManager = linearLayoutManager
         val decoration = FastScrollRecyclerViewItemDecoration(activity)
-        view.waste_type_fragment_view.addItemDecoration(decoration)
-        view.waste_type_fragment_view.itemAnimator = DefaultItemAnimator()
         val wasteTypes = mutableListOf<WasteType>()
         adapter = WasteTypeAdapter(wasteTypes)
+        adapter.onClick = { pos, type ->
+            val action =
+                WasteTypeFragmentDirections.actionWasteTypeFragmentToDisposalOptionsFragment(adapter.wasteTypes[pos], adapter.wasteTypes[pos].type)
+            view.findNavController().navigate(action)
+        }
+
+        // Assign vals to RecyclerView
+        view.waste_type_fragment_view.itemAnimator = DefaultItemAnimator()
+        view.waste_type_fragment_view.addItemDecoration(decoration)
         view.waste_type_fragment_view.adapter = adapter
+        view.waste_type_fragment_view.layoutManager = linearLayoutManager
 
 
         loadWasteTypes(wasteTypes)
@@ -75,6 +84,8 @@ class WasteTypeFragment : Fragment() {
             throw e
         }
         Log.d(TAG, wasteTypes.toString())
+
+        wasteTypes.sortBy { wt -> wt.type }
 
         activity!!.runOnUiThread {
             adapter.notifyDataSetChanged()
