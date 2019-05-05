@@ -3,6 +3,7 @@ package at.mrtrash.models
 import android.location.Location
 
 data class ProblemMaterialCollectionPoint(
+    override val id: String,
     override val district: Int,
     override val address: String,
     override val openingHours: String,

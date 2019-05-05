@@ -93,9 +93,7 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
     }
 
     private fun checkLocation(): Boolean {
-        Log.i(TAG, "checkLocation")
         val isLocationEnabled = isLocationEnabled()
-        Log.i(TAG, "checkLocation: " + isLocationEnabled)
         if (!isLocationEnabled) {
             //TODO
 //            showAlert(
@@ -107,7 +105,6 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
     }
 
     private fun isLocationEnabled(): Boolean {
-        Log.i(TAG, "isLocationEnabled")
         locationManager =
             (disposalOptionViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
 

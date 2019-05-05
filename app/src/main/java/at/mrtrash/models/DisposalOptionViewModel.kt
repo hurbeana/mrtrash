@@ -20,7 +20,7 @@ class DisposalOptionViewModel(context: Context) : AndroidViewModel(context as Ap
 
     private val TAG = "DisposalOptionViewModel"
 
-    private val disposalOptions: MutableLiveData<List<DisposalOption>> by lazy {
+    val disposalOptions: MutableLiveData<List<DisposalOption>> by lazy {
         MutableLiveData<List<DisposalOption>>().also {
             loadDisposalOptions()
         }
@@ -28,10 +28,6 @@ class DisposalOptionViewModel(context: Context) : AndroidViewModel(context as Ap
 
     private val locationUtils = LocationUtils(this).initLocation()
     private lateinit var lastLocation: Location
-
-    fun getDisposalOptions(): LiveData<List<DisposalOption>> {
-        return disposalOptions
-    }
 
     fun loadDisposalOptions() {
         val tempDisposalOptions: ArrayList<DisposalOption> = ArrayList()
@@ -55,6 +51,7 @@ class DisposalOptionViewModel(context: Context) : AndroidViewModel(context as Ap
 
                         tempDisposalOptions.add(
                             Wasteplace(
+                                feature.id!!,
                                 feature.properties?.district!!,
                                 feature.properties?.address!!,
                                 feature.properties?.openingHours!!,
@@ -91,6 +88,7 @@ class DisposalOptionViewModel(context: Context) : AndroidViewModel(context as Ap
 
                         tempDisposalOptions.add(
                             ProblemMaterialCollectionPoint(
+                                feature.id!!,
                                 feature.properties?.district!!,
                                 feature.properties?.address!!,
                                 feature.properties?.openingHours!!,

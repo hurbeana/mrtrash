@@ -1,71 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:layout_margin="8dp"
-                                   app:cardCornerRadius="6dp"
-                                   app:cardElevation="6dp">
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp">
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic[14]"
-                android:id="@+id/cardImageView" android:scaleType="centerCrop"/>
-        <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorPrimaryDark"/>
-        <TextView
-                android:text="Title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cardTextViewTitle"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-        <TextView
-                android:text="Addresse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:id="@+id/cardTextViewAddress"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-        <TextView
-                android:text="Entfernung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:id="@+id/cardTextViewDistance"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-        <TextView
-                android:text="Öffnungszeit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:id="@+id/cardTextViewOpeningHours"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+    <data>
+        <variable
+                name="disposalOption"
+                type="at.mrtrash.models.DisposalOption"/>
+        <variable
+                name="clickListenerDetail"
+                type="android.view.View.OnClickListener"/>
+    </data>
+
+    <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:layout_margin="8dp"
+                                       app:cardCornerRadius="6dp"
+                                       app:cardElevation="6dp">
+
         <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <com.google.android.material.button.MaterialButton
-                    android:text="Details"
-                    android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic[14]"
+                    android:id="@+id/cardImageView" android:scaleType="centerCrop"/>
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimaryDark"/>
+            <TextView
+                    android:text="@{disposalOption.titleString}"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cardButtonDetails"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
-            <com.google.android.material.button.MaterialButton
-                    android:text="Auf Karte anzeigen"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/cardTextViewTitle"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            <TextView
+                    android:text="@{disposalOption.addressString}"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cardButtonMap"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                    android:layout_marginStart="16dp"
+                    android:id="@+id/cardTextViewAddress"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            <TextView
+                    android:text="@{disposalOption.distanceString}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:id="@+id/cardTextViewDistance"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            <TextView
+                    android:text="@{disposalOption.openingHours}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:id="@+id/cardTextViewOpeningHours"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <com.google.android.material.button.MaterialButton
+                        android:text="@string/details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardButtonDetails"
+                        android:onClick="@{clickListenerDetail}"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+                <com.google.android.material.button.MaterialButton
+                        android:text="@string/show_on_map"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cardButtonMap"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+            </LinearLayout>
+
+
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+</layout>
