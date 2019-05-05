@@ -2,7 +2,9 @@ package at.mrtrash.adapter
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import at.mrtrash.DisposalOptionsFragmentDirections
 import at.mrtrash.R
 import at.mrtrash.models.DisposalOption
 import at.mrtrash.models.ProblemMaterialCollectionPoint
@@ -32,6 +34,9 @@ class DisposalOptionAdapter(private val disposalOptions: ArrayList<DisposalOptio
             view.cardTextViewAddress.text = getAddressString(disposalOption)
             view.cardTextViewDistance.text = getDistanceString(disposalOption)
             view.cardTextViewOpeningHours.text = disposalOption.openingHours
+            view.cardButtonDetails.setOnClickListener {
+                onClickDetail(it)
+            }
         }
 
         private fun getTitleString(disposalOption: DisposalOption): String {
@@ -52,6 +57,13 @@ class DisposalOptionAdapter(private val disposalOptions: ArrayList<DisposalOptio
             } else {
                 "-"
             }
+        }
+
+        private fun onClickDetail(v: View) {
+            val action = DisposalOptionsFragmentDirections.actionDisposalOptionsFragmentToDisposalOptionDetailFragment(
+                disposalOption!!
+            )
+            v.findNavController().navigate(action)
         }
     }
 

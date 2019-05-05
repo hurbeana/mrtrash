@@ -10,6 +10,13 @@
                 app:destination="@id/disposalOptionsFragment"/>
     </fragment>
     <fragment android:id="@+id/disposalOptionsFragment" android:name="at.mrtrash.DisposalOptionsFragment"
-              android:label="fragment_disposal_options" tools:layout="@layout/fragment_disposal_options"/>
+              android:label="fragment_disposal_options" tools:layout="@layout/fragment_disposal_options">
+        <action android:id="@+id/action_disposalOptionsFragment_to_disposalOptionDetailFragment"
+                app:destination="@id/disposalOptionDetailFragment"/>
+    </fragment>
+    <fragment android:id="@+id/disposalOptionDetailFragment" android:name="at.mrtrash.DisposalOptionDetailFragment"
+              android:label="fragment_disposal_option_detail" tools:layout="@layout/fragment_disposal_option_detail">
+        <argument android:name="disposalOption" app:argType="at.mrtrash.models.DisposalOption"/>
+    </fragment>
 
 </navigation>
