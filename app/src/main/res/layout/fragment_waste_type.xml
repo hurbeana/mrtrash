@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".WasteTypeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <Button
-            android:text="Nächstes Fragment"
-            android:layout_width="246dp"
-            android:layout_height="368dp" android:id="@+id/button"/>
+    <data>
 
-</FrameLayout>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".WasteTypeFragment"
+            android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/wasteTypeFragmentView"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginEnd="36dp"
+                tools:listitem="@layout/waste_type_list_item"/>
+
+        <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
+                android:id="@+id/fast_scroller"
+                android:layout_width="@dimen/verticalFastScrollerWidth"
+                android:layout_height="match_parent"
+                android:paddingEnd="@dimen/margin_small"
+                android:layout_alignParentEnd="true"
+
+                app:rfs_barColor="@color/colorPrimaryLight"
+                app:rfs_handleBackground="@drawable/fast_scroller_handle_rounded"
+                />
+
+        <at.mrtrash.utils.WasteTypeSectionTitleIndicator
+                android:id="@+id/section_title_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/list_item_height"
+                android:layout_toLeftOf="@id/fast_scroller"
+                android:layout_toStartOf="@id/fast_scroller"
+
+                app:rfs_backgroundColor="@color/colorAccent"
+                app:rfs_textColor="@color/colorPrimary"
+                />
+
+    </RelativeLayout>
+</layout>
