@@ -25,6 +25,7 @@ import java.io.StringReader
 import at.mrtrash.fastScrollRecyclerView.FastScrollRecyclerViewItemDecoration
 import at.mrtrash.models.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
+import androidx.recyclerview.widget.DividerItemDecoration
 
 
 /**
@@ -48,13 +49,14 @@ class WasteTypeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, InjectorUtils.provideWasteTypeListViewModelFactory(context))
             .get(WasteTypeListViewModel::class.java)
 
-        // Init all vals needed for RecyclerView
-        val decoration = FastScrollRecyclerViewItemDecoration(activity)
         adapter = WasteTypeAdapter()
 
         // Assign vals to RecyclerView
-        binding.wasteTypeFragmentView.itemAnimator = DefaultItemAnimator()
-        binding.wasteTypeFragmentView.addItemDecoration(decoration)
+        binding.wasteTypeFragmentView.apply {
+            itemAnimator = DefaultItemAnimator()
+            addItemDecoration(FastScrollRecyclerViewItemDecoration(activity))
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        }
         binding.wasteTypeFragmentView.adapter = adapter
 
         subscribeUi(adapter)

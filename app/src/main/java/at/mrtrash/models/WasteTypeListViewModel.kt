@@ -37,7 +37,6 @@ class WasteTypeListViewModel(private val context: Context) : ViewModel() {
             Log.d(TAG, e.toString())
             throw e
         }
-        //Log.d(TAG, wasteTypes.toString())
 
         return wasteTypes.also { it.sortBy { wt -> wt.type } }
     }

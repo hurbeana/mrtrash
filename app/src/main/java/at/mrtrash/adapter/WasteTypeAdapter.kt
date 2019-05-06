@@ -52,9 +52,8 @@ class WasteTypeAdapter :
         }
     }
 
-
     override fun onBindViewHolder(holder: WasteTypeViewHolder, position: Int) {
-        var wasteType = getItem(position)
+        val wasteType = getItem(position)
         holder.apply {
             bind(createOnClickListener(wasteType), wasteType)
             itemView.tag = wasteType

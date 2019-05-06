@@ -50,6 +50,9 @@ class DisposalOptionsFragment : Fragment() {
         view.disposalOptionsRecyclerView.adapter = adapter
         loadWasteplaces()
 
+        val wt = arguments!!.getParcelable<WasteType>("selectedWasteType")
+        Log.d(TAG, wt.toString())
+
         return view
     }
 
