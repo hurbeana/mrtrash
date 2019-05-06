@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import at.mrtrash.R
-import at.mrtrash.WasteTypeFragmentDirections
 import at.mrtrash.databinding.WasteTypeListItemBinding
+import at.mrtrash.fragments.WasteTypeFragmentDirections
 import at.mrtrash.models.WasteType
 
 class WasteTypeAdapter :

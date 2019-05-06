@@ -1,7 +1,8 @@
-package at.mrtrash.models
+package at.mrtrash.models.displayOption
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import at.mrtrash.models.DisposalOption
 
 class DisposalOptionDetailViewModelFactory(private val disposalOption: DisposalOption) :
     ViewModelProvider.NewInstanceFactory() {

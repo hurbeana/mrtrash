@@ -10,7 +10,7 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:context=".DisposalOptionsFragment"
+            tools:context=".fragments.DisposalOptionsFragment"
             tools:listitem="@layout/card_disposal_option" />
 
 </layout>

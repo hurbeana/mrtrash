@@ -7,8 +7,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import at.mrtrash.DisposalOptionsFragmentDirections
 import at.mrtrash.databinding.CardDisposalOptionBinding
+import at.mrtrash.fragments.DisposalOptionsFragmentDirections
 import at.mrtrash.models.DisposalOption
 
 class DisposalOptionAdapter :
@@ -39,7 +39,7 @@ class DisposalOptionAdapter :
         private fun createOnClickListenerDetail(disposalOption: DisposalOption): View.OnClickListener {
             return View.OnClickListener {
                 val action = DisposalOptionsFragmentDirections
-                    .actionDisposalOptionsFragmentToDisposalOptionDetailFragment(disposalOption)
+                    .actionDisposalOptionsFragmentToDisposalOptionDetailFragment(disposalOption, disposalOption::class.simpleName!!)
                 it.findNavController().navigate(action)
             }
 

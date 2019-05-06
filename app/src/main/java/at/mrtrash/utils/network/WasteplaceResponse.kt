@@ -1,4 +1,4 @@
-package at.mrtrash.network
+package at.mrtrash.utils.network
 
 import com.google.gson.annotations.SerializedName
 

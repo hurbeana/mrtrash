@@ -1,9 +1,10 @@
-package at.mrtrash.models
+package at.mrtrash.models.wasteType
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import at.mrtrash.models.WasteType
 import com.beust.klaxon.JsonReader
 import com.beust.klaxon.Klaxon
 import java.io.InputStream

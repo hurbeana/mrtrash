@@ -1,15 +1,15 @@
-package at.mrtrash.models
+package at.mrtrash.models.displayOption
 
 import android.app.Application
 import android.content.Context
 import android.location.Location
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import at.mrtrash.location.LocationUtils
-import at.mrtrash.network.DataService
-import at.mrtrash.network.ProblemMaterialCollectionPointResponse
-import at.mrtrash.network.WasteplaceResponse
+import at.mrtrash.models.DisposalOption
+import at.mrtrash.utils.LocationUtils
+import at.mrtrash.utils.network.DataService
+import at.mrtrash.utils.network.ProblemMaterialCollectionPointResponse
+import at.mrtrash.utils.network.WasteplaceResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

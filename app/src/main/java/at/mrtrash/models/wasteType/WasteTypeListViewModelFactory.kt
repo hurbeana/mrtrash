@@ -1,4 +1,4 @@
-package at.mrtrash.models
+package at.mrtrash.models.wasteType
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

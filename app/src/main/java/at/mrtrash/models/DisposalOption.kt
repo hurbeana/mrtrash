@@ -2,6 +2,8 @@ package at.mrtrash.models
 
 import android.location.Location
 import at.mrtrash.adapter.format
+import at.mrtrash.models.displayOption.ProblemMaterialCollectionPoint
+import at.mrtrash.models.displayOption.Wasteplace
 import java.io.Serializable
 
 interface DisposalOption : Serializable {

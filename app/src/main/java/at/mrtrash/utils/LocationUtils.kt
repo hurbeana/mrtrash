@@ -1,12 +1,11 @@
-package at.mrtrash.location
+package at.mrtrash.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
-import android.util.Log
-import at.mrtrash.models.DisposalOptionViewModel
+import at.mrtrash.models.displayOption.DisposalOptionViewModel
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.FusedLocationProviderClient

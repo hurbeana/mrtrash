@@ -1,4 +1,4 @@
-package at.mrtrash.models
+package at.mrtrash.models.displayOption
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package at.mrtrash
+package at.mrtrash.fragments
 
 
 import android.os.Bundle
@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import at.mrtrash.adapter.WasteTypeAdapter
 import at.mrtrash.databinding.FragmentWasteTypeBinding
-import at.mrtrash.models.WasteTypeListViewModel
+import at.mrtrash.models.wasteType.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
 
 /**

@@ -22,9 +22,8 @@ class MainActivity : AppCompatActivity() {
         initViewModels()
 
         navController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
         // Set up the ActionBar to stay in sync with the NavController
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navController, AppBarConfiguration(navController.graph))
 
         if (ActivityCompat.checkSelfPermission(
                 this,

@@ -1,4 +1,4 @@
-package at.mrtrash
+package at.mrtrash.fragments
 
 
 import android.os.Bundle
@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
+import at.mrtrash.R
 import at.mrtrash.adapter.format
 import at.mrtrash.models.DisposalOption
-import at.mrtrash.models.DisposalOptionDetailViewModel
-import at.mrtrash.models.DisposalOptionDetailViewModelFactory
+import at.mrtrash.models.displayOption.DisposalOptionDetailViewModel
+import at.mrtrash.models.displayOption.DisposalOptionDetailViewModelFactory
 import kotlinx.android.synthetic.main.fragment_disposal_option_detail.view.*
 
 /**
@@ -20,14 +21,16 @@ import kotlinx.android.synthetic.main.fragment_disposal_option_detail.view.*
  */
 class DisposalOptionDetailFragment : Fragment() {
 
-    val args: DisposalOptionDetailFragmentArgs by navArgs()
+    private val args: DisposalOptionDetailFragmentArgs by navArgs()
     private lateinit var viewModel: DisposalOptionDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this, DisposalOptionDetailViewModelFactory(args.disposalOption))
+        viewModel = ViewModelProviders.of(this,
+            DisposalOptionDetailViewModelFactory(args.disposalOption)
+        )
             .get(DisposalOptionDetailViewModel::class.java)
 
         // Inflate the layout for this fragment
