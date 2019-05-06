@@ -15,7 +15,6 @@ import at.mrtrash.databinding.FragmentWasteTypeBinding
 import at.mrtrash.models.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
 
-
 /**
  * A simple [Fragment] subclass.
  *
@@ -24,7 +23,6 @@ class WasteTypeFragment : Fragment() {
 
     private val TAG = WasteTypeFragment::class.qualifiedName
 
-    private lateinit var adapter: WasteTypeAdapter
     private lateinit var viewModel: WasteTypeListViewModel
 
     override fun onCreateView(
@@ -37,21 +35,19 @@ class WasteTypeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, InjectorUtils.provideWasteTypeListViewModelFactory(context))
             .get(WasteTypeListViewModel::class.java)
 
-        adapter = WasteTypeAdapter()
+        val recyclerAdapter = WasteTypeAdapter()
 
         binding.fastScroller.apply {
-           setRecyclerView(binding.wasteTypeFragmentView)
+            setRecyclerView(binding.wasteTypeFragmentView)
             sectionIndicator = binding.sectionTitleIndicator
         }
         // Assign vals to RecyclerView
         binding.wasteTypeFragmentView.apply {
-            itemAnimator = DefaultItemAnimator()
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             addOnScrollListener(binding.fastScroller.onScrollListener)
+            adapter = recyclerAdapter
         }
-        binding.wasteTypeFragmentView.adapter = adapter
-
-        subscribeUi(adapter)
+        subscribeUi(recyclerAdapter)
 
         return binding.root
     }

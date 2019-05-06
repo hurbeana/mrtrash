@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SectionIndexer
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import at.mrtrash.R
 import at.mrtrash.WasteTypeFragmentDirections
 import at.mrtrash.databinding.WasteTypeListItemBinding
 import at.mrtrash.models.WasteType
@@ -32,9 +34,8 @@ class WasteTypeAdapter :
         return alph as Array<Any>
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            WasteTypeAdapter.WasteTypeViewHolder =
-        WasteTypeViewHolder(WasteTypeListItemBinding.inflate(LayoutInflater.from(parent.context)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+            WasteTypeViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.waste_type_list_item, parent, false))
 
     class WasteTypeViewHolder(private val binding: WasteTypeListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
