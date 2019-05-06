@@ -3,55 +3,72 @@ package at.mrtrash.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import at.mrtrash.R
+import at.mrtrash.WasteTypeFragmentDirections
+import at.mrtrash.databinding.WasteTypeListItemBinding
 import at.mrtrash.fastScrollRecyclerView.FastScrollRecyclerViewInterface
 import at.mrtrash.models.WasteType
-import kotlinx.android.synthetic.main.waste_type_list_item.view.*
-import java.util.HashMap
+import java.util.*
 
-class WasteTypeAdapter(val wasteTypes: List<WasteType>) :
-    RecyclerView.Adapter<WasteTypeAdapter.WasteTypeViewHolder>(),
+class WasteTypeAdapter :
+    ListAdapter<WasteType, WasteTypeAdapter.WasteTypeViewHolder>(WasteTypeDiffCallback()),
     FastScrollRecyclerViewInterface {
 
-    var onClick: (pos: Int, type: Int) -> Unit = { _,_ -> Unit}
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
+            WasteTypeAdapter.WasteTypeViewHolder =
+        WasteTypeViewHolder(WasteTypeListItemBinding.inflate(LayoutInflater.from(parent.context)))
 
     override fun getMapIndex(): HashMap<String, Int> {
-        val retmap = hashMapOf<String, Int>()
-        wasteTypes.forEachIndexed { index, wasteType ->
-            val mindex = Character.toString(wasteType.type[0])
-            if (!retmap.containsKey(mindex))
-                retmap[mindex] = index
+        val remap = hashMapOf<String, Int>()
+
+        for (x in 0 until itemCount) {
+            val minded = Character.toString(getItem(x).type[0])
+            if (!remap.containsKey(minded))
+                remap[minded] = x
         }
-        return retmap
+        return remap
     }
 
-    class WasteTypeViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        private var view: View = v
-        private var wasteType: WasteType? = null
+    class WasteTypeViewHolder(private val binding: WasteTypeListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bindWasteType(wasteType: WasteType) {
-            this.wasteType = wasteType
-            view.list_title.text = wasteType.type
-            view.waste_Places.text = wasteType.wastePlaces.joinToString()
+        fun bind(listener: View.OnClickListener, item: WasteType) {
+            binding.apply {
+                clickListener = listener
+                wasteTypeItem = item
+                executePendingBindings()
+            }
         }
-
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): WasteTypeAdapter.WasteTypeViewHolder {
-        // create a new view
-        val cardView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.waste_type_list_item, parent, false) as CardView
-        // set the view's size, margins, paddings and layout parameters
-        return WasteTypeViewHolder(cardView).listen(onClick)
+    private fun createOnClickListener(wasteType: WasteType): View.OnClickListener {
+        return View.OnClickListener {
+            val direction =
+                WasteTypeFragmentDirections.actionWasteTypeFragmentToDisposalOptionsFragment(wasteType, wasteType.type)
+            it.findNavController().navigate(direction)
+        }
     }
+
 
     override fun onBindViewHolder(holder: WasteTypeViewHolder, position: Int) {
-        holder.bindWasteType(wasteType = wasteTypes[position])
+        var wasteType = getItem(position)
+        holder.apply {
+            bind(createOnClickListener(wasteType), wasteType)
+            itemView.tag = wasteType
+        }
+    }
+}
+
+private class WasteTypeDiffCallback : DiffUtil.ItemCallback<WasteType>() {
+
+    override fun areItemsTheSame(oldItem: WasteType, newItem: WasteType): Boolean {
+        return oldItem.type == newItem.type
     }
 
-    override fun getItemCount() = wasteTypes.size
+    override fun areContentsTheSame(oldItem: WasteType, newItem: WasteType): Boolean {
+        return oldItem == newItem
+    }
 }
