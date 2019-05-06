@@ -2,30 +2,18 @@ package at.mrtrash
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.DividerItemDecoration
 import at.mrtrash.adapter.WasteTypeAdapter
 import at.mrtrash.databinding.FragmentWasteTypeBinding
-import at.mrtrash.models.WasteType
-import com.beust.klaxon.JsonReader
-import com.beust.klaxon.Klaxon
-import kotlinx.android.synthetic.main.fragment_waste_type.*
-import kotlinx.android.synthetic.main.fragment_waste_type.view.*
-import java.io.InputStream
-import java.io.StringReader
-import at.mrtrash.fastScrollRecyclerView.FastScrollRecyclerViewItemDecoration
 import at.mrtrash.models.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
-import androidx.recyclerview.widget.DividerItemDecoration
 
 
 /**
@@ -51,11 +39,15 @@ class WasteTypeFragment : Fragment() {
 
         adapter = WasteTypeAdapter()
 
+        binding.fastScroller.apply {
+           setRecyclerView(binding.wasteTypeFragmentView)
+            sectionIndicator = binding.sectionTitleIndicator
+        }
         // Assign vals to RecyclerView
         binding.wasteTypeFragmentView.apply {
             itemAnimator = DefaultItemAnimator()
-            addItemDecoration(FastScrollRecyclerViewItemDecoration(activity))
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addOnScrollListener(binding.fastScroller.onScrollListener)
         }
         binding.wasteTypeFragmentView.adapter = adapter
 

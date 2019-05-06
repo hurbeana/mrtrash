@@ -48,4 +48,5 @@ dependencies {
     implementation 'com.beust:klaxon:5.0.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation "androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04"
+    implementation 'xyz.danoz:recyclerviewfastscroller:0.1.3'
 }
