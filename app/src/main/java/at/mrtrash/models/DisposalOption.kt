@@ -1,6 +1,7 @@
 package at.mrtrash.models
 
 import android.location.Location
+import at.mrtrash.R
 import at.mrtrash.adapter.format
 import at.mrtrash.models.displayOption.ProblemMaterialCollectionPoint
 import at.mrtrash.models.displayOption.Wasteplace
@@ -19,6 +20,14 @@ interface DisposalOption : Serializable {
             is Wasteplace -> "Mistplatz"
             is ProblemMaterialCollectionPoint -> "Problemstoffsammelstelle"
             else -> "Entsorgungsmöglichkeit"
+        }
+    }
+
+    fun getImageResource() : Int {
+        return when (this) {
+            is Wasteplace -> R.drawable.mistplatz_wien
+            is ProblemMaterialCollectionPoint -> R.drawable.prosafahrzeug
+            else -> 0
         }
     }
 

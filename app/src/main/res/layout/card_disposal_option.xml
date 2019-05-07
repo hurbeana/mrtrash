@@ -30,8 +30,10 @@
             <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic[14]"
+                    android:src="@{disposalOption.imageResource}"
                     android:id="@+id/cardImageView" android:scaleType="centerCrop"/>
+            <!--tools:srcCompat="@tools:sample/backgrounds/scenic[14]"-->
+
             <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"

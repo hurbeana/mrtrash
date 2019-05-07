@@ -4,21 +4,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".fragments.DisposalOptionDetailFragment">
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="8dp">
+
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic[14]"
                 android:id="@+id/disposalOptionDetailImageView"
                 android:scaleType="centerCrop"/>
+
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorPrimaryDark"/>
+
         <TextView
                 android:text="Adresse:"
                 android:layout_width="match_parent"
@@ -26,12 +30,14 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/disposalOptionDetailTextViewAddressHeader"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
         <TextView
                 android:text="-"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:id="@+id/disposalOptionDetailTextViewAddressValue"/>
+
         <TextView
                 android:text="Öffnungszeiten:"
                 android:layout_width="match_parent"
@@ -39,16 +45,19 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/disposalOptionDetailTextViewOpeningHoursHeader"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
         <TextView
                 android:text="-"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:id="@+id/disposalOptionDetailTextViewOpeningHoursValue"/>
+
         <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorPrimaryDark"/>
+
         <TextView
                 android:text="Entfernung:"
                 android:layout_width="match_parent"
@@ -56,16 +65,25 @@
                 android:layout_marginTop="8dp"
                 android:id="@+id/disposalOptionDetailTextViewDistanceHeader"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
         <TextView
                 android:text="-"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:id="@+id/disposalOptionDetailTextViewDistanceValue"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/view"/>
+
         <fragment
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="256dp"
                 android:id="@+id/map"
-                android:name="com.google.android.gms.maps.SupportMapFragment"/>
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_margin="16dp"/>
     </LinearLayout>
 </ScrollView>
