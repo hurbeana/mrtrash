@@ -32,17 +32,16 @@ class DisposalOptionsFragment : Fragment() {
     ): View? {
         val binding = FragmentDisposalOptionsBinding.inflate(inflater, container, false)
 
+        val wasteType = arguments!!.getParcelable<WasteType>("selectedWasteType")
+
         viewModel = ViewModelProviders.of(this,
-            DisposalOptionViewModelFactory(activity!!.application)
+            DisposalOptionViewModelFactory(activity!!.application, wasteType)
         )
             .get(DisposalOptionViewModel::class.java)
 
         val adapter = DisposalOptionAdapter()
         binding.disposalOptionsRecyclerView.adapter = adapter
         subscribeUi(adapter)
-
-        val wt = arguments!!.getParcelable<WasteType>("selectedWasteType")
-        Log.d(TAG, wt.toString())
 
         return binding.root
     }
