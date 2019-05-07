@@ -39,7 +39,7 @@ class DisposalOptionAdapter :
         private fun createOnClickListenerDetail(disposalOption: DisposalOption): View.OnClickListener {
             return View.OnClickListener {
                 val action = DisposalOptionsFragmentDirections
-                    .actionDisposalOptionsFragmentToDisposalOptionDetailFragment(disposalOption, disposalOption::class.simpleName!!)
+                    .actionDisposalOptionsFragmentToDisposalOptionDetailFragment(disposalOption, disposalOption.getTitleString())
                 it.findNavController().navigate(action)
             }
 
