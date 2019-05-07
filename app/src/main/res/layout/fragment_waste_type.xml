@@ -30,7 +30,7 @@
 
                 app:rfs_barColor="@color/colorPrimaryLight"
                 app:rfs_handleBackground="@drawable/fast_scroller_handle_rounded"
-                />
+                app:rfs_handleColor="@color/colorAccent" />
 
         <at.mrtrash.utils.WasteTypeSectionTitleIndicator
                 android:id="@+id/section_title_indicator"
@@ -38,6 +38,7 @@
                 android:layout_height="@dimen/list_item_height"
                 android:layout_toLeftOf="@id/fast_scroller"
                 android:layout_toStartOf="@id/fast_scroller"
+                android:layout_marginEnd="32dp"
 
                 app:rfs_backgroundColor="@color/colorAccent"
                 app:rfs_textColor="@color/colorPrimary"
