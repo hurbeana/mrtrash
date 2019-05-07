@@ -1,5 +1,6 @@
 package at.mrtrash.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import at.mrtrash.databinding.CardDisposalOptionBinding
 import at.mrtrash.fragments.DisposalOptionsFragmentDirections
 import at.mrtrash.models.DisposalOption
+import androidx.core.content.ContextCompat.startActivity
+import android.net.Uri
+import android.content.Intent
+import java.util.Locale
+import androidx.core.content.ContextCompat.startActivity
+
+
+
+
 
 class DisposalOptionAdapter :
     ListAdapter<DisposalOption, DisposalOptionAdapter.DisposalOptionViewHolder>(DisposalOptionDiffCallback()) {
@@ -27,19 +37,31 @@ class DisposalOptionAdapter :
 
     class DisposalOptionViewHolder(private val binding: CardDisposalOptionBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        private val context: Context = binding.root.context
 
         fun bind(item: DisposalOption) {
             binding.apply {
                 disposalOption = item
                 clickListenerDetail = createOnClickListenerDetail(item)
+                clickListenerMap = createOnClickListenerMap(item)
                 executePendingBindings()
+            }
+        }
+
+        private fun createOnClickListenerMap(item: DisposalOption): View.OnClickListener {
+            return View.OnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:${item.location.latitude},${item.location.longitude}?q=${item.getTitleString()}+${item.getAddressString()}"))
+                context.startActivity(intent)
             }
         }
 
         private fun createOnClickListenerDetail(disposalOption: DisposalOption): View.OnClickListener {
             return View.OnClickListener {
                 val action = DisposalOptionsFragmentDirections
-                    .actionDisposalOptionsFragmentToDisposalOptionDetailFragment(disposalOption, disposalOption.getTitleString())
+                    .actionDisposalOptionsFragmentToDisposalOptionDetailFragment(
+                        disposalOption,
+                        disposalOption.getTitleString()
+                    )
                 it.findNavController().navigate(action)
             }
 

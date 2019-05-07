@@ -11,6 +11,9 @@
         <variable
                 name="clickListenerDetail"
                 type="android.view.View.OnClickListener"/>
+        <variable
+            name="clickListenerMap"
+            type="android.view.View.OnClickListener"/>
     </data>
 
     <androidx.cardview.widget.CardView android:layout_width="match_parent"
@@ -76,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/cardButtonMap"
+                        android:onClick="@{clickListenerMap}"
                         style="@style/Widget.MaterialComponents.Button.TextButton"/>
             </LinearLayout>
 

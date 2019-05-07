@@ -26,11 +26,19 @@
         <argument android:name="title" android:defaultValue="UwU" app:argType="string"/>
         <action android:id="@+id/action_disposalOptionsFragment_to_disposalOptionDetailFragment"
                 app:destination="@id/disposalOptionDetailFragment"/>
+        <action
+                android:id="@+id/action_disposalOptionsFragment_to_mapsFragment"
+                app:destination="@id/mapsFragement"/>
     </fragment>
     <fragment android:id="@+id/disposalOptionDetailFragment" android:name="at.mrtrash.fragments.DisposalOptionDetailFragment"
               android:label="{displayOptionType}" tools:layout="@layout/fragment_disposal_option_detail">
         <argument android:name="disposalOption" app:argType="at.mrtrash.models.DisposalOption"/>
         <argument android:name="displayOptionType" app:argType="string" android:defaultValue="Entsorgungsmöglichkeit" />
     </fragment>
+    <fragment
+            android:id="@+id/mapsFragement"
+            android:name="at.mrtrash.fragments.MapFragment"
+            android:label="MapMaps"
+            tools:layout="@layout/fragment_maps"/>
 
 </navigation>

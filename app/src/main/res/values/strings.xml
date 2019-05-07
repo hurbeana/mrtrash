@@ -10,4 +10,5 @@
     <string name="value_not_present">-</string>
     <string name="details">Details</string>
     <string name="show_on_map">Auf Karte anzeigen</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

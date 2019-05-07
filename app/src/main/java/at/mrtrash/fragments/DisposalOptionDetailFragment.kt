@@ -13,13 +13,24 @@ import at.mrtrash.adapter.format
 import at.mrtrash.models.DisposalOption
 import at.mrtrash.models.displayOption.DisposalOptionDetailViewModel
 import at.mrtrash.models.displayOption.DisposalOptionDetailViewModelFactory
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_disposal_option_detail.view.*
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class DisposalOptionDetailFragment : Fragment() {
+class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
+    override fun onMapReady(googleMap: GoogleMap?) {
+        val loc = LatLng(viewModel.disposalOption.location.latitude, viewModel.disposalOption.location.longitude)
+        googleMap!!.addMarker(MarkerOptions().position(loc).title(viewModel.disposalOption.getTitleString()))
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc))
+    }
 
     private val args: DisposalOptionDetailFragmentArgs by navArgs()
     private lateinit var viewModel: DisposalOptionDetailViewModel
