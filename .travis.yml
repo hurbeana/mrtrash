@@ -48,4 +48,3 @@ script:
   - ./gradlew connectedAndroidTest
   - ./gradlew clean build
   - ./gradlew test
-script:
