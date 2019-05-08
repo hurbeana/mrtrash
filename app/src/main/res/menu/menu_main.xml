@@ -8,6 +8,7 @@
             android:id="@+id/action_scan"
             android:orderInCategory="300"
             android:icon="@drawable/ic_photo_camera_white_24dp"
-            app:showAsAction="ifRoom"/>
+            app:showAsAction="ifRoom"
+            android:title="Camera"/>
 
 </menu>

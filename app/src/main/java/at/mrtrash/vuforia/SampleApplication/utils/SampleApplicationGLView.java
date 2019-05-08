@@ -29,7 +29,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
  */
 public class SampleApplicationGLView extends GLSurfaceView
 {
-    private static final String LOGTAG = "VuforiaEngine_SampleGLView";
+    private static final String LOGTAG = "VuforiaEngine";
 
     public SampleApplicationGLView(Context context)
     {
