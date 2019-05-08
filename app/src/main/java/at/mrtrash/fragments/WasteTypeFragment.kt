@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import at.mrtrash.R
 import at.mrtrash.adapter.WasteTypeAdapter
 import at.mrtrash.databinding.FragmentWasteTypeBinding
+import at.mrtrash.models.WasteType
 import at.mrtrash.models.wasteType.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
 import at.mrtrash.vuforia.ObjectTargets
@@ -89,10 +90,11 @@ class WasteTypeFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
-                val result = data!!.getStringExtra("result")
+                var result = data!!.getStringExtra("result")
                 //Toast.makeText(this, result, Toast.LENGTH_LONG).show()
-                val wasteType =
-                    viewModel.liveWasteTypes.value!!.find { wt -> wt.type == "Papiertaschentücher" }!!
+                var wasteType: WasteType
+                result = if (result == "tempo") "Papiertaschentücher" else "Zigarettenschachteln"
+                wasteType = viewModel.liveWasteTypes.value!!.find { wt -> wt.type == result }!!
                 val direction =
                     WasteTypeFragmentDirections.actionWasteTypeFragmentToDisposalOptionsFragment(
                         wasteType,

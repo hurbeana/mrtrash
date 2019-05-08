@@ -169,7 +169,7 @@ public class ObjectTargetRenderer extends SampleRendererBase implements SampleAp
                 Trackable trackable = result.getTrackable();
 
                 Intent returnIntent = new Intent();
-                returnIntent.putExtra("result",trackable.getUserData().toString());
+                returnIntent.putExtra("result",trackable.getName());
                 mActivity.setResult(Activity.RESULT_OK,returnIntent);
                 mActivity.finish();
 
