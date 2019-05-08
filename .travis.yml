@@ -1,5 +1,16 @@
 language: android
 
+install:
+  - echo y | sdkmanager "cmake;3.10.2.4988404"
+  - echo y | sdkmanager "add-ons;addon-google_apis-google-24"
+  - echo y | sdkmanager "extras;google;google_play_services"
+  - echo y | sdkmanager "extras;google;m2repository"
+  - echo y | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
+  - echo y | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+  - echo y | sdkmanager "lldb;3.1"
+  - echo y | sdkmanager "ndk-bundle"
+  - echo y | sdkmanager "patcher;v4"
+
 android:
   components:
     # Uncomment the lines below if you want to
@@ -17,15 +28,6 @@ android:
     - extra-google-google_play_services
     - extra-google-m2repository
     - extra-android-m2repository
-    - cmake;3.10.2.4988404
-    - add-ons;addon-google_apis-google-24
-    - extras;google;google_play_services
-    - extras;google;m2repository
-    - extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2
-    - extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2
-    - lldb;3.1
-    - ndk-bundle
-    - patcher;v4
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
