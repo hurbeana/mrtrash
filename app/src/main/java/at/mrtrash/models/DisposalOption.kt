@@ -1,10 +1,7 @@
 package at.mrtrash.models
 
 import android.location.Location
-import at.mrtrash.R
 import at.mrtrash.adapter.format
-import at.mrtrash.models.displayOption.ProblemMaterialCollectionPoint
-import at.mrtrash.models.displayOption.Wasteplace
 import java.io.Serializable
 
 interface DisposalOption : Serializable {
@@ -16,19 +13,11 @@ interface DisposalOption : Serializable {
     var distance: Float?
 
     fun getTitleString(): String {
-        return when (this) {
-            is Wasteplace -> "Mistplatz"
-            is ProblemMaterialCollectionPoint -> "Problemstoffsammelstelle"
-            else -> "Entsorgungsmöglichkeit"
-        }
+        return "Entsorgungsmöglichkeit"
     }
 
-    fun getImageResource() : Int {
-        return when (this) {
-            is Wasteplace -> R.drawable.mistplatz_wien
-            is ProblemMaterialCollectionPoint -> R.drawable.prosafahrzeug
-            else -> 0
-        }
+    fun getImageResource(): Int {
+        return 0
     }
 
     fun getAddressString(): String {
