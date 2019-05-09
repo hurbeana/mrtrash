@@ -4,11 +4,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
+def VUFORIA_SDK_DIR = "../lib/vuforia"
+
 android {
     compileSdkVersion 28
-    dataBinding {
-        enabled = true
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "$VUFORIA_SDK_DIR/build/lib/"
     }
+
     defaultConfig {
         applicationId "at.mrtrash"
         minSdkVersion 23
@@ -16,6 +21,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters ((project.findProperty('abiList') ?: 'armeabi-v7a, arm64-v8a, x86').split(/,\s*/))
+        }
     }
     buildTypes {
         release {
@@ -25,6 +34,10 @@ android {
     }
     dataBinding {
         enabled true
+    }
+
+    aaptOptions {
+        noCompress 'dat'
     }
 }
 
@@ -62,6 +75,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.1.0-alpha04"
     implementation 'xyz.danoz:recyclerviewfastscroller:0.1.3'
     implementation 'com.balysv:material-ripple:1.0.2'
-    implementation 'com.klinkerapps:sliding-activity:1.5.2'
-
+    implementation files("$VUFORIA_SDK_DIR/build/java/Vuforia/Vuforia.jar")
+    // ARCore library
+    implementation 'com.google.ar:core:1.9.0'
 }
