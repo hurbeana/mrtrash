@@ -12,10 +12,8 @@
         <action
                 android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment"
                 app:destination="@+id/disposalOptionsFragment"
-                app:enterAnim="@anim/nav_default_enter_anim"
-                app:exitAnim="@anim/nav_default_exit_anim"
-                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+                app:enterAnim="@anim/slide_in_right"
+                app:popEnterAnim="@anim/slide_in_left"/>
     </fragment>
 
     <fragment android:id="@+id/disposalOptionsFragment"
@@ -25,12 +23,18 @@
         <argument android:name="selectedWasteType" app:argType="at.mrtrash.models.WasteType"/>
         <argument android:name="title" android:defaultValue="UwU" app:argType="string"/>
         <action android:id="@+id/action_disposalOptionsFragment_to_disposalOptionDetailFragment"
-                app:destination="@id/disposalOptionDetailFragment"/>
+                app:destination="@id/disposalOptionDetailFragment" app:enterAnim="@anim/slide_in_right"
+                app:popEnterAnim="@anim/slide_in_left"/>
+        <action android:id="@+id/action_disposalOptionsFragment_to_disposalOptionsFilterFragment"
+                app:destination="@id/disposalOptionsFilterFragment"/>
     </fragment>
     <fragment android:id="@+id/disposalOptionDetailFragment" android:name="at.mrtrash.fragments.DisposalOptionDetailFragment"
               android:label="{displayOptionType}" tools:layout="@layout/fragment_disposal_option_detail">
         <argument android:name="disposalOption" app:argType="at.mrtrash.models.DisposalOption"/>
         <argument android:name="displayOptionType" app:argType="string" android:defaultValue="Entsorgungsmöglichkeit" />
     </fragment>
+    <fragment android:id="@+id/disposalOptionsFilterFragment"
+              android:name="at.mrtrash.fragments.DisposalOptionsFilterFragment"
+              android:label="Öffnungszeiten Filter" tools:layout="@layout/fragment_disposal_options_filter"/>
 
 </navigation>

@@ -14,7 +14,6 @@
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic[14]"
                 android:id="@+id/disposalOptionDetailImageView"
                 android:scaleType="centerCrop"/>
 

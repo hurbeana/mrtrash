@@ -1,6 +1,8 @@
 package at.mrtrash.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import at.mrtrash.databinding.CardDisposalOptionBinding
 import at.mrtrash.fragments.DisposalOptionsFragmentDirections
 import at.mrtrash.models.DisposalOption
-import androidx.core.content.ContextCompat.startActivity
-import android.net.Uri
-import android.content.Intent
-import java.util.Locale
-import androidx.core.content.ContextCompat.startActivity
-
-
-
 
 
 class DisposalOptionAdapter :
@@ -50,7 +44,10 @@ class DisposalOptionAdapter :
 
         private fun createOnClickListenerMap(item: DisposalOption): View.OnClickListener {
             return View.OnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:${item.location.latitude},${item.location.longitude}?q=${item.getTitleString()}+${item.getAddressString()}"))
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("geo:${item.location.latitude},${item.location.longitude}?q=${item.getTitleString()}+${item.getAddressString()}")
+                )
                 context.startActivity(intent)
             }
         }
@@ -64,7 +61,6 @@ class DisposalOptionAdapter :
                     )
                 it.findNavController().navigate(action)
             }
-
         }
     }
 

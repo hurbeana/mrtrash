@@ -43,7 +43,8 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this,
+        viewModel = ViewModelProviders.of(
+            this,
             DisposalOptionDetailViewModelFactory(args.disposalOption)
         )
             .get(DisposalOptionDetailViewModel::class.java)
@@ -58,8 +59,8 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val mapFragment: SupportMapFragment?
-                = childFragmentManager.findFragmentById(at.mrtrash.R.id.map) as SupportMapFragment?
+        val mapFragment: SupportMapFragment? =
+            childFragmentManager.findFragmentById(at.mrtrash.R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
 
     }
@@ -68,6 +69,7 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
         view.disposalOptionDetailTextViewAddressValue.text = getAddressString(viewModel.disposalOption)
         view.disposalOptionDetailTextViewOpeningHoursValue.text = viewModel.disposalOption.openingHours
         view.disposalOptionDetailTextViewDistanceValue.text = getDistanceString(viewModel.disposalOption)
+        view.disposalOptionDetailImageView.setImageResource(viewModel.disposalOption.getImageResource())
     }
 
     private fun getAddressString(disposalOption: DisposalOption): String {
