@@ -78,4 +78,5 @@ dependencies {
     implementation files("$VUFORIA_SDK_DIR/build/java/Vuforia/Vuforia.jar")
     // ARCore library
     implementation 'com.google.ar:core:1.9.0'
+    implementation 'com.google.android.material:material:1.0.0'
 }
