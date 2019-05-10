@@ -27,11 +27,14 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
         }
     }
 
+    private lateinit var allDisposalOptions: ArrayList<DisposalOption>
+
     private val locationUtils = LocationUtils(this).initLocation()
     private lateinit var lastLocation: Location
 
     fun loadDisposalOptions() {
-        val tempDisposalOptions: ArrayList<DisposalOption> = ArrayList()
+//        val tempDisposalOptions: ArrayList<DisposalOption> = ArrayList()
+        allDisposalOptions = ArrayList()
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://data.wien.gv.at/daten/")
@@ -51,7 +54,7 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
                             location.latitude = feature.geometry?.coordinates?.get(1)!!
                             location.longitude = feature.geometry?.coordinates?.get(0)!!
 
-                            tempDisposalOptions.add(
+                            allDisposalOptions.add(
                                 Wasteplace(
                                     feature.id!!,
                                     feature.properties?.district!!,
@@ -64,8 +67,8 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
                             )
                         }
 
-                        tempDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
-                        disposalOptions.postValue(tempDisposalOptions)
+                        allDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
+                        disposalOptions.postValue(allDisposalOptions)
                     }
                 }
 
@@ -90,7 +93,7 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
                             location.latitude = feature.geometry?.coordinates?.get(1)!!
                             location.longitude = feature.geometry?.coordinates?.get(0)!!
 
-                            tempDisposalOptions.add(
+                            allDisposalOptions.add(
                                 ProblemMaterialCollectionPoint(
                                     feature.id!!,
                                     feature.properties?.district!!,
@@ -105,8 +108,8 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
                             )
                         }
 
-                        tempDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
-                        disposalOptions.postValue(tempDisposalOptions)
+                        allDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
+                        disposalOptions.postValue(allDisposalOptions)
                     }
                 }
 
@@ -137,6 +140,16 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
             oldWasteplaces?.sortWith(nullsLast(compareBy { it.distance }))
             disposalOptions.postValue(oldWasteplaces)
         }
+    }
+
+    fun filter(disposalOptionFilter: DisposalOptionFilter) {
+        val filteredList: ArrayList<DisposalOption> = ArrayList()
+        allDisposalOptions.forEach {
+            if(it.isInFilter(disposalOptionFilter)) {
+                filteredList.add(it)
+            }
+        }
+        disposalOptions.postValue(filteredList)
     }
 
 }

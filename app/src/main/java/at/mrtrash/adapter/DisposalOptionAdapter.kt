@@ -61,7 +61,6 @@ class DisposalOptionAdapter :
                     )
                 it.findNavController().navigate(action)
             }
-
         }
     }
 
