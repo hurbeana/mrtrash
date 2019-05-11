@@ -14,10 +14,8 @@
 .idea/*
 
 # Latex related stuff
-*.cls
-*.aux
-*.bbl
 *.blg
+*.aux
 *.fdb_latexmk
 *.fls
 *.log
