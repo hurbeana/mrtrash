@@ -1,15 +1,14 @@
 \babel@toc {ngerman}{}
 \babel@toc {ngerman}{}
-\contentsline {chapter}{\numberline {1}Konzept}{4}{chapter.1}% 
-\contentsline {section}{\numberline {1.1}Geplanter Name der App}{4}{section.1.1}% 
-\contentsline {section}{\numberline {1.2}Kurzbeschreibung}{4}{section.1.2}% 
-\contentsline {section}{\numberline {1.3}Beschreibung der gew\IeC {\"a}hlten Datens\IeC {\"a}tze}{5}{section.1.3}% 
-\contentsline {subsection}{\numberline {1.3.1}Problemstoffsammelstelle Wien \cite {problemstoffsammelstellen}}{5}{subsection.1.3.1}% 
-\contentsline {subsection}{\numberline {1.3.2}Altstoffsammelstelle Wien \cite {alstoffsammelstellen}}{5}{subsection.1.3.2}% 
-\contentsline {subsection}{\numberline {1.3.3}Mistpl\IeC {\"a}tze Standorte Wien \cite {mistplaetze}}{6}{subsection.1.3.3}% 
-\contentsline {subsection}{\numberline {1.3.4}M\IeC {\"u}lltrenn ABC \cite {muelltrennabc}}{7}{subsection.1.3.4}% 
-\contentsline {section}{\numberline {1.4}Wireframes}{8}{section.1.4}% 
-\contentsline {subsection}{\numberline {1.4.1}Beschreibung}{8}{subsection.1.4.1}% 
-\contentsline {chapter}{\numberline {2}Graphischer Entwurf}{10}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}High-Fidelity Mockup}{10}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Product Icon}{11}{section.2.2}% 
+\contentsline {chapter}{\numberline {1}Ablauf}{4}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Vorkentnisse}{4}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Hurbean}{4}{subsection.1.1.1}% 
+\contentsline {subsection}{\numberline {1.1.2}Schweiger}{4}{subsection.1.1.2}% 
+\contentsline {section}{\numberline {1.2}Probleme bei Implementierung}{4}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Hurbean}{4}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Schweiger}{4}{subsection.1.2.2}% 
+\contentsline {chapter}{\numberline {2}Projekt}{5}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Frameworks}{5}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}UI}{5}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Funktionalität}{5}{subsection.2.1.2}% 
+\contentsline {section}{\numberline {2.2}Statische Daten}{5}{section.2.2}% 
