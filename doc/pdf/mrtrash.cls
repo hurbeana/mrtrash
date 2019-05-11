@@ -8,10 +8,11 @@
 
 %% Language and font encodings
 \RequirePackage[ngerman]{babel}
-\RequirePackage[T1]{fontenc}
-\RequirePackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 \RequirePackage{bibgerm}
+\usepackage[scaled]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
 
 %% Sets page size and margins
 \usepackage[a4paper,top=2.5cm,bottom=2cm,left=2cm,right=2cm]{geometry}

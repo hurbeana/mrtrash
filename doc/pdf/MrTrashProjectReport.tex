@@ -95,14 +95,27 @@ Das Vuforia SDK war auch nicht einfach zu einbinden, deren Website ist schreckli
 
 \section{Frameworks}
 
-
-
 \subsection{UI}
+\begin{itemize}
+    \item \href{https://developer.android.com/jetpack/androidx/releases/appcompat}{[AppCompat Doc]} Für Rückwärtskompatibilität.
+    \item \href{https://github.com/danoz73/RecyclerViewFastScroller}{[RecyclerViewFastScroller Github Repo]} Für die Scrollleiste auf der Seite beim RecyclerView.
+    \item \href{https://github.com/balysv/material-ripple}{Material Ripple Github Repo} Für den Ripple Effect auf den RecyclerView Elementen.
+\end{itemize}
 
 \subsection{Funktionalität}
 
+\begin{itemize}
+    \item \href{https://kotlinlang.org/}{[Kotlin Homepage]} Das gesamte Projekt ist in Kotlin entwickelt worden.
+    \item \href{https://developer.android.com/jetpack/androidx}{[AndroidX Overview]} Hier ist die Jetpack Library enthalten. Diese wird für RecyclerView, ViewModel, CardView und Navigation genutzt.
+    \item \href{https://square.github.io/retrofit/}{[Retrofit Doc]} Um HTTP Abfragen an den data.gv.at Server zu machen.
+    \item \href{https://developers.google.com/android/guides/overview}{[Google Play Services Overview]} Wir nutzen Play Services für Location und Maps.
+    \item \href{https://github.com/cbeust/klaxon}{[Klaxon Github Repo]} Für JSON Parsing.
+    \item \href{https://developer.vuforia.com/}{Vuforia Homepage} Für die Object Recognition.
+\end{itemize}
+
 \section{Statische Daten}
 
+In unserem Projekt existieren derzeit keine statischen Daten (außer die JSON für Mülltypen, die aber auch im Finalen Prototypen am Ende noch enthalten sein wird). Wir laden sätmliche Daten aktuell von \href{https://data.gv.at}{data.gv.at}.
 
 %\bibliographystyle{abbrv}
 %\bibliography{references}
