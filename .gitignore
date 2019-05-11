@@ -14,13 +14,11 @@
 .idea/*
 
 # Latex related stuff
-/doc/pdf/*.cls
-/doc/pdf/*.aux
-/doc/pdf/*.bbl
-/doc/pdf/*.blg
-/doc/pdf/*.fdb*
-/doc/pdf/*.fls
-/doc/pdf/*.log
-/doc/pdf/*.pdf
-/doc/pdf/*.synctex.gz
-/doc/pdf/*.toc
+*.blg
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.gz
+*.toc
