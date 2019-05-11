@@ -20,10 +20,10 @@
 
 \null\vfill
 \noindent
-App Design Document\\ 
+Projektbericht Dokument\\ 
 Mobile (App) Software Engineering\\
 Technische Universität Wien\\
-Version v1.1, März 2019
+Version v1.1, April 2019
 \newpage
 
 \tableofcontents
@@ -33,31 +33,60 @@ Version v1.1, März 2019
 % ______________________
 \chapter{Ablauf}
 
-In diesem Kapitel finden sich Informationen wieder zum allgemeinen Ablauf des Projekts so weit.
-
-\section{Vorkentnisse}
-
-In diesem Abschnitt sind Vorkentnisse über die einzelnen Teammitglieder vorhanden.
+\section{Vorkenntnisse}
 
 \subsection{Hurbean}
+
+Momentan im 6ten Semester des Bachelorstudium Software \& Information Engineering und schon einige Erfahrungen gesammelt.
 
 \begin{itemize}
     \item Kaum Vorkentnisse zu Android Programmierung (habe Hello World vor langer Zeit programmiert, aber nichts weiteres)
     \item Vertraut mit IntelliJ und sonstigen Jetbrains Produkten
     \item Jahrelange Erfahrung Java und C\#
+    \item Keine Erfahrung mit Kotlin
     \item Einige Erfahrungen mit MVC
     \item Aktive Nutzung von VCS wie Git und Subversion
-    \item Durchschnittliches Wissen über \LaTeX
+    \item Durchschnittliches Wissen \LaTeX
 \end{itemize}
 
+\begin{minipage}[t]{\textwidth}
+    \centering
+    \bubbles{1/Android, 1/Kotlin, 3/MVC, 6/IntelliJ, 6/Java, 3/git, 4/LaTeX}
+\end{minipage}
+
 \subsection{Schweiger}
+
+\lorem \lorem
+
+\begin{itemize}
+    \item \lorem
+    \item \lorem
+\end{itemize}
+
+\begin{minipage}[t]{\textwidth}
+    \centering
+    \bubbles{6/lorem, 6/lorem, 6/lorem, 6/lorem, 6/lorem, 6/lorem, 6/lorem}
+\end{minipage}
 
 \section{Probleme bei Implementierung}
 
+Wir hatten generell keine großen Probleme bei der Implementierung, dennoch sind hier einige Anmerkungen. Im Großen und Ganzen, war das größte der Zeitaufwand den wir erbringen mussten uns sämtliche Resourcen anzuschauen und das Wissen dann anzuwenden.
+
 \subsection{Hurbean}
+
+Die meisten Probleme hatte ich beim Verstehen des MVVM Pattern von Android Jetpack und dem Nutzen von LiveData und generell Adaptern (in den einem Fall beim RecyclerView). Ganz besonders verwirrt, hat mich das Konzept, wie die UI eigentlich zur Laufzeit "inflated" wird und auch per Code herumhantiert/dynamisch generiert werden kann. Das wurde in der Vorlesung meiner Meinung nach irgendwie nicht besonders gut erklärt und deswegen hatte ich große Probleme damit. Nach einiger Zeit, habe ich das aber verstanden und war in der Lage alles zu implementieren.
+
+Weiters war das einbinden von github gehosteten Libaries auch anstrengend, weil man diese manuell kompilieren und dann erst zum Projekt hinzufügen muss und anschließend einbinden kann.
+
+Teilweise hatte ich auch ein bisschen Probleme beim Einrichten des Data-Binding, weil die Fehlermeldung nicht besonders aussagekräftig waren und ich die ganze Zeit an den falschen Stellen versucht habe die Fehler zu finden.
+
+Zuletzt hatte ich auch noch relativ großen Zeitverlust wegen externen Libraries (die nötig waren) [FastScrollRecyclerView], weil diese Fehler hatten und ich diese manuell mit Hacks ausbessern musste.
+
+Das Vuforia SDK war auch nicht einfach zu einbinden, deren Website ist schrecklich umständlich und Features sind sehr undokumentiert (zumindest was die Android Entwicklung betrifft).
 
 \subsection{Schweiger}
 
+\lorem \lorem \lorem
 
 % ______________________
 % Kapitel Projekt
@@ -66,6 +95,8 @@ In diesem Abschnitt sind Vorkentnisse über die einzelnen Teammitglieder vorhand
 
 \section{Frameworks}
 
+
+
 \subsection{UI}
 
 \subsection{Funktionalität}
@@ -73,7 +104,7 @@ In diesem Abschnitt sind Vorkentnisse über die einzelnen Teammitglieder vorhand
 \section{Statische Daten}
 
 
-\bibliographystyle{abbrv}
-\bibliography{references}
+%\bibliographystyle{abbrv}
+%\bibliography{references}
 
 \end{document}
