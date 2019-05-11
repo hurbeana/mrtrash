@@ -14,20 +14,8 @@
 .idea/*
 
 # Latex related stuff
-*.cls
-*.aux
-*.bbl
 *.blg
-*.fdb*
-*.fls
-*.log
-*.pdf
-*.synctex.gz
-*.toc
 *.aux
-*.aux
-*.bbl
-*.blg
 *.fdb_latexmk
 *.fls
 *.log
