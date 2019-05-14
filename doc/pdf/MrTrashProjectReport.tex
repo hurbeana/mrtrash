@@ -23,7 +23,7 @@
 Projektbericht Dokument\\ 
 Mobile (App) Software Engineering\\
 Technische Universität Wien\\
-Version v1.1, April 2019
+Version v1.2, April 2019
 \newpage
 
 \tableofcontents
@@ -105,7 +105,7 @@ Dies hat mir zum Beispiel beim Two-Way-Binding mit View-Model einige Nerven geko
 \begin{itemize}
     \item \href{https://developer.android.com/jetpack/androidx/releases/appcompat}{[AppCompat Doc]} Für Rückwärtskompatibilität.
     \item \href{https://github.com/danoz73/RecyclerViewFastScroller}{[RecyclerViewFastScroller Github Repo]} Für die Scrollleiste auf der Seite beim RecyclerView.
-    \item \href{https://github.com/balysv/material-ripple}{Material Ripple Github Repo} Für den Ripple Effect auf den RecyclerView Elementen.
+    \item \href{https://github.com/balysv/material-ripple}{[Material Ripple Github Repo]} Für den Ripple Effect auf den RecyclerView Elementen.
 \end{itemize}
 
 \subsection{Funktionalität}
@@ -116,13 +116,35 @@ Dies hat mir zum Beispiel beim Two-Way-Binding mit View-Model einige Nerven geko
     \item \href{https://square.github.io/retrofit/}{[Retrofit Doc]} Um HTTP Abfragen an den data.gv.at Server zu machen.
     \item \href{https://developers.google.com/android/guides/overview}{[Google Play Services Overview]} Wir nutzen Play Services für Location und Maps.
     \item \href{https://github.com/cbeust/klaxon}{[Klaxon Github Repo]} Für JSON Parsing.
-    \item \href{https://developer.vuforia.com/}{Vuforia Homepage} Für die Object Recognition.
+    \item \href{https://developer.vuforia.com/}{[Vuforia Homepage]} Für die Object Recognition.
 \end{itemize}
 
 \section{Statische Daten}
 
 In unserem Projekt existieren derzeit keine statischen Daten (außer die JSON für Mülltypen, die aber auch im Finalen Prototypen am Ende noch enthalten sein wird). Wir laden sätmliche Daten aktuell von \href{https://data.gv.at}{data.gv.at}.
 
+\section{Vuforia SDK}
+
+Die Integration des Vuforia SDK fiel uns nicht leicht, da die Dokumentation für die Android SDK (im Vergleich zur Unity SDK) besonders spärlich ist. Auf der \href{https://library.vuforia.com/articles/Solution/Getting-Started-with-Vuforia-for-Android-Development.html}{Getting Started with Vuforia for Android Development} wird nur hingewiesen, welche Dependencies man braucht und wie das Projekt aufzusetzen ist um die Samples zu kompilieren. Selbst das ist nicht vollständig, da man in einer Activity noch einen String durch einen SDK-Key ersetzen muss und das Ablegen des SDKs nicht genau beschrieben wird.
+
+Leider ist auch die \href{https://library.vuforia.com/content/vuforia-library/en/articles/Solution/How-To-Use-Object-Recognition-in-an-Android-App.html}{Dokumentation} zur Object Recognition sehr spärlich und ungenau, da wir weder Erfahrung mit dem Vuforia SDK, Android NDK oder allgemein Android Entwicklung haben. Auch hier sind StackOverflow Postings zu Hilfe gekommen, von Personen die ebenfalls Probleme damit hatten.
+
+Nachdem wir verstanden haben, dass wir einen SDK-Key brauchen, eine Object-Datenbank (dessen 3D-Modelle durch eine Extra App aufgenommen werden müssen und über die Vuforia Seite erstellt werden) und es geschafft haben das SDK in die Samples einzubinden, konnten wir zusammen mit einigen StackOverflow Posts und Trial and Error die Samples zum Laufen zu bringen. Als nächste Herausforderung stellte sich heraus, dass das SDK sehr umfangreich ist und die Funktionalität die wir brachen, nur ein Bruchteil davon war. Den Teil der Samples herauszupicken und funktionsfähig in die App hineinzubringen, war nicht einfach.
+
+Durch, wieder viel Trial and Error, ist es uns gelungen, die richtigen Teile den Samples zu entnehmen und in unsere App einzubauen. Zum Schluss mussten wir, nur mehr ein paar kleine Änderungen machen, um das Ergebnis der Recognition aus der Vuforia Activity zu unserem Fragment zurück zu bringen.
+
+\newpage
+
+\section{Referenzbilder}
+\begin{minipage}[h]{\textwidth}
+    \centering
+    \includegraphics[height=\textwidth, angle=-90]{ref1.jpg}
+\end{minipage}
+
+\begin{minipage}[h]{\textwidth}
+    \centering
+    \includegraphics[height=\textwidth, angle=-90]{ref2.jpg}
+\end{minipage}
 %\bibliographystyle{abbrv}
 %\bibliography{references}
 
