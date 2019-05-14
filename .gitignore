@@ -12,3 +12,14 @@
 /captures
 .externalNativeBuild
 .idea/*
+
+# Latex related stuff
+*.blg
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.gz
+*.toc
+*.out

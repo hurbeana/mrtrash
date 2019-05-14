@@ -1,0 +1,151 @@
+\documentclass{mrtrash}
+
+\ihead{Mr. Trash Projektbericht}
+
+\title{\vspace{-1cm}Mr. Trash}
+\subtitle{App zur effizienten Müllentsorgung}
+\author{
+    Hurbean, Alexander\\
+    \texttt{e01625747}
+    \and
+    Schweiger, Philipp\\
+    \texttt{e01634254}
+    \and
+    \texttt{Gruppe 06}}
+\titlehead{\centering\includegraphics[width=\textwidth]{../graphical/icon/4x/ic_material_product_icon_192pxxxxhdpi.png}}
+
+
+\begin{document}
+\maketitle
+
+\null\vfill
+\noindent
+Projektbericht Dokument\\ 
+Mobile (App) Software Engineering\\
+Technische Universität Wien\\
+Version v1.2, April 2019
+\newpage
+
+\tableofcontents
+
+% ______________________
+% Kapitel Ablauf
+% ______________________
+\chapter{Ablauf}
+
+\section{Vorkenntnisse}
+
+\subsection{Hurbean}
+
+Momentan im 6ten Semester des Bachelorstudium Software \& Information Engineering und schon einige Erfahrungen gesammelt.
+
+\begin{itemize}
+    \item Kaum Vorkenntnisse zu Android Programmierung (habe Hello World vor langer Zeit programmiert, aber nichts weiteres)
+    \item Vertraut mit IntelliJ und sonstigen Jetbrains Produkten
+    \item Jahrelange Erfahrung Java und C\#
+    \item Keine Erfahrung mit Kotlin
+    \item Einige Erfahrungen mit MVC
+    \item Aktive Nutzung von VCS wie Git und Subversion
+    \item Durchschnittliches Wissen \LaTeX
+\end{itemize}
+
+\begin{minipage}[t]{\textwidth}
+    \centering
+    \bubbles{1/Android, 1/Kotlin, 3/MVC, 6/IntelliJ, 6/Java, 3/git, 4/LaTeX}
+\end{minipage}
+
+\subsection{Schweiger}
+
+Aktuell im 6. und letztem Semester des Studiums Software \& Information Engineering.
+
+\begin{itemize}
+    \item Geringe Vorkenntnisse mit Android Programmierung. Habe vor einigen Jahren eine kleine App mit Listview und Detail-Ansichten programmiert, jedoch ohne Einsatz von Frameworks.
+    \item Vertraut mit IntelliJ und sonstigen Jetbrains Produkten
+    \item Jahrelange Erfahrung mit Java
+    \item Erfahrung mit Git
+\end{itemize}
+
+\begin{minipage}[t]{\textwidth}
+    \centering
+    \bubbles{2/Android, 1/Kotlin, 6/IntelliJ, 6/Java, 4/git, 2/Latex}
+\end{minipage}
+
+\section{Probleme bei Implementierung}
+
+Wir hatten generell keine großen Probleme bei der Implementierung, dennoch sind hier einige Anmerkungen. Im Großen und Ganzen, war das größte der Zeitaufwand den wir erbringen mussten uns sämtliche Ressourcen anzuschauen und das Wissen dann anzuwenden.
+
+\subsection{Hurbean}
+
+Die meisten Probleme hatte ich beim Verstehen des MVVM Pattern von Android Jetpack und dem Nutzen von LiveData und generell Adaptern (in den einem Fall beim RecyclerView). Ganz besonders verwirrt, hat mich das Konzept, wie die UI eigentlich zur Laufzeit "inflated" wird und auch per Code herum hantiert/dynamisch generiert werden kann. Das wurde in der Vorlesung meiner Meinung nach irgendwie nicht besonders gut erklärt und deswegen hatte ich große Probleme damit. Nach einiger Zeit, habe ich das aber verstanden und war in der Lage alles zu implementieren.
+
+Des Weiteren war das einbinden von github gehosteten Libaries auch anstrengend, weil man diese manuell kompilieren und dann erst zum Projekt hinzufügen muss und anschließend einbinden kann.
+
+Teilweise hatte ich auch ein bisschen Probleme beim Einrichten des Data-Binding, weil die Fehlermeldung nicht besonders aussagekräftig waren und ich die ganze Zeit an den falschen Stellen versucht habe die Fehler zu finden.
+
+Zuletzt hatte ich auch noch relativ großen Zeitverlust wegen externen Libraries (die nötig waren) [FastScrollRecyclerView], weil diese Fehler hatten und ich diese manuell mit Hacks ausbessern musste.
+
+Das Vuforia SDK war auch nicht einfach zu einbinden, deren Website ist schrecklich umständlich und Features sind sehr undokumentiert (zumindest was die Android Entwicklung betrifft).
+
+\subsection{Schweiger}
+
+Es war teilweise etwas schwierig, das Basic-Projekt mit der Android Jetpack Navigation so einzurichten, dass alles passt, weil es keine ausführliche Projekt Setup Dokumentation gibt.
+
+Generell ist die Dokumentation von Google zu den jeweiligen Komponenten zwar gut, leider ist es oft jedoch sehr schwer das große Ganze zu überblicken, da man oft herum suchen muss, um alle Dependencies zu finden. Es ist oft schwer zu verstehen, wie alle verschiedenen Komponenten zusammen spielen.
+
+Dies hat mir zum Beispiel beim Two-Way-Binding mit View-Model einige Nerven gekostet und zu einem hohen Aufwand geführt.
+
+% ______________________
+% Kapitel Projekt
+% ______________________
+\chapter{Projekt}
+
+\section{Frameworks}
+
+\subsection{UI}
+\begin{itemize}
+    \item \href{https://developer.android.com/jetpack/androidx/releases/appcompat}{[AppCompat Doc]} Für Rückwärtskompatibilität.
+    \item \href{https://github.com/danoz73/RecyclerViewFastScroller}{[RecyclerViewFastScroller Github Repo]} Für die Scrollleiste auf der Seite beim RecyclerView.
+    \item \href{https://github.com/balysv/material-ripple}{[Material Ripple Github Repo]} Für den Ripple Effect auf den RecyclerView Elementen.
+\end{itemize}
+
+\subsection{Funktionalität}
+
+\begin{itemize}
+    \item \href{https://kotlinlang.org/}{[Kotlin Homepage]} Das gesamte Projekt ist in Kotlin entwickelt worden.
+    \item \href{https://developer.android.com/jetpack/androidx}{[AndroidX Overview]} Hier ist die Jetpack Library enthalten. Diese wird für RecyclerView, ViewModel, CardView und Navigation genutzt.
+    \item \href{https://square.github.io/retrofit/}{[Retrofit Doc]} Um HTTP Abfragen an den data.gv.at Server zu machen.
+    \item \href{https://developers.google.com/android/guides/overview}{[Google Play Services Overview]} Wir nutzen Play Services für Location und Maps.
+    \item \href{https://github.com/cbeust/klaxon}{[Klaxon Github Repo]} Für JSON Parsing.
+    \item \href{https://developer.vuforia.com/}{[Vuforia Homepage]} Für die Object Recognition.
+\end{itemize}
+
+\section{Statische Daten}
+
+In unserem Projekt existieren derzeit keine statischen Daten (außer die JSON für Mülltypen, die aber auch im Finalen Prototypen am Ende noch enthalten sein wird). Wir laden sätmliche Daten aktuell von \href{https://data.gv.at}{data.gv.at}.
+
+\section{Vuforia SDK}
+
+Die Integration des Vuforia SDK fiel uns nicht leicht, da die Dokumentation für die Android SDK (im Vergleich zur Unity SDK) besonders spärlich ist. Auf der \href{https://library.vuforia.com/articles/Solution/Getting-Started-with-Vuforia-for-Android-Development.html}{Getting Started with Vuforia for Android Development} wird nur hingewiesen, welche Dependencies man braucht und wie das Projekt aufzusetzen ist um die Samples zu kompilieren. Selbst das ist nicht vollständig, da man in einer Activity noch einen String durch einen SDK-Key ersetzen muss und das Ablegen des SDKs nicht genau beschrieben wird.
+
+Leider ist auch die \href{https://library.vuforia.com/content/vuforia-library/en/articles/Solution/How-To-Use-Object-Recognition-in-an-Android-App.html}{Dokumentation} zur Object Recognition sehr spärlich und ungenau, da wir weder Erfahrung mit dem Vuforia SDK, Android NDK oder allgemein Android Entwicklung haben. Auch hier sind StackOverflow Postings zu Hilfe gekommen, von Personen die ebenfalls Probleme damit hatten.
+
+Nachdem wir verstanden haben, dass wir einen SDK-Key brauchen, eine Object-Datenbank (dessen 3D-Modelle durch eine Extra App aufgenommen werden müssen und über die Vuforia Seite erstellt werden) und es geschafft haben das SDK in die Samples einzubinden, konnten wir zusammen mit einigen StackOverflow Posts und Trial and Error die Samples zum Laufen zu bringen. Als nächste Herausforderung stellte sich heraus, dass das SDK sehr umfangreich ist und die Funktionalität die wir brachen, nur ein Bruchteil davon war. Den Teil der Samples herauszupicken und funktionsfähig in die App hineinzubringen, war nicht einfach.
+
+Durch, wieder viel Trial and Error, ist es uns gelungen, die richtigen Teile den Samples zu entnehmen und in unsere App einzubauen. Zum Schluss mussten wir, nur mehr ein paar kleine Änderungen machen, um das Ergebnis der Recognition aus der Vuforia Activity zu unserem Fragment zurück zu bringen.
+
+\newpage
+
+\section{Referenzbilder}
+\begin{minipage}[h]{\textwidth}
+    \centering
+    \includegraphics[height=\textwidth, angle=-90]{ref1.jpg}
+\end{minipage}
+
+\begin{minipage}[h]{\textwidth}
+    \centering
+    \includegraphics[height=\textwidth, angle=-90]{ref2.jpg}
+\end{minipage}
+%\bibliographystyle{abbrv}
+%\bibliography{references}
+
+\end{document}
