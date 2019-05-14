@@ -8,6 +8,7 @@ def VUFORIA_SDK_DIR = "../lib/vuforia"
 
 android {
     compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     sourceSets.main {
         jni.srcDirs = []
