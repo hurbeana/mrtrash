@@ -19,12 +19,14 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:gravity="center_horizontal"
             android:paddingTop="16dp"
             tools:context=".fragments.DisposalOptionsFilterFragment">
-        <RelativeLayout
+        <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
             <TextView
                     android:text="Von: "
                     android:layout_width="wrap_content"
@@ -35,19 +37,18 @@
             <EditText
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:layout_toEndOf="@id/filterTextViewFrom"
                     android:gravity="center"
                     android:inputType="time"
                     android:id="@+id/filterEditTextFrom"
                     android:background="@drawable/checked"
                     android:focusable="false"
                     android:onClick="@{clickListenerFrom}"
-                    android:text="@={viewModel.minTime}"/>
+                    android:text="@={viewModel.minTime}"
+                    android:textColor="@color/white"/>
             <TextView
                     android:text="Bis: "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/filterEditTextFrom"
                     android:paddingTop="26dp"
                     android:layout_marginStart="16dp"
                     android:id="@+id/filterTextViewTo"/>
@@ -61,88 +62,30 @@
                     android:background="@drawable/checked"
                     android:focusable="false"
                     android:onClick="@{clickListenerTo}"
-                    android:text="@={viewModel.maxTime}"/>
+                    android:text="@={viewModel.maxTime}"
+                    android:textColor="@color/white"/>
+        </LinearLayout>
 
-            <CheckBox
-                    android:text="Mo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterTextViewFrom"
-                    android:layout_marginBottom="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxMon"
-                    android:checked="@={viewModel.mon}"/>
-            <CheckBox
-                    android:text="Di"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterTextViewFrom"
-                    android:layout_toEndOf="@id/filterCheckBoxMon"
-                    android:layout_marginStart="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxTue"
-                    android:checked="@={viewModel.tue}"/>
-            <CheckBox
-                    android:text="Mi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterTextViewFrom"
-                    android:layout_toEndOf="@id/filterCheckBoxTue"
-                    android:layout_marginStart="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxWed"
-                    android:checked="@={viewModel.wed}"/>
-            <CheckBox
-                    android:text="Do"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterCheckBoxMon"
-                    android:layout_marginBottom="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxThu"
-                    android:checked="@={viewModel.thu}"/>
-            <CheckBox
-                    android:text="Fr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterCheckBoxMon"
-                    android:layout_toEndOf="@id/filterCheckBoxMon"
-                    android:layout_marginStart="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxFri"
-                    android:checked="@={viewModel.fri}"/>
-            <CheckBox
-                    android:text="Sa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterCheckBoxMon"
-                    android:layout_toEndOf="@id/filterCheckBoxTue"
-                    android:layout_marginStart="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxSat"
-                    android:checked="@={viewModel.sat}"/>
-            <CheckBox
-                    android:text="So"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterCheckBoxThu"
-                    android:layout_toEndOf="@id/filterCheckBoxMon"
-                    android:layout_marginStart="8dp"
-                    android:button="@drawable/checkbox_mrtrash"
-                    android:id="@+id/filterCheckBoxSun"
-                    android:checked="@={viewModel.sun}"/>
-            <com.google.android.material.button.MaterialButton
-                    android:text="Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/filterCheckBoxSun"
-                    android:layout_marginTop="32dp"
-                    android:layout_centerHorizontal="true"
-                    android:id="@+id/filterButton"
-                    android:onClick="@{clickListenerFilter}"
-                    style="@style/Widget.MaterialComponents.Button"/>
+        <ViewStub
+                android:id="@+id/weekdays_stub"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"/>
 
-        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
+
+        <com.google.android.material.button.MaterialButton
+                android:text="Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:id="@+id/filterButton"
+                android:onClick="@{clickListenerFilter}"
+                style="@style/Widget.MaterialComponents.Button"/>
+
     </LinearLayout>
 
 </layout>

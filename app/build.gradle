@@ -46,6 +46,10 @@ androidExtensions {
     experimental = true
 }
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -66,6 +70,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.0"
     implementation "androidx.appcompat:appcompat:1.0.2"
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.github.TouchBoarder:weekdays-buttons-bar:v1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
