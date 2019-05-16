@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
-import androidx.databinding.adapters.SearchViewBindingAdapter.setOnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -19,15 +18,12 @@ import at.mrtrash.models.WasteType
 import at.mrtrash.models.wasteType.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
 import at.mrtrash.vuforia.ObjectTargets
-import java.util.Locale.filter
 
 /**
  * A simple [Fragment] subclass.
  *
  */
 class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
-
-    private val TAG = WasteTypeFragment::class.qualifiedName
 
     private lateinit var viewModel: WasteTypeListViewModel
     private lateinit var recyclerAdapter : WasteTypeAdapter
@@ -88,7 +84,6 @@ class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
             //myIntent.putExtra("key", value) //Optional parameters
             startActivityForResult(myIntent, 1)
             //Toast.makeText(this@MainActivity, "Action clicked", Toast.LENGTH_LONG).show()
-            return true
         }
 
         return super.onOptionsItemSelected(item)
@@ -100,7 +95,7 @@ class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
             if (resultCode == Activity.RESULT_OK) {
                 var result = data!!.getStringExtra("result")
                 //Toast.makeText(this, result, Toast.LENGTH_LONG).show()
-                var wasteType: WasteType
+                val wasteType: WasteType
                 result = if (result == "tempo") "Papiertaschentücher" else "Zigarettenschachteln"
                 wasteType = viewModel.liveWasteTypes.value!!.find { wt -> wt.type == result }!!
                 val direction =

@@ -9,15 +9,14 @@ import com.beust.klaxon.JsonReader
 import com.beust.klaxon.Klaxon
 import java.io.InputStream
 import java.io.StringReader
-import androidx.core.content.res.TypedArrayUtils.getText
 import java.util.ArrayList
 
 
 class WasteTypeListViewModel(private val context: Context) : ViewModel() {
 
-    private val TAG = "WasteTypeListViewModel"
+    private val _TAG = "WasteTypeListViewModel"
 
-    val original: List<WasteType> by lazy {
+    private val original: List<WasteType> by lazy {
         loadWasteTypes()
     }
 
@@ -46,7 +45,7 @@ class WasteTypeListViewModel(private val context: Context) : ViewModel() {
 
         val wasteTypes = mutableListOf<WasteType>()
         try {
-            Log.d(TAG, "LOADING!")
+            Log.d(_TAG, "LOADING!")
             val inputStream: InputStream = context.assets?.open("muellABC.json")!!
             val klaxon = Klaxon()
             val string = inputStream.bufferedReader().readText()
@@ -59,7 +58,7 @@ class WasteTypeListViewModel(private val context: Context) : ViewModel() {
                 }
             }
         } catch (e: Exception) {
-            Log.d(TAG, e.toString())
+            Log.d(_TAG, e.toString())
             throw e
         }
 
