@@ -21,6 +21,14 @@
                 android:layout_marginEnd="36dp"
                 tools:listitem="@layout/waste_type_list_item"/>
 
+        <ProgressBar
+                style="@android:style/Widget.ProgressBar"
+                android:id="@+id/loading_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+
         <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
                 android:id="@+id/fast_scroller"
                 android:layout_width="@dimen/verticalFastScrollerWidth"

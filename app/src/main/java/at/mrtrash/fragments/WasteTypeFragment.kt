@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.databinding.adapters.SearchViewBindingAdapter.setOnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -19,6 +20,7 @@ import at.mrtrash.models.WasteType
 import at.mrtrash.models.wasteType.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
 import at.mrtrash.vuforia.ObjectTargets
+import kotlinx.android.synthetic.main.fragment_waste_type.*
 import java.util.Locale.filter
 
 /**
@@ -63,6 +65,7 @@ class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun subscribeUi(adapter: WasteTypeAdapter) {
         viewModel.liveWasteTypes.observe(viewLifecycleOwner, Observer { wasteTypes ->
+            if (loading_indicator.visibility == View.VISIBLE) loading_indicator.visibility = View.INVISIBLE
             if (wasteTypes != null) adapter.submitList(wasteTypes)
         })
     }
