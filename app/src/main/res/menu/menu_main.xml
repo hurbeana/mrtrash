@@ -9,6 +9,6 @@
             android:orderInCategory="300"
             android:icon="@drawable/ic_photo_camera_white_24dp"
             app:showAsAction="ifRoom"
-            android:title="Camera"/>
+            android:title="@string/camera"/>
 
 </menu>

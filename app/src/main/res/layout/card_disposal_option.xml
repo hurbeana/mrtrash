@@ -31,7 +31,8 @@
                     android:layout_height="150dp"
                     android:id="@+id/cardImageView"
                     android:scaleType="centerCrop"
-                    android:src="@{disposalOption.imageResource}"/>
+                    android:src="@{disposalOption.imageResource}"
+                    android:contentDescription="@string/image_content_description"/>
 
             <View
                     android:layout_width="match_parent"

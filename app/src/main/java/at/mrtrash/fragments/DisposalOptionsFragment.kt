@@ -21,8 +21,6 @@ import at.mrtrash.models.displayOption.DisposalOptionViewModelFactory
  */
 class DisposalOptionsFragment : Fragment() {
 
-    private val TAG = "DisposalOptionsFragment"
-
     private lateinit var viewModel: DisposalOptionViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

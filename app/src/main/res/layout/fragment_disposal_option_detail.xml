@@ -15,7 +15,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:id="@+id/disposalOptionDetailImageView"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_content_description"/>
 
         <View
                 android:layout_width="match_parent"
@@ -23,7 +24,7 @@
                 android:background="@color/colorPrimaryDark"/>
 
         <TextView
-                android:text="Adresse:"
+                android:text="@string/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -31,14 +32,14 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <TextView
-                android:text="-"
+                android:text="@string/value_not_present"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:id="@+id/disposalOptionDetailTextViewAddressValue"/>
 
         <TextView
-                android:text="Öffnungszeiten:"
+                android:text="@string/opening_hours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -46,7 +47,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <TextView
-                android:text="-"
+                android:text="@string/value_not_present"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -58,7 +59,7 @@
                 android:background="@color/colorPrimaryDark"/>
 
         <TextView
-                android:text="Entfernung:"
+                android:text="@string/distance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -66,7 +67,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
         <TextView
-                android:text="-"
+                android:text="@string/value_not_present"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

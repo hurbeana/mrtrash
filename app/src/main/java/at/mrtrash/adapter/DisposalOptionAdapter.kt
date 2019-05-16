@@ -18,8 +18,6 @@ import at.mrtrash.models.DisposalOption
 class DisposalOptionAdapter :
     ListAdapter<DisposalOption, DisposalOptionAdapter.DisposalOptionViewHolder>(DisposalOptionDiffCallback()) {
 
-    private val TAG = "DisposalOptionAdapter"
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DisposalOptionViewHolder(CardDisposalOptionBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 

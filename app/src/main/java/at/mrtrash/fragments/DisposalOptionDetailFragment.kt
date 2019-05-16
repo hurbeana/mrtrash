@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
-import at.mrtrash.adapter.format
+import at.mrtrash.R
 import at.mrtrash.models.DisposalOption
 import at.mrtrash.models.displayOption.DisposalOptionDetailViewModel
 import at.mrtrash.models.displayOption.DisposalOptionDetailViewModelFactory
@@ -50,7 +50,7 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
             .get(DisposalOptionDetailViewModel::class.java)
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(at.mrtrash.R.layout.fragment_disposal_option_detail, container, false)
+        val view = inflater.inflate(R.layout.fragment_disposal_option_detail, container, false)
         bindDisposalOption(view)
 
         return view
@@ -60,7 +60,7 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
         super.onActivityCreated(savedInstanceState)
 
         val mapFragment: SupportMapFragment? =
-            childFragmentManager.findFragmentById(at.mrtrash.R.id.map) as SupportMapFragment?
+            childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
 
     }
@@ -73,14 +73,14 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun getAddressString(disposalOption: DisposalOption): String {
-        return disposalOption.address + ", 1" + disposalOption.district.toString().padStart(2, '0') + "0 Wien"
+        return getString(R.string.address_value, disposalOption.address, disposalOption.district)
     }
 
     private fun getDistanceString(disposalOption: DisposalOption): String {
         return if (disposalOption.distance != null) {
-            "${disposalOption.distance?.format(2)} km entfernt"
+            getString(R.string.distance_value, disposalOption.distance)
         } else {
-            "-"
+            getString(R.string.value_not_present)
         }
     }
 

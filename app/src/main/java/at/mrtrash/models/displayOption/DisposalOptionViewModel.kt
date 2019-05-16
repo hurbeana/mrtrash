@@ -17,9 +17,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : AndroidViewModel(context as Application), LocationUtils.Callback {
-
-    private val TAG = "DisposalOptionViewModel"
+class DisposalOptionViewModel(context: Context, private val wasteType: WasteType) :
+    AndroidViewModel(context as Application), LocationUtils.Callback {
 
     val disposalOptions: MutableLiveData<List<DisposalOption>> by lazy {
         MutableLiveData<List<DisposalOption>>().also {
@@ -32,7 +31,7 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
     private val locationUtils = LocationUtils(this).initLocation()
     private lateinit var lastLocation: Location
 
-    fun loadDisposalOptions() {
+    private fun loadDisposalOptions() {
 //        val tempDisposalOptions: ArrayList<DisposalOption> = ArrayList()
         allDisposalOptions = ArrayList()
 
@@ -42,7 +41,7 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
             .build()
         val service = retrofit.create(DataService::class.java)
 
-        if(wasteType.wastePlaces.contains("Mistplatz")) {
+        if (wasteType.wastePlaces.contains("Mistplatz")) {
             val wastplaceCall = service.getWasteplaces()
             wastplaceCall.enqueue(object : Callback<WasteplaceResponse> {
                 override fun onResponse(call: Call<WasteplaceResponse>, response: Response<WasteplaceResponse>) {
@@ -78,7 +77,7 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
             })
         }
 
-        if(wasteType.wastePlaces.contains("Problemstoffsammelstelle")) {
+        if (wasteType.wastePlaces.contains("Problemstoffsammelstelle")) {
             val problemMaterialCollectionPointCall = service.getProblemMaterialCollectionPoint()
             problemMaterialCollectionPointCall.enqueue(object : Callback<ProblemMaterialCollectionPointResponse> {
                 override fun onResponse(
@@ -145,7 +144,7 @@ class DisposalOptionViewModel(context: Context, val wasteType: WasteType) : Andr
     fun filter(disposalOptionFilter: DisposalOptionFilter) {
         val filteredList: ArrayList<DisposalOption> = ArrayList()
         allDisposalOptions.forEach {
-            if(it.isInFilter(disposalOptionFilter)) {
+            if (it.isInFilter(disposalOptionFilter)) {
                 filteredList.add(it)
             }
         }

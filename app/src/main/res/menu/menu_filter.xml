@@ -9,6 +9,6 @@
             android:orderInCategory="300"
             android:icon="@drawable/ic_filter_list_white_24dp"
             app:showAsAction="ifRoom"
-            android:title="Filter"/>
+            android:title="@string/filter"/>
 
 </menu>

@@ -18,14 +18,12 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
     GoogleApiClient.OnConnectionFailedListener,
     com.google.android.gms.location.LocationListener {
 
-    private val TAG = "LocationUtils"
-
-    lateinit var googleApiClient: GoogleApiClient
+    private lateinit var googleApiClient: GoogleApiClient
     private lateinit var oldLocation: Location
     private var mLocationManager: LocationManager? = null
     private var locationRequest: LocationRequest? = null
-    private val UINTERVAL = (2 * 1000).toLong()  /* 10 secs */
-    private val FINTERVAL: Long = 2000 /* 2 sec */
+    private val uInterval = (2 * 1000).toLong()  /* 10 secs */
+    private val fInterval: Long = 2000 /* 2 sec */
     private lateinit var locationManager: LocationManager
 
     override fun onLocationChanged(location: Location) {
@@ -70,8 +68,8 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
     private fun startLocationUpdates() {
         locationRequest = LocationRequest.create().apply {
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-            interval = UINTERVAL
-            fastestInterval = FINTERVAL
+            interval = uInterval
+            fastestInterval = fInterval
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this)
     }

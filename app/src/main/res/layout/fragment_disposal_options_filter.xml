@@ -28,12 +28,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
             <TextView
-                    android:text="Von: "
+                    android:text="@string/from"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="26dp"
                     android:layout_marginBottom="32dp"
-                    android:id="@+id/filterTextViewFrom"/>
+                    android:id="@+id/filterTextViewFrom"
+                    android:labelFor="@id/filterEditTextFrom"/>
             <EditText
                     android:layout_width="64dp"
                     android:layout_height="64dp"
@@ -46,16 +47,16 @@
                     android:text="@={viewModel.minTime}"
                     android:textColor="@color/white"/>
             <TextView
-                    android:text="Bis: "
+                    android:text="@string/to"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="26dp"
                     android:layout_marginStart="16dp"
-                    android:id="@+id/filterTextViewTo"/>
+                    android:id="@+id/filterTextViewTo"
+                    android:labelFor="@id/filterEditTextTo"/>
             <EditText
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:layout_toEndOf="@id/filterTextViewTo"
                     android:gravity="center"
                     android:inputType="time"
                     android:id="@+id/filterEditTextTo"
@@ -78,7 +79,7 @@
                 android:scrollbars="vertical"/>
 
         <com.google.android.material.button.MaterialButton
-                android:text="Filter"
+                android:text="@string/filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"

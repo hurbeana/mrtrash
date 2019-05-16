@@ -87,7 +87,7 @@ class DisposalOptionsFilterFragment : Fragment() {
             val timePicker = TimePickerDialog(
                 activity!!,
                 TimePickerDialog.OnTimeSetListener(function = { view, h, m ->
-                    it.setText(h.toString().padStart(2, '0') + ":" + m.toString().padStart(2, '0'))
+                    it.setText(getString(R.string.time_chooser, h, m))
                 }),
                 Integer.parseInt(time.split(":")[0]),
                 Integer.parseInt(time.split(":")[1]),
@@ -104,7 +104,7 @@ class DisposalOptionsFilterFragment : Fragment() {
             val timePicker = TimePickerDialog(
                 activity!!,
                 TimePickerDialog.OnTimeSetListener(function = { view, h, m ->
-                    it.setText(h.toString().padStart(2, '0') + ":" + m.toString().padStart(2, '0'))
+                    it.setText(getString(R.string.time_chooser, h, m))
                 }),
                 Integer.parseInt(time.split(":")[0]),
                 Integer.parseInt(time.split(":")[1]),
