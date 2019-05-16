@@ -1,6 +1,8 @@
 package at.mrtrash.fragments
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -51,6 +53,17 @@ class DisposalOptionsFragment : Fragment() {
         val adapter = DisposalOptionAdapter()
         binding.disposalOptionsRecyclerView.adapter = adapter
         subscribeUi(adapter)
+
+        binding.fabShowNearest.setOnClickListener {
+            if(!viewModel.disposalOptions.value.isNullOrEmpty()){
+                val item = viewModel.disposalOptions.value!![0]
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("geo:${item.location.latitude},${item.location.longitude}?q=${item.getTitleString()}+${item.getAddressString()}")
+                )
+                binding.root.context.startActivity(intent)
+            }
+        }
 
         return binding.root
     }
