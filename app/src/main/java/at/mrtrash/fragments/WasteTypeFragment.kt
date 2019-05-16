@@ -5,6 +5,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
+import androidx.databinding.adapters.SearchViewBindingAdapter.setOnQueryTextListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -17,16 +19,18 @@ import at.mrtrash.models.WasteType
 import at.mrtrash.models.wasteType.WasteTypeListViewModel
 import at.mrtrash.utils.InjectorUtils
 import at.mrtrash.vuforia.ObjectTargets
+import java.util.Locale.filter
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class WasteTypeFragment : Fragment() {
+class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private val TAG = WasteTypeFragment::class.qualifiedName
 
     private lateinit var viewModel: WasteTypeListViewModel
+    private lateinit var recyclerAdapter : WasteTypeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +44,7 @@ class WasteTypeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, InjectorUtils.provideWasteTypeListViewModelFactory(context))
             .get(WasteTypeListViewModel::class.java)
 
-        val recyclerAdapter = WasteTypeAdapter()
+        recyclerAdapter = WasteTypeAdapter()
 
         binding.fastScroller.apply {
             setRecyclerView(binding.wasteTypeFragmentView)
@@ -66,6 +70,10 @@ class WasteTypeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+        searchView.queryHint = "Suche Mist"
+        searchView.setOnQueryTextListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -106,5 +114,15 @@ class WasteTypeFragment : Fragment() {
                 //Write your code if there's no result
             }
         }
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        viewModel.filter(newText)
+        return true
     }
 }
