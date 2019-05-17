@@ -1,6 +1,8 @@
 package at.mrtrash.fragments
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -52,6 +54,17 @@ class DisposalOptionsFragment : Fragment() {
         binding.disposalOptionsRecyclerView.adapter = adapter
         subscribeUi(adapter)
 
+        binding.fabShowNearest.setOnClickListener {
+            if(!viewModel.disposalOptions.value.isNullOrEmpty()){
+                val item = viewModel.disposalOptions.value!![0]
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("geo:${item.location.latitude},${item.location.longitude}?q=${item.getTitleString()}+${item.getAddressString()}")
+                )
+                binding.root.context.startActivity(intent)
+            }
+        }
+
         return binding.root
     }
 
@@ -71,8 +84,8 @@ class DisposalOptionsFragment : Fragment() {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
 
-        findNavController().navigate(R.id.action_disposalOptionsFragment_to_disposalOptionsFilterFragment)
-        if (id == R.id.action_scan) {
+        if (id == R.id.action_filter) {
+            findNavController().navigate(R.id.action_disposalOptionsFragment_to_disposalOptionsFilterFragment)
         }
 
         return super.onOptionsItemSelected(item)
