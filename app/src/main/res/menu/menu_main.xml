@@ -4,6 +4,11 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
 
+    <item android:id="@+id/action_search"
+          android:title="@string/search_hint"
+          app:actionViewClass="android.widget.SearchView"
+          app:showAsAction="always"/>
+
     <item
             android:id="@+id/action_scan"
             android:orderInCategory="300"

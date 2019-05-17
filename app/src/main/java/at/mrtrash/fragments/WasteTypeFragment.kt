@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -22,11 +23,10 @@ import at.mrtrash.vuforia.ObjectTargets
  * A simple [Fragment] subclass.
  *
  */
-class WasteTypeFragment : Fragment() {
-
-    private val TAG = WasteTypeFragment::class.qualifiedName
+class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var viewModel: WasteTypeListViewModel
+    private lateinit var recyclerAdapter : WasteTypeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,7 @@ class WasteTypeFragment : Fragment() {
         viewModel = ViewModelProviders.of(this, InjectorUtils.provideWasteTypeListViewModelFactory(context))
             .get(WasteTypeListViewModel::class.java)
 
-        val recyclerAdapter = WasteTypeAdapter()
+        recyclerAdapter = WasteTypeAdapter()
 
         binding.fastScroller.apply {
             setRecyclerView(binding.wasteTypeFragmentView)
@@ -66,6 +66,10 @@ class WasteTypeFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+        searchView.queryHint = "Suche Mist"
+        searchView.setOnQueryTextListener(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -80,7 +84,6 @@ class WasteTypeFragment : Fragment() {
             //myIntent.putExtra("key", value) //Optional parameters
             startActivityForResult(myIntent, 1)
             //Toast.makeText(this@MainActivity, "Action clicked", Toast.LENGTH_LONG).show()
-            return true
         }
 
         return super.onOptionsItemSelected(item)
@@ -92,7 +95,7 @@ class WasteTypeFragment : Fragment() {
             if (resultCode == Activity.RESULT_OK) {
                 var result = data!!.getStringExtra("result")
                 //Toast.makeText(this, result, Toast.LENGTH_LONG).show()
-                var wasteType: WasteType
+                val wasteType: WasteType
                 result = if (result == "tempo") "Papiertaschentücher" else "Zigarettenschachteln"
                 wasteType = viewModel.liveWasteTypes.value!!.find { wt -> wt.type == result }!!
                 val direction =
@@ -106,5 +109,14 @@ class WasteTypeFragment : Fragment() {
                 //Write your code if there's no result
             }
         }
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        viewModel.filter(newText)
+        return true
     }
 }

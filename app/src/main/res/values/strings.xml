@@ -25,4 +25,5 @@
     <string name="camera">Kamera</string>
 
     <string name="time_chooser">%1$02d:%2$02d</string>
+    <string name="search_hint">Suche Mist</string>
 </resources>
