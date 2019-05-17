@@ -84,8 +84,8 @@ class DisposalOptionsFragment : Fragment() {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.itemId
 
-        findNavController().navigate(R.id.action_disposalOptionsFragment_to_disposalOptionsFilterFragment)
-        if (id == R.id.action_scan) {
+        if (id == R.id.action_filter) {
+            findNavController().navigate(R.id.action_disposalOptionsFragment_to_disposalOptionsFilterFragment)
         }
 
         return super.onOptionsItemSelected(item)
