@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.DisposalOptionDetailFragment">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/disposalOptionDetailImageView"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/image_content_description"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"/>
+
+        <TextView
+                android:text="@string/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:id="@+id/disposalOptionDetailTextViewAddressHeader"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+                android:text="@string/value_not_present"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:id="@+id/disposalOptionDetailTextViewAddressValue"/>
+
+        <TextView
+                android:text="@string/opening_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:id="@+id/disposalOptionDetailTextViewOpeningHoursHeader"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+                android:text="@string/value_not_present"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:id="@+id/disposalOptionDetailTextViewOpeningHoursValue"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"/>
+
+        <TextView
+                android:text="@string/distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:id="@+id/disposalOptionDetailTextViewDistanceHeader"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+                android:text="@string/value_not_present"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:id="@+id/disposalOptionDetailTextViewDistanceValue"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:id="@+id/view"/>
+
+        <fragment
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_margin="16dp"/>
+    </LinearLayout>
+</ScrollView>

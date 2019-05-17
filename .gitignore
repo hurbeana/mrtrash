@@ -1,5 +1,6 @@
 *.iml
 .gradle
+gradle/*
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -12,3 +13,14 @@
 /captures
 .externalNativeBuild
 .idea/*
+
+# Latex related stuff
+*.blg
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.pdf
+*.gz
+*.toc
+*.out

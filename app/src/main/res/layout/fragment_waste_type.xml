@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.WasteTypeFragment"
+            android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/wasteTypeFragmentView"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginEnd="36dp"
+                tools:listitem="@layout/waste_type_list_item"/>
+
+        <xyz.danoz.recyclerviewfastscroller.vertical.VerticalRecyclerViewFastScroller
+                android:id="@+id/fast_scroller"
+                android:layout_width="@dimen/verticalFastScrollerWidth"
+                android:layout_height="match_parent"
+                android:paddingEnd="@dimen/margin_small"
+                android:layout_alignParentEnd="true"
+
+                app:rfs_barColor="@color/colorPrimaryLight"
+                app:rfs_handleBackground="@drawable/fast_scroller_handle_rounded"
+                app:rfs_handleColor="@color/colorAccent"
+                tools:ignore="RtlSymmetry"/>
+
+        <at.mrtrash.utils.WasteTypeSectionTitleIndicator
+                android:id="@+id/section_title_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/list_item_height"
+                android:layout_toStartOf="@id/fast_scroller"
+                android:layout_marginEnd="32dp"
+
+                app:rfs_backgroundColor="@color/colorAccent"
+                app:rfs_textColor="@color/colorPrimary"
+                />
+
+    </RelativeLayout>
+</layout>

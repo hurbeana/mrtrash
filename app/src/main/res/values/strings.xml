@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Mr. Trash</string>
+    <string name="title_activity_main">Mr. Trash</string>
+
+    <string name="wasteplace">Mistplatz</string>
+    <string name="problem_material_collection_point">Problemstoffsammelstelle</string>
+    <string name="value_not_present">-</string>
+    <string name="details">Details</string>
+    <string name="show_on_map">Auf Karte anzeigen</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="button_OK">OK</string>
+
+    <string name="image_content_description">Bild der Entsorgungstelle</string>
+
+    <string name="address">Adresse:</string>
+    <string name="opening_hours">Öffnungszeiten:</string>
+    <string name="distance">Distanz:</string>
+    <string name="address_value">%1$s, 1%2$02d0 Wien</string>
+    <string name="distance_value">%.2f km entfernt</string>
+
+    <string name="from">Von:</string>
+    <string name="to">To:</string>
+    <string name="filter">Filter</string>
+
+    <string name="camera">Kamera</string>
+
+    <string name="time_chooser">%1$02d:%2$02d</string>
+    <string name="search_hint">Suche Mist</string>
 </resources>

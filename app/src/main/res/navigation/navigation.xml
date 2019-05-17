@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation"
+            app:startDestination="@id/wasteTypeFragment">
+
+    <fragment android:id="@+id/wasteTypeFragment"
+            android:name="at.mrtrash.fragments.WasteTypeFragment"
+            android:label="Willkommen zu Mr. Trash"
+            tools:layout="@layout/fragment_waste_type">
+        <action
+                android:id="@+id/action_wasteTypeFragment_to_disposalOptionsFragment"
+                app:destination="@+id/disposalOptionsFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:popEnterAnim="@anim/slide_in_left"/>
+    </fragment>
+
+    <fragment android:id="@+id/disposalOptionsFragment"
+              android:name="at.mrtrash.fragments.DisposalOptionsFragment"
+              android:label="{title}"
+              tools:layout="@layout/fragment_disposal_options">
+        <argument android:name="selectedWasteType" app:argType="at.mrtrash.models.WasteType"/>
+        <argument android:name="title" android:defaultValue="UwU" app:argType="string"/>
+        <action android:id="@+id/action_disposalOptionsFragment_to_disposalOptionDetailFragment"
+                app:destination="@id/disposalOptionDetailFragment" app:enterAnim="@anim/slide_in_right"
+                app:popEnterAnim="@anim/slide_in_left"/>
+        <action android:id="@+id/action_disposalOptionsFragment_to_disposalOptionsFilterFragment"
+                app:destination="@id/disposalOptionsFilterFragment"/>
+    </fragment>
+    <fragment android:id="@+id/disposalOptionDetailFragment" android:name="at.mrtrash.fragments.DisposalOptionDetailFragment"
+              android:label="{displayOptionType}" tools:layout="@layout/fragment_disposal_option_detail">
+        <argument android:name="disposalOption" app:argType="at.mrtrash.models.DisposalOption"/>
+        <argument android:name="displayOptionType" app:argType="string" android:defaultValue="Entsorgungsmöglichkeit" />
+    </fragment>
+    <fragment android:id="@+id/disposalOptionsFilterFragment"
+              android:name="at.mrtrash.fragments.DisposalOptionsFilterFragment"
+              android:label="Öffnungszeiten Filter" tools:layout="@layout/fragment_disposal_options_filter"/>
+
+</navigation>

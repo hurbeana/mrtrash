@@ -1,11 +1,20 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+def VUFORIA_SDK_DIR = "../lib/vuforia"
 
 android {
     compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "$VUFORIA_SDK_DIR/build/lib/"
+    }
+
     defaultConfig {
         applicationId "at.mrtrash"
         minSdkVersion 23
@@ -13,6 +22,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters((project.findProperty('abiList') ?: 'armeabi-v7a, arm64-v8a, x86').split(/,\s*/))
+        }
     }
     buildTypes {
         release {
@@ -20,12 +33,53 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled true
+    }
+
+    aaptOptions {
+        noCompress 'dat'
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+repositories {
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.3.31"
     implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation "androidx.navigation:navigation-fragment-ktx:2.0.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.0.0"
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.0"
+    implementation "androidx.appcompat:appcompat:1.0.2"
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
+    implementation 'com.google.ar:core:1.9.0'
+    implementation 'com.github.TouchBoarder:weekdays-buttons-bar:v1.0.2'
+    implementation 'com.beust:klaxon:5.0.1'
+    implementation 'com.balysv:material-ripple:1.0.2'
+    implementation 'xyz.danoz:recyclerviewfastscroller:0.1.3'
+    implementation files("$VUFORIA_SDK_DIR/build/java/Vuforia/Vuforia.jar")
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
