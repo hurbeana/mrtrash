@@ -134,9 +134,7 @@ class DisposalOptionsFragment : Fragment() {
             return View.OnClickListener {
                 viewModelFilter.onFilterNowClicked()
                 binding.viewModel = viewModelFilter
-                activity!!.runOnUiThread {
-                    weekdaysDataSource.setSelectedDays(*viewModelFilter.getSelectedDays().toIntArray())
-                }
+                weekdaysDataSource.setSelectedDays(*viewModelFilter.getSelectedDaysAsBooleanList().toBooleanArray())
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
             }
         }

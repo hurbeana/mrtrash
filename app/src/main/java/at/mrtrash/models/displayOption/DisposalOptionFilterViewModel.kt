@@ -38,6 +38,18 @@ class DisposalOptionFilterViewModel : ViewModel() {
         return days
     }
 
+    fun getSelectedDaysAsBooleanList(): List<Boolean> {
+        val dayBooleans = ArrayList<Boolean>()
+        dayBooleans.add(mon)
+        dayBooleans.add(tue)
+        dayBooleans.add(wed)
+        dayBooleans.add(thu)
+        dayBooleans.add(fri)
+        dayBooleans.add(sat)
+        dayBooleans.add(sun)
+        return dayBooleans
+    }
+
     fun onFilterClicked() {
         disposalOptionFilter.value = DisposalOptionFilter(minTime, maxTime, mon, tue, wed, thu, fri, sat, sun)
     }
