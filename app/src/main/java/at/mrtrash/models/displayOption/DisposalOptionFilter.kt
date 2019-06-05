@@ -48,18 +48,21 @@ class DisposalOptionFilter(
     }
 
     private fun isInRange(openingHour: OpeningHour): Boolean {
-        return isBetween(minTime, openingHour.startTime, openingHour.endTime) || isBetween(
-            maxTime,
-            openingHour.startTime,
-            openingHour.endTime
-        )
-    }
+        val startTimeFilterCalendar = getCalendarObject(minTime)
+        val endTimeFilterCalendar = getCalendarObject(maxTime)
+        val startTimeOpeningHourCalendar = getCalendarObject(openingHour.startTime)
+        val endTimeOpeningHourCalendar = getCalendarObject(openingHour.endTime)
 
-    private fun isBetween(timeToCheck: String, startTime: String, endTime: String): Boolean {
-        val timeToCheckCalendar = getCalendarObject(timeToCheck)
-        val startTimeCalendar = getCalendarObject(startTime)
-        val endTimeCalendar = getCalendarObject(endTime)
-        return timeToCheckCalendar.after(startTimeCalendar) && timeToCheckCalendar.before(endTimeCalendar)
+        var maxStart = startTimeFilterCalendar
+        if (startTimeOpeningHourCalendar.after(startTimeFilterCalendar)) {
+            maxStart = startTimeOpeningHourCalendar
+        }
+        var minEnd = endTimeFilterCalendar
+        if (endTimeOpeningHourCalendar.after(endTimeFilterCalendar)) {
+            minEnd = endTimeOpeningHourCalendar
+        }
+
+        return maxStart.before(minEnd)
     }
 
     private fun getCalendarObject(timeString: String): Calendar {
