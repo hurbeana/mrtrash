@@ -38,6 +38,7 @@ class DisposalOptionsFilterFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_disposal_options_filter, container, false)
         binding.viewModel = viewModel
         binding.clickListenerFilter = createOnClickListenerFilter()
+        binding.clickListenerFilterNow = createOnClickListenerFilterNow()
         binding.clickListenerFrom = createOnClickListenerFrom()
         binding.clickListenerTo = createOnClickListenerTo()
 
@@ -76,6 +77,13 @@ class DisposalOptionsFilterFragment : Fragment() {
     private fun createOnClickListenerFilter(): View.OnClickListener {
         return View.OnClickListener {
             viewModel.onFilterClicked()
+            fragmentManager!!.popBackStack()
+        }
+    }
+
+    private fun createOnClickListenerFilterNow(): View.OnClickListener {
+        return View.OnClickListener {
+            viewModel.onFilterNowClicked()
             fragmentManager!!.popBackStack()
         }
     }

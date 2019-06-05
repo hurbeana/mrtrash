@@ -11,6 +11,7 @@ import at.mrtrash.utils.LocationUtils
 import at.mrtrash.utils.network.DataService
 import at.mrtrash.utils.network.ProblemMaterialCollectionPointResponse
 import at.mrtrash.utils.network.WasteplaceResponse
+import at.mrtrash.utils.parseOpeningHours
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -59,6 +60,7 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
                                     feature.properties?.district!!,
                                     feature.properties?.address!!,
                                     feature.properties?.openingHours!!,
+                                    parseOpeningHours(feature.properties?.openingHours!!),
                                     location,
                                     getDistanceInKilometers(location),
                                     feature.properties?.objecttype!!
@@ -98,6 +100,7 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
                                     feature.properties?.district!!,
                                     feature.properties?.address!!,
                                     feature.properties?.openingHours!!,
+                                    parseOpeningHours(feature.properties?.openingHours!!),
                                     location,
                                     getDistanceInKilometers(location),
                                     feature.properties?.note!!,

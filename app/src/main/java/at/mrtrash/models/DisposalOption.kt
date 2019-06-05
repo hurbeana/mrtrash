@@ -3,6 +3,7 @@ package at.mrtrash.models
 import android.location.Location
 import at.mrtrash.adapter.format
 import at.mrtrash.models.displayOption.DisposalOptionFilter
+import at.mrtrash.models.displayOption.OpeningHour
 import java.io.Serializable
 
 interface DisposalOption : Serializable {
@@ -10,6 +11,7 @@ interface DisposalOption : Serializable {
     val district: Int
     val address: String
     val openingHours: String
+    val openingHoursConcrete: List<OpeningHour>
     val location: Location
     var distance: Float?
 
@@ -34,8 +36,7 @@ interface DisposalOption : Serializable {
     }
 
     fun isInFilter(disposalOptionFilter: DisposalOptionFilter): Boolean {
-        //TODO: real impl
-        return disposalOptionFilter.mon || disposalOptionFilter.tue || disposalOptionFilter.wed || disposalOptionFilter.thu || disposalOptionFilter.fri || disposalOptionFilter.sat
+        return disposalOptionFilter.isInFilter(openingHoursConcrete)
     }
 
 }

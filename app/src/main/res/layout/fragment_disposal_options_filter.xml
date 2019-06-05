@@ -9,6 +9,9 @@
                 name="clickListenerFilter"
                 type="android.view.View.OnClickListener"/>
         <variable
+                name="clickListenerFilterNow"
+                type="android.view.View.OnClickListener"/>
+        <variable
                 name="clickListenerFrom"
                 type="android.view.View.OnClickListener"/>
         <variable
@@ -79,13 +82,22 @@
                 android:scrollbars="vertical"/>
 
         <com.google.android.material.button.MaterialButton
-                android:text="@string/filter"
+                android:text="@string/filter_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:id="@+id/filterButton"
                 android:onClick="@{clickListenerFilter}"
                 style="@style/Widget.MaterialComponents.Button"/>
+
+        <com.google.android.material.button.MaterialButton
+                android:text="@string/filter_button_now"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:id="@+id/filterButtonNow"
+                android:onClick="@{clickListenerFilterNow}"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
 
     </LinearLayout>
 
