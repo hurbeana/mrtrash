@@ -9,7 +9,6 @@ import android.widget.ProgressBar
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import at.mrtrash.R
-import at.mrtrash.fragments.DisposalOptionsFragment
 import at.mrtrash.models.DisposalOption
 import at.mrtrash.models.WasteType
 import at.mrtrash.utils.LocationUtils
@@ -103,6 +102,9 @@ class DisposalOptionViewModel(
                     Snackbar.make(view, R.string.loading_error_wasteplaces, Snackbar.LENGTH_LONG)
                 }
             })
+        } else {
+            wasteplacesLoaded = true
+            afterDownloaded()
         }
 
         if (wasteType.wastePlaces.contains("Problemstoffsammelstelle")) {
@@ -145,6 +147,9 @@ class DisposalOptionViewModel(
                     Snackbar.make(view, R.string.loading_error_problem_material_collection_point, Snackbar.LENGTH_LONG)
                 }
             })
+        } else {
+            problemMaterialCollectionPointsLoaded = true
+            afterDownloaded()
         }
     }
 
