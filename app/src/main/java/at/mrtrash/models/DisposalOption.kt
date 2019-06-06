@@ -58,6 +58,12 @@ interface DisposalOption : Serializable {
         }
     }
 
+    /**
+     * Returns if this DisposalOption is in the passed DisposalOptionFilter
+     *
+     * @param disposalOptionFilter the filter
+     * @return true if this is in filter, false otherwise
+     */
     fun isInFilter(disposalOptionFilter: DisposalOptionFilter): Boolean {
         return disposalOptionFilter.isInFilter(openingHoursConcrete)
     }

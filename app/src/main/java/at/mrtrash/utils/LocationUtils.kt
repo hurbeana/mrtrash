@@ -13,6 +13,9 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 
+/**
+ * Utility class to get actual location and notify observers if location has changed
+ */
 class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel) :
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener,
@@ -74,6 +77,9 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this)
     }
 
+    /**
+     * Initializes LocationUtils
+     */
     fun initLocation() {
         googleApiClient = GoogleApiClient.Builder(disposalOptionViewModel.getApplication() as Context).apply {
             addConnectionCallbacks(this@LocationUtils)

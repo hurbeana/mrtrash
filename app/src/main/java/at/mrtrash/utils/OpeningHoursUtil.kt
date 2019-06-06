@@ -2,6 +2,12 @@ package at.mrtrash.utils
 
 import at.mrtrash.models.displayOption.OpeningHour
 
+/**
+ * Parses a string into a list of OpeningHour objects
+ *
+ * @param openingHoursString string of opening hours
+ * @return list of parsed OpeningHour objects
+ */
 fun parseOpeningHours(openingHoursString: String): List<OpeningHour> {
     val openingHours = ArrayList<OpeningHour>()
 

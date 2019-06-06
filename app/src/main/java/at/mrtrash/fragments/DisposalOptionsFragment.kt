@@ -28,8 +28,8 @@ import com.touchboarder.weekdaysbuttons.WeekdaysDataSource
 import java.util.*
 
 /**
- * A simple [Fragment] subclass.
- *
+ * This Fragment shows a list of cards of all the disposal options existing for the passed waste type. There is also the
+ * functionality to filter the disposal options by opening hours.
  */
 class DisposalOptionsFragment : Fragment() {
 
@@ -108,6 +108,11 @@ class DisposalOptionsFragment : Fragment() {
         })
     }
 
+    /**
+     * Creates the filter bottom sheet
+     *
+     * @param binding binding for the filter bottom sheet
+     */
     private fun onCreateFilterView(binding: FragmentDisposalOptionsFilterBinding) {
         viewModelFilter = ViewModelProviders.of(activity!!).get(DisposalOptionFilterViewModel::class.java)
         binding.viewModel = viewModelFilter

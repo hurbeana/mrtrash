@@ -5,6 +5,9 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
+/**
+ * Represents a filter with weekdays and start and end time
+ */
 class DisposalOptionFilter(
     private val minTime: String = "00:00",
     private val maxTime: String = "23:59",
@@ -16,6 +19,12 @@ class DisposalOptionFilter(
     private val sat: Boolean = true,
     private val sun: Boolean = true
 ) {
+    /**
+     * Checks if one of the passed opening hours is in the filter.
+     *
+     * @param openingHours list of opening hours to check
+     * @return true if an opening hour is in filter, false otherwise
+     */
     fun isInFilter(openingHours: List<OpeningHour>): Boolean {
         val openingHoursPerDay: Map<Int, List<OpeningHour>> = createDayMap(openingHours)
 

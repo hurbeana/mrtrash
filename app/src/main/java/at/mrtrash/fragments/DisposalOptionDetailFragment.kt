@@ -22,8 +22,7 @@ import kotlinx.android.synthetic.main.fragment_disposal_option_detail.view.*
 
 
 /**
- * A simple [Fragment] subclass.
- *
+ * This Fragment shows the detail view inclusive a map of the disposal option passed through the args param
  */
 class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
 

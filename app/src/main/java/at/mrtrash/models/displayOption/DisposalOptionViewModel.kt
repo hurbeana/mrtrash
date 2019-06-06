@@ -20,6 +20,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * ViewModel for DisposalOptionsFragment
+ */
 class DisposalOptionViewModel(
     context: Context,
     private val wasteType: WasteType,
@@ -139,7 +142,7 @@ class DisposalOptionViewModel(
         }
     }
 
-    fun getDistanceInKilometers(location: Location): Float? {
+    private fun getDistanceInKilometers(location: Location): Float? {
         return if (::lastLocation.isInitialized) {
             lastLocation.distanceTo(location) / 1000
         } else {
@@ -161,6 +164,11 @@ class DisposalOptionViewModel(
         }
     }
 
+    /**
+     * Filters the list of all disposal options with the passed DisposalOptionFilter object
+     *
+     * @param disposalOptionFilter filter to filter with
+     */
     fun filter(disposalOptionFilter: DisposalOptionFilter) {
         val filteredList: ArrayList<DisposalOption> = ArrayList()
         allDisposalOptions.forEach {
