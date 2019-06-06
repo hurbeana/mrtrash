@@ -19,8 +19,10 @@
     <string name="distance_value">%.2f km entfernt</string>
 
     <string name="from">Von:</string>
-    <string name="to">To:</string>
+    <string name="to">Bis:</string>
     <string name="filter">Filter</string>
+    <string name="filter_button">Filtern</string>
+    <string name="filter_button_now">Jetzt geöffnet</string>
 
     <string name="camera">Kamera</string>
 

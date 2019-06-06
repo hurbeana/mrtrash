@@ -3,6 +3,8 @@ package at.mrtrash.models.displayOption
 import android.app.Application
 import android.content.Context
 import android.location.Location
+import android.view.View
+import android.widget.ProgressBar
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import at.mrtrash.models.DisposalOption
@@ -11,13 +13,18 @@ import at.mrtrash.utils.LocationUtils
 import at.mrtrash.utils.network.DataService
 import at.mrtrash.utils.network.ProblemMaterialCollectionPointResponse
 import at.mrtrash.utils.network.WasteplaceResponse
+import at.mrtrash.utils.parseOpeningHours
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class DisposalOptionViewModel(context: Context, private val wasteType: WasteType) :
+class DisposalOptionViewModel(
+    context: Context,
+    private val wasteType: WasteType,
+    private val progressBar: ProgressBar
+) :
     AndroidViewModel(context as Application), LocationUtils.Callback {
 
     val disposalOptions: MutableLiveData<List<DisposalOption>> by lazy {
@@ -41,6 +48,17 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
             .build()
         val service = retrofit.create(DataService::class.java)
 
+        var wasteplacesLoaded = false
+        var problemMaterialCollectionPointsLoaded = false
+
+        fun afterDownloaded() {
+            if (wasteplacesLoaded && problemMaterialCollectionPointsLoaded) {
+                allDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
+                disposalOptions.postValue(allDisposalOptions)
+                progressBar.visibility = View.GONE
+            }
+        }
+
         if (wasteType.wastePlaces.contains("Mistplatz")) {
             val wastplaceCall = service.getWasteplaces()
             wastplaceCall.enqueue(object : Callback<WasteplaceResponse> {
@@ -59,6 +77,7 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
                                     feature.properties?.district!!,
                                     feature.properties?.address!!,
                                     feature.properties?.openingHours!!,
+                                    parseOpeningHours(feature.properties?.openingHours!!),
                                     location,
                                     getDistanceInKilometers(location),
                                     feature.properties?.objecttype!!
@@ -66,8 +85,8 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
                             )
                         }
 
-                        allDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
-                        disposalOptions.postValue(allDisposalOptions)
+                        wasteplacesLoaded = true
+                        afterDownloaded()
                     }
                 }
 
@@ -98,6 +117,7 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
                                     feature.properties?.district!!,
                                     feature.properties?.address!!,
                                     feature.properties?.openingHours!!,
+                                    parseOpeningHours(feature.properties?.openingHours!!),
                                     location,
                                     getDistanceInKilometers(location),
                                     feature.properties?.note!!,
@@ -107,8 +127,8 @@ class DisposalOptionViewModel(context: Context, private val wasteType: WasteType
                             )
                         }
 
-                        allDisposalOptions.sortWith(nullsLast(compareBy { it.distance }))
-                        disposalOptions.postValue(allDisposalOptions)
+                        problemMaterialCollectionPointsLoaded = true
+                        afterDownloaded()
                     }
                 }
 
