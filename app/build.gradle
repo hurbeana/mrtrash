@@ -22,7 +22,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
 
         ndk {
             abiFilters((project.findProperty('abiList') ?: 'armeabi-v7a, arm64-v8a, x86').split(/,\s*/))

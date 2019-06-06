@@ -17,7 +17,7 @@ import at.mrtrash.models.WasteType
 /**
  * An adapter for RecyclerViews that show WasteTypes
  */
-class WasteTypeAdapter :
+class WasteTypeAdapter(val onclick: () -> Unit) :
     ListAdapter<WasteType, WasteTypeAdapter.WasteTypeViewHolder>(WasteTypeDiffCallback()), SectionIndexer {
      private var alph : Array<String> = arrayOf("A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Ä", "Ö", "Ü")
 
@@ -128,6 +128,7 @@ class WasteTypeAdapter :
      */
     private fun createOnClickListener(wasteType: WasteType): View.OnClickListener {
         return View.OnClickListener {
+            onclick()
             val direction =
                 WasteTypeFragmentDirections.actionWasteTypeFragmentToDisposalOptionsFragment(wasteType, wasteType.type)
             it.findNavController().navigate(direction)

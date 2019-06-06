@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import at.mrtrash.R
 import at.mrtrash.adapter.WasteTypeAdapter
+import at.mrtrash.adapter.hideKeyboard
 import at.mrtrash.databinding.FragmentWasteTypeBinding
 import at.mrtrash.models.WasteType
 import at.mrtrash.models.wasteType.WasteTypeListViewModel
@@ -25,7 +26,7 @@ import at.mrtrash.vuforia.ObjectTargets
  * Contains navigation to the VuforiaActivity and tha DisposalOptionsFragment.
  * No fragment can navigate to this, except by going back.
  */
-class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
+class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener, SearchView.OnCloseListener, SearchView.OnSuggestionListener {
 
     private lateinit var viewModel: WasteTypeListViewModel
     private lateinit var recyclerAdapter : WasteTypeAdapter
@@ -56,7 +57,10 @@ class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
         viewModel = ViewModelProviders.of(this, InjectorUtils.provideWasteTypeListViewModelFactory(context))
             .get(WasteTypeListViewModel::class.java)
 
-        recyclerAdapter = WasteTypeAdapter()
+        recyclerAdapter = WasteTypeAdapter {
+            viewModel.filter("")
+            binding.root.hideKeyboard()
+        }
 
         binding.fastScroller.apply {
             setRecyclerView(binding.wasteTypeFragmentView)
@@ -183,6 +187,42 @@ class WasteTypeFragment : Fragment(), SearchView.OnQueryTextListener {
      */
     override fun onQueryTextChange(newText: String?): Boolean {
         viewModel.filter(newText)
+        return true
+    }
+
+    /**
+     * The user is attempting to close the SearchView.
+     *
+     * @return true if the listener wants to override the default behavior of clearing the
+     * text field and dismissing it, false otherwise.
+     */
+    override fun onClose(): Boolean {
+        viewModel.filter("")
+        return true
+    }
+
+    /**
+     * Called when a suggestion was selected by navigating to it.
+     * @param position the absolute position in the list of suggestions.
+     *
+     * @return true if the listener handles the event and wants to override the default
+     * behavior of possibly rewriting the query based on the selected item, false otherwise.
+     */
+    override fun onSuggestionSelect(position: Int): Boolean {
+        viewModel.filter("")
+        return true
+    }
+
+    /**
+     * Called when a suggestion was clicked.
+     * @param position the absolute position of the clicked item in the list of suggestions.
+     *
+     * @return true if the listener handles the event and wants to override the default
+     * behavior of launching any intent or submitting a search query specified on that item.
+     * Return false otherwise.
+     */
+    override fun onSuggestionClick(position: Int): Boolean {
+        viewModel.filter("")
         return true
     }
 }
