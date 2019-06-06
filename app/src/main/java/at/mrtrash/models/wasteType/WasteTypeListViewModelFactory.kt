@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
+/**
+ * ViewModelFactory that produces WasteTypeListViewModels given the context
+ */
 class WasteTypeListViewModelFactory(private val context: Context) :
     ViewModelProvider.Factory {
 

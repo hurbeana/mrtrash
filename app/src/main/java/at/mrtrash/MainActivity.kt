@@ -13,13 +13,22 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import at.mrtrash.models.displayOption.DisposalOptionFilterViewModel
 
 
+/**
+ * main activity that starts after app has finished with startup
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavController
     private lateinit var viewModelFilter: DisposalOptionFilterViewModel
 
+    /**
+     * Called when activity is started
+     *
+     * @param savedInstanceState The SavedInstanceState for restoring Instance States
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
+        // setup stuff
         setTheme(R.style.AppTheme_NoActionBar)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        // Check permission and requrest them
         if (ActivityCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -58,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Init ViewModel that need data loading
+     */
     private fun initViewModels() {
         //TODO: maybe init this here so that data is only loaded once.. Attention with location permissions!
         //ViewModelProviders.of(this, DisposalOptionViewModelFactory(application)).get(DisposalOptionViewModel::class.java)
@@ -65,6 +78,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Setup up navigation
+     */
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }

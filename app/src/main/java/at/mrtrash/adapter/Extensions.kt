@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 
+// inflating for binding in a shorter way
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
 }
-
+// Formatting float to string
 fun Float.format(digits: Int): String = java.lang.String.format("%.${digits}f", this)
 
 // Viewholder Extension for OnClick
