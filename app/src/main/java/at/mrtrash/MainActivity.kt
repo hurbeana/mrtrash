@@ -72,8 +72,6 @@ class MainActivity : AppCompatActivity() {
      * Init ViewModel that need data loading
      */
     private fun initViewModels() {
-        //TODO: maybe init this here so that data is only loaded once.. Attention with location permissions!
-        //ViewModelProviders.of(this, DisposalOptionViewModelFactory(application)).get(DisposalOptionViewModel::class.java)
         viewModelFilter = ViewModelProviders.of(this).get(DisposalOptionFilterViewModel::class.java)
 
     }

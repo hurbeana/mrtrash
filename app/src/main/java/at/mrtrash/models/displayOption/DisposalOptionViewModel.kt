@@ -1,5 +1,6 @@
 package at.mrtrash.models.displayOption
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.location.Location
@@ -7,6 +8,8 @@ import android.view.View
 import android.widget.ProgressBar
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import at.mrtrash.R
+import at.mrtrash.fragments.DisposalOptionsFragment
 import at.mrtrash.models.DisposalOption
 import at.mrtrash.models.WasteType
 import at.mrtrash.utils.LocationUtils
@@ -14,6 +17,7 @@ import at.mrtrash.utils.network.DataService
 import at.mrtrash.utils.network.ProblemMaterialCollectionPointResponse
 import at.mrtrash.utils.network.WasteplaceResponse
 import at.mrtrash.utils.parseOpeningHours
+import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,9 +28,11 @@ import retrofit2.converter.gson.GsonConverterFactory
  * ViewModel for DisposalOptionsFragment
  */
 class DisposalOptionViewModel(
-    context: Context,
+    val context: Context,
     private val wasteType: WasteType,
-    private val progressBar: ProgressBar
+    private val progressBar: ProgressBar,
+    val view: View,
+    val activity: Activity
 ) :
     AndroidViewModel(context as Application), LocationUtils.Callback {
 
@@ -94,7 +100,7 @@ class DisposalOptionViewModel(
                 }
 
                 override fun onFailure(call: Call<WasteplaceResponse>, t: Throwable) {
-                    //TODO: handle failure
+                    Snackbar.make(view, R.string.loading_error_wasteplaces, Snackbar.LENGTH_LONG)
                 }
             })
         }
@@ -136,7 +142,7 @@ class DisposalOptionViewModel(
                 }
 
                 override fun onFailure(call: Call<ProblemMaterialCollectionPointResponse>, t: Throwable) {
-                    //TODO: handle failure
+                    Snackbar.make(view, R.string.loading_error_problem_material_collection_point, Snackbar.LENGTH_LONG)
                 }
             })
         }

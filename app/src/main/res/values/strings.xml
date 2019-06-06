@@ -28,4 +28,12 @@
 
     <string name="time_chooser">%1$02d:%2$02d</string>
     <string name="search_hint">Suche Mist</string>
+
+    <string name="loading_error_wasteplaces">Mistplätze konnten nicht geladen werden.</string>
+    <string name="loading_error_problem_material_collection_point">Problemstoffsammelstellen konnten nicht geladen werden.</string>
+
+    <string name="location_connection_error">Standort konnte nicht abgerufen werden.</string>
+    <string name="location_title">Standort</string>
+    <string name="location_message">Geben Sie den Standort frei um die Distanzen zu den Entsorgungsstellen zu erhalten.</string>
+    <string name="location_settings">Standort-Einstellungen</string>
 </resources>

@@ -73,7 +73,7 @@ class DisposalOptionsFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(
             this,
-            DisposalOptionViewModelFactory(activity!!.application, wasteType, binding.disposalOptionsProgressBar)
+            DisposalOptionViewModelFactory(activity!!.application, wasteType, binding.disposalOptionsProgressBar, binding.root, activity!!)
         ).get(DisposalOptionViewModel::class.java)
 
         val adapter = DisposalOptionAdapter()
