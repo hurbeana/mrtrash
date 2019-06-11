@@ -144,7 +144,7 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
     }
 
     private fun showAlert() {
-        val dialog = AlertDialog.Builder(disposalOptionViewModel.context)
+        /*val dialog = AlertDialog.Builder(disposalOptionViewModel.context)
         dialog.apply {
             setTitle(R.string.location_title)
             setMessage(R.string.location_message)
@@ -154,7 +154,7 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
                 val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                 disposalOptionViewModel.context.startActivity(intent)
             }
-        }.show()
+        }.show()*/
     }
 
     interface Callback {
