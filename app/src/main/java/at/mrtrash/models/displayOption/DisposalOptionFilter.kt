@@ -1,6 +1,6 @@
 package at.mrtrash.models.displayOption
 
-import java.text.SimpleDateFormat
+import java.time.LocalTime
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -57,28 +57,23 @@ class DisposalOptionFilter(
     }
 
     private fun isInRange(openingHour: OpeningHour): Boolean {
-        val startTimeFilterCalendar = getCalendarObject(minTime)
-        val endTimeFilterCalendar = getCalendarObject(maxTime)
-        val startTimeOpeningHourCalendar = getCalendarObject(openingHour.startTime)
-        val endTimeOpeningHourCalendar = getCalendarObject(openingHour.endTime)
+        //java.time works with JSR-310 backport for Android
 
-        var maxStart = startTimeFilterCalendar
-        if (startTimeOpeningHourCalendar.after(startTimeFilterCalendar)) {
-            maxStart = startTimeOpeningHourCalendar
+        val startTimeFilter = LocalTime.parse(minTime)
+        val endTimeFilter = LocalTime.parse(maxTime)
+        val startTimeOpeningHour = LocalTime.parse(openingHour.startTime)
+        val endTimeOpeningHour = LocalTime.parse(openingHour.endTime)
+
+        var maxStart = startTimeFilter
+        if (startTimeOpeningHour.isAfter(startTimeFilter)) {
+            maxStart = startTimeOpeningHour
         }
-        var minEnd = endTimeFilterCalendar
-        if (endTimeOpeningHourCalendar.after(endTimeFilterCalendar)) {
-            minEnd = endTimeOpeningHourCalendar
+        var minEnd = endTimeFilter
+        if (endTimeOpeningHour.isBefore(endTimeFilter)) {
+            minEnd = endTimeOpeningHour
         }
 
-        return maxStart.before(minEnd)
-    }
-
-    private fun getCalendarObject(timeString: String): Calendar {
-        val time = SimpleDateFormat("HH:mm").parse(timeString)
-        val calendar = Calendar.getInstance()
-        calendar.time = time
-        return calendar
+        return maxStart.isBefore(minEnd)
     }
 
     private fun createDayMap(openingHours: List<OpeningHour>): Map<Int, List<OpeningHour>> {
