@@ -11,7 +11,9 @@ import java.io.InputStream
 import java.io.StringReader
 import java.util.ArrayList
 
-
+/**
+ * ViewModel for the WasteTypeFragment which manages the MutableLiveData of the WasteTypes
+ */
 class WasteTypeListViewModel(private val context: Context) : ViewModel() {
 
     private val _TAG = "WasteTypeListViewModel"
@@ -24,6 +26,12 @@ class WasteTypeListViewModel(private val context: Context) : ViewModel() {
         MutableLiveData<List<WasteType>>(original)
     }
 
+    /**
+     * Filters the liveWasteTypes list given a String
+     * If no string or null is given, all elements will be shown
+     *
+     * @param query the string to search for (case insensitive)
+     */
     fun filter(query: String?) {
         if (query == null) {
             liveWasteTypes.postValue(original)
@@ -41,6 +49,9 @@ class WasteTypeListViewModel(private val context: Context) : ViewModel() {
         liveWasteTypes.postValue(filteredModelList)
     }
 
+    /**
+     * Load wasteTypes from json
+     */
     private fun loadWasteTypes(): List<WasteType> {
 
         val wasteTypes = mutableListOf<WasteType>()

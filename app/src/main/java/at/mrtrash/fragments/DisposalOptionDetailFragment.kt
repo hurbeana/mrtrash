@@ -22,8 +22,7 @@ import kotlinx.android.synthetic.main.fragment_disposal_option_detail.view.*
 
 
 /**
- * A simple [Fragment] subclass.
- *
+ * This Fragment shows the detail view inclusive a map of the disposal option passed through the args param
  */
 class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
 
@@ -31,14 +30,35 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
     private lateinit var viewModel: DisposalOptionDetailViewModel
     private lateinit var mMap: GoogleMap
 
+    /**
+     * Callback that is being called as soon as the map has done initializing
+     *
+     * @param googleMap The instance of the map
+     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        // get location
         val loc = LatLng(viewModel.disposalOption.location.latitude, viewModel.disposalOption.location.longitude)
 
+        // set location
         mMap.addMarker(MarkerOptions().position(loc).title(viewModel.disposalOption.getTitleString()))
+        // move camera to location
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 15.0f))
     }
 
+    /**
+     * Called to have the fragment instantiate its user interface view.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return Return the View for the fragment's UI, or null.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,6 +76,9 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
         return view
     }
 
+    /**
+     * Gets and saves the map fragment as soon as were done loading
+     */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -65,6 +88,11 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
 
     }
 
+    /**
+     * Bind information to the view
+     *
+     * @param view The view that need the info
+     */
     private fun bindDisposalOption(view: View) {
         view.disposalOptionDetailTextViewAddressValue.text = getAddressString(viewModel.disposalOption)
         view.disposalOptionDetailTextViewOpeningHoursValue.text = viewModel.disposalOption.openingHours
@@ -72,10 +100,20 @@ class DisposalOptionDetailFragment : Fragment(), OnMapReadyCallback {
         view.disposalOptionDetailImageView.setImageResource(viewModel.disposalOption.getImageResource())
     }
 
+    /**
+     * Return formatted address string for the given DisposalOption
+     *
+     * @param disposalOption The DisposalOption with the info
+     */
     private fun getAddressString(disposalOption: DisposalOption): String {
         return getString(R.string.address_value, disposalOption.address, disposalOption.district)
     }
 
+    /**
+     * Return formatted distance string for the given DisposalOption
+     *
+     * @param disposalOption The DisposalOption with the info
+     */
     private fun getDistanceString(disposalOption: DisposalOption): String {
         return if (disposalOption.distance != null) {
             getString(R.string.distance_value, disposalOption.distance)

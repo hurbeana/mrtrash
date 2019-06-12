@@ -1,10 +1,19 @@
 package at.mrtrash.utils
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import at.mrtrash.R
 import at.mrtrash.models.displayOption.DisposalOptionViewModel
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -12,7 +21,11 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.material.snackbar.Snackbar
 
+/**
+ * Utility class to get actual location and notify observers if location has changed
+ */
 class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel) :
     GoogleApiClient.ConnectionCallbacks,
     GoogleApiClient.OnConnectionFailedListener,
@@ -41,7 +54,7 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
-        //TODO: pActivity.location.text = connectionResult.errorMessage.toString()
+        Snackbar.make(disposalOptionViewModel.view, R.string.location_connection_error, Snackbar.LENGTH_LONG)
     }
 
     @SuppressLint("MissingPermission")
@@ -74,29 +87,48 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this)
     }
 
+    /**
+     * Initializes LocationUtils
+     */
     fun initLocation() {
-        googleApiClient = GoogleApiClient.Builder(disposalOptionViewModel.getApplication() as Context).apply {
-            addConnectionCallbacks(this@LocationUtils)
-            addConnectionCallbacks(this@LocationUtils)
-            addApi(LocationServices.API)
-        }.build()
+        if (ContextCompat.checkSelfPermission(
+                disposalOptionViewModel.context,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            != PackageManager.PERMISSION_GRANTED &&
+            ContextCompat.checkSelfPermission(
+                disposalOptionViewModel.context,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                disposalOptionViewModel.activity,
+                arrayOf(
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ),
+                8
+            )
+        } else {
+            googleApiClient = GoogleApiClient.Builder(disposalOptionViewModel.getApplication() as Context).apply {
+                addConnectionCallbacks(this@LocationUtils)
+                addConnectionCallbacks(this@LocationUtils)
+                addApi(LocationServices.API)
+            }.build()
 
-        mLocationManager =
-            (disposalOptionViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            mLocationManager =
+                (disposalOptionViewModel.getApplication() as Context).getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        if (checkLocation()) {
-            googleApiClient.connect()
+            if (checkLocation()) {
+                googleApiClient.connect()
+            }
         }
     }
 
     private fun checkLocation(): Boolean {
         val isLocationEnabled = isLocationEnabled()
         if (!isLocationEnabled) {
-            //TODO
-//            showAlert(
-//                (disposalOptionViewModel.getApplication() as Context).getString(R.string.location_title),
-//                (disposalOptionViewModel.getApplication() as Context).getString(R.string.location_message)
-//            )
+            showAlert()
         }
         return isLocationEnabled
     }
@@ -111,18 +143,18 @@ class LocationUtils(private var disposalOptionViewModel: DisposalOptionViewModel
 
     }
 
-    private fun showAlert(pTitle: String, pMessage: String) {
-        //TODO
-//        val dialog = AlertDialog.Builder(pActivity)
-//        dialog.apply {
-//            setTitle(pTitle)
-//            setMessage(pMessage)
-//            setPositiveButton((disposalOptionViewModel.getApplication() as Context).getString(R.string.location_settings),
-//                { _, _ ->
-//                    val myIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-//                    pActivity.startActivity(myIntent)
-//                })
-//        }.show()
+    private fun showAlert() {
+        val dialog = AlertDialog.Builder(disposalOptionViewModel.context)
+        dialog.apply {
+            setTitle(R.string.location_title)
+            setMessage(R.string.location_message)
+            setPositiveButton(
+                (disposalOptionViewModel.getApplication() as Context).getString(R.string.location_settings)
+            ) { _, _ ->
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                disposalOptionViewModel.context.startActivity(intent)
+            }
+        }.show()
     }
 
     interface Callback {

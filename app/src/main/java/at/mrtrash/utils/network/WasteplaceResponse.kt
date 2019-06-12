@@ -2,6 +2,9 @@ package at.mrtrash.utils.network
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Represents the response from open data waste places
+ */
 class WasteplaceResponse {
     var type: String? = null
     var totalFeatures: Int? = null
